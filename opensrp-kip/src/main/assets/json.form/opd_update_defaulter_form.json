@@ -1,0 +1,277 @@
+{
+  "count": "1",
+  "encounter_type": "Tracing Outcome",
+  "entity_id": "",
+  "relational_id": "",
+  "validate_on_submit": true,
+  "show_errors_on_submit": true,
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Update Tracing Outcome",
+    "fields": [
+      {
+        "key": "phone_tracing",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "native_radio",
+        "label": "Select Phone Response",
+        "hint": "Select Phone Response",
+        "options": [
+          {
+            "key": "unreachable",
+            "text": "Unreachable",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "reached",
+            "text": "Reached",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Select Phone Response"
+        }
+      },
+      {
+        "key": "physical_tracing",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "",
+        "type": "native_radio",
+        "label": "Did you Conduct a Physical Visit for Unreachable Client?",
+        "hint": "Did you Conduct a Physical Visit for Unreachable Client?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "options": [
+          {
+            "key": "yes_conducted_a_physical_visit",
+            "text": "Yes Conducted a physical Visit",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "did_not_conduct_a_physical_visit",
+            "text": "Did not Conduct a Physical Visit",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Select Physical Response"
+        }
+      },
+      {
+        "key": "phone_tracing_outcome",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "select one",
+        "type": "native_radio",
+        "hint": "Select Tracing Outcome",
+        "options": [
+          {
+            "key": "vaccinated_home_facility",
+            "text": "Vaccinated in Home Facility",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "vaccinated_other_facility",
+            "text": "Vaccinated in Other Facility",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "not_vaccinated",
+            "text": "Not Vaccinated",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select one"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "physical_tracing_outcome",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "select one",
+        "type": "native_radio",
+        "hint": "Select Tracing Outcome",
+        "options": [
+          {
+            "key": "vaccinated_home_facility",
+            "text": "Vaccinated in Home Facility",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "vaccinated_other_facility",
+            "text": "Vaccinated in Other Facility",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "not_vaccinated",
+            "text": "Not Vaccinated",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "untraceable",
+            "text": "Untraceable",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select one"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "home_administration_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "date",
+        "type": "date_picker",
+        "max_date": "today",
+        "hint": "Please add the Date Vaccine was Given",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "other_facility_administration_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "date",
+        "type": "date_picker",
+        "max_date": "today",
+        "hint": "Please add the Date Vaccine was Given",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "other_facility_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "text",
+        "type": "edit_text",
+        "hint": "Please enter Vaccination Facility",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "date_to_confirm_vaccination",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "date",
+        "type": "date_picker",
+        "min_date": "today",
+        "max_date": "today+1y",
+        "hint": "Please Confirm when Client will Come for the Vaccine",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

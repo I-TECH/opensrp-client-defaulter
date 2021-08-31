@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.smartregister:opensrp-client-growth-monitoring:1.1.23-SNAPSHOT@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e117b485dce121fd3d6319c57e49c6c5/jetified-opensrp-client-growth-monitoring-1.1.23-SNAPSHOT/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e117b485dce121fd3d6319c57e49c6c5/jetified-opensrp-client-growth-monitoring-1.1.23-SNAPSHOT/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-growth-monitoring/1.1.23-SNAPSHOT/1cd7a2eb2b5af5822d3d5213e95cc8633e410344/opensrp-client-growth-monitoring-1.1.23-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-growth-monitoring/1.1.23-SNAPSHOT/1cd7a2eb2b5af5822d3d5213e95cc8633e410344/opensrp-client-growth-monitoring-1.1.23-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

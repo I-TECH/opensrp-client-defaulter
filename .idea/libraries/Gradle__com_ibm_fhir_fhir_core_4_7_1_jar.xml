@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.ibm.fhir:fhir-core:4.7.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ibm.fhir/fhir-core/4.7.1/f728921f4e3d3da6eefeb6a55eef40892600a073/fhir-core-4.7.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ibm.fhir/fhir-core/4.7.1/977f4fb140ccf091cbebe411a502335e51466c5c/fhir-core-4.7.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ibm.fhir/fhir-core/4.7.1/6e36342bca2021c763787038987bf61feff301f0/fhir-core-4.7.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

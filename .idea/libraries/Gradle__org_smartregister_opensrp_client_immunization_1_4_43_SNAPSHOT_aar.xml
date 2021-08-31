@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.smartregister:opensrp-client-immunization:1.4.43-SNAPSHOT@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5811b08fc33c7bb19f2969c675525275/jetified-opensrp-client-immunization-1.4.43-SNAPSHOT/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5811b08fc33c7bb19f2969c675525275/jetified-opensrp-client-immunization-1.4.43-SNAPSHOT/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-immunization/1.4.43-SNAPSHOT/95ef945bd515696d8091e320569e050eaa85a5c8/opensrp-client-immunization-1.4.43-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-immunization/1.4.43-SNAPSHOT/95ef945bd515696d8091e320569e050eaa85a5c8/opensrp-client-immunization-1.4.43-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
