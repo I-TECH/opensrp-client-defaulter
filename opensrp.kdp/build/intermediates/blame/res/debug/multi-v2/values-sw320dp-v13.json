@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw320dp-v13/values-sw320dp-v13.xml",
+            "map": [
+                {
+                    "source": "/home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/res/values-sw320dp-v13/values-sw320dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,114,172",
+                        "endColumns": "58,57,56",
+                        "endOffsets": "109,167,224"
+                    }
+                }
+            ]
+        }
+    ]
+}

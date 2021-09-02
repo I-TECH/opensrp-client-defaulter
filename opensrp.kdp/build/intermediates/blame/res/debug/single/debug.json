@@ -1,0 +1,734 @@
+[
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_child_boy_infant.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/child_boy_infant.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-hdpi_ic_home.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-hdpi/ic_home.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_cross_white.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_cross_white.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_nav_logout.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_nav_logout.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_opd_register_check_in_bg.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/opd_register_check_in_bg.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_malawi_opensrp_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/malawi_opensrp_logo.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/menu_menu_opd_profile_activity.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/menu/menu_opd_profile_activity.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxxhdpi_sidemenu_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxxhdpi/sidemenu_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_moh710_big.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/moh710_big.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_stockreg.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/stockreg.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_activity_login_background.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/activity_login_background.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_login_corner_edit_text.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/login_corner_edit_text.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_white_checkbox_bg.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/white_checkbox_bg.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/xml_network_security_config.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/xml/network_security_config.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_icon_search.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_icon_search.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_arrow_back_light_blue.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_arrow_back_light_blue.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_nav_logout.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_nav_logout.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_navigation_drawer.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/navigation_drawer.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_home.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxhdpi/ic_home.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/anim_slide_up.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/anim/slide_up.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_report_btn_bg.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/report_btn_bg.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_opd_register_list_row.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/opd_register_list_row.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/anim_slide_out_up.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/anim/slide_out_up.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_action_out_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_action_out_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_action_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_nav_device_share.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_nav_device_share.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/xml_captured_images_path.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/xml/captured_images_path.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_home.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xhdpi/ic_home.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_action_settings_grey.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_action_settings_grey.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_drawer_item_background.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/drawer_item_background.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_child_girl_infant.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/child_girl_infant.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_more_vert.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_more_vert.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_info.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_info.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_logo.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-ldpi_sidemenu_children.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-ldpi/sidemenu_children.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_nav_device_share.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_nav_device_share.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_search_edit_text_bg.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/search_edit_text_bg.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxxhdpi_sidemenu_children.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxxhdpi/sidemenu_children.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxhdpi_sidemenu_children.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxhdpi/sidemenu_children.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-ldpi_sidemenu_children_active.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-ldpi/sidemenu_children_active.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_out_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_action_out_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_out_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_action_out_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_logo_big.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/logo_big.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_nav_logout.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_nav_logout.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_fragment_me.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/fragment_me.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_arrow_back_light_blue.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_arrow_back_light_blue.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_settings_grey.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_action_settings_grey.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_logo.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_malawi_opensrp_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/malawi_opensrp_logo.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_settings_grey.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_action_settings_grey.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_icon_search.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_icon_search.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_site_xters_continue_button.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/site_xters_continue_button.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_settings_grey.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_action_settings_grey.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_action_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_action_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_info.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_info.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_icon_site_characteristics.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_icon_site_characteristics.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_kenya.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_kenya.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxxhdpi_sidemenu_children_active.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxxhdpi/sidemenu_children_active.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xhdpi_sidemenu_children_active.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xhdpi/sidemenu_children_active.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_zeir_big.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/zeir_big.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_error.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_error.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_report_btn_text.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/report_btn_text.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_info.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_info.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_arrow_back_light_blue.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_arrow_back_light_blue.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_location_spinner_view.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/location_spinner_view.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_info.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_info.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_cross_white.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_cross_white.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_action_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_nav_language.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_nav_language.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_top_base_register_bar.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/top_base_register_bar.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_icon_site_characteristics.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_icon_site_characteristics.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_nav_device_share.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_nav_device_share.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_action_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_base_register_search_bar.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/base_register_search_bar.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_cross_white.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_cross_white.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_smart_register_status_bar_customized.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/smart_register_status_bar_customized.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-ldpi_sidemenu_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-ldpi/sidemenu_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_moh710.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/moh710.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_nav_logout.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_nav_logout.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_arrow_back_light_blue.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_arrow_back_light_blue.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_out_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_action_out_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_navigation_item.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/navigation_item.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_action_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_action_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_login_logo_main.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/login_logo_main.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-hdpi_sidemenu_anc_active.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-hdpi/sidemenu_anc_active.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_action_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_action_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_login_checkbox_bg.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/login_checkbox_bg.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_activity_login.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_child_transgender_inflant.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/child_transgender_inflant.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_icon_site_characteristics.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_icon_site_characteristics.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_icon_search.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_icon_search.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_nav_language.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_nav_language.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxhdpi_sidemenu_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxhdpi/sidemenu_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_opd_profile_overview_row.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/opd_profile_overview_row.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-mdpi_ic_home.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-mdpi/ic_home.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_arrow_back_light_blue.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_arrow_back_light_blue.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_icon_site_characteristics.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_icon_site_characteristics.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xhdpi_sidemenu_children.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xhdpi/sidemenu_children.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_moh_kenya.jpg.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_moh_kenya.jpg"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_rounded_corner_edit_text_bg.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/rounded_corner_edit_text_bg.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_out_of_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_action_out_of_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-ldpi_ic_home.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-ldpi/ic_home.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_nav_device_share.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_nav_device_share.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-mdpi_sidemenu_children.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-mdpi/sidemenu_children.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_login_background.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/login_background.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_home.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxxhdpi/ic_home.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_sync_status.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_sync_status.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_keyboard_arrow_down.9.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_keyboard_arrow_down.9.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/anim_slide_down.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/anim/slide_down.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_action_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_action_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_opd_fragment_profile_visits.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/opd_fragment_profile_visits.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_icon_site_characteristics.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_icon_site_characteristics.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-mdpi_sidemenu_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-mdpi/sidemenu_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_language_spinner_item.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/language_spinner_item.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxhdpi_sidemenu_families_active.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxhdpi/sidemenu_families_active.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_opd_footer_due_button.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/opd_footer_due_button.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_login_button_bg.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/login_button_bg.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_moh710.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/moh710.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_nav_logout.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_nav_logout.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_record_weight_bg.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/record_weight_bg.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_info.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_info.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_drawer_horizontal_seperator.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/drawer_horizontal_seperator.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xhdpi_sidemenu_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xhdpi/sidemenu_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/anim_slide_in_up.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/anim/slide_in_up.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-hdpi_sidemenu_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-hdpi/sidemenu_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_action_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxhdpi_sidemenu_children_active.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxhdpi/sidemenu_children_active.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_rounded_corner_edit_text.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/rounded_corner_edit_text.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_logo.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_flag_kenya.jpeg.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/flag_kenya.jpeg"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/layout_opd_fragment_profile_overview.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/layout/opd_fragment_profile_overview.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_malawi_opensrp_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/malawi_opensrp_logo.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_out_of_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_action_out_of_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_site_characteristics.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/site_characteristics.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_cross_white.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_cross_white.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_action_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_out_of_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_action_out_of_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_nav_device_share.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_nav_device_share.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_settings_grey.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_action_settings_grey.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_action_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_icon_search.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_icon_search.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_out_of_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_action_out_of_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_moh710.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/moh710.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_action_add.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_action_add.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_action_out_of_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxxhdpi/ic_action_out_of_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_opensrp_label.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/opensrp_label.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_nav_language.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_nav_language.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_sync.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_action_sync.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_nav_language.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_nav_language.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxhdpi_sidemenu_families.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxhdpi/sidemenu_families.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_icon_search.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_icon_search.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/menu_menu_opd_register_client.xml.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/menu/menu_opd_register_client.xml"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_sms.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_sms.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_moh710.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/moh710.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-mdpi_ic_cross_white.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-mdpi/ic_cross_white.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_clear.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_action_clear.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xxhdpi/ic_logo.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-hdpi_sidemenu_children.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-hdpi/sidemenu_children.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_out_catchment.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/ic_action_out_catchment.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_malawi_opensrp_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/malawi_opensrp_logo.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable_moh.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable/moh.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_ic_nav_language.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/ic_nav_language.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/mipmap-mdpi_sidemenu_children_active.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/mipmap-mdpi/sidemenu_children_active.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-hdpi_moh710.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-hdpi/moh710.png"
+    },
+    {
+        "merged": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/res/merged/debug/drawable-xhdpi_malawi_opensrp_logo.png.flat",
+        "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/drawable-xhdpi/malawi_opensrp_logo.png"
+    }
+]

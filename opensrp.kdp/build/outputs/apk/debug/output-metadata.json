@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "org.smartregister.kdp",
+  "variantName": "debug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 19,
+      "versionName": "1.0.1",
+      "enabled": true,
+      "outputFile": "opensrp-kip-debug.apk"
+    }
+  ]
+}

@@ -1,0 +1,687 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.smartregister.kdp"
+4    android:versionCode="19"
+5    android:versionName="1.0.1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="27"
+8-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml
+10
+11    <uses-feature
+11-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:7:5-9:36
+12        android:name="android.hardware.camera"
+12-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:8:9-47
+13        android:required="false" />
+13-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:9:9-33
+14    <uses-feature
+14-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:10:5-12:36
+15        android:name="android.hardware.camera.autofocus"
+15-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:11:9-57
+16        android:required="true" />
+16-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:12:9-33
+17    <uses-feature
+17-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:13:5-15:36
+18        android:name="android.hardware.nfc"
+18-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:14:9-44
+19        android:required="false" />
+19-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:15:9-33
+20
+21    <uses-permission android:name="android.permission.CAMERA" />
+21-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:17:5-65
+21-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:17:22-62
+22    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+22-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:18:5-81
+22-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:18:22-78
+23    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+23-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:19:5-80
+23-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:19:22-77
+24    <uses-permission android:name="android.permission.INTERNET" />
+24-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:20:5-67
+24-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:20:22-64
+25    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+25-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:21:5-79
+25-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:21:22-76
+26    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+26-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:22:5-81
+26-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:22:22-78
+27    <uses-permission android:name="android.permission.WAKE_LOCK" />
+27-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:23:5-68
+27-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:23:22-65
+28    <uses-permission android:name="android.permission.VIBRATE" />
+28-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:15:5-66
+28-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:15:22-63
+29    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+29-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:20:5-79
+29-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:20:22-76
+30    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+30-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:21:5-80
+30-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:21:22-77
+31    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+31-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:22:5-74
+31-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:22:22-71
+32    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+32-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:23:5-74
+32-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:23:22-71
+33    <uses-permission
+33-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:24:5-26:38
+34        android:name="android.permission.GET_ACCOUNTS"
+34-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:25:9-55
+35        android:maxSdkVersion="22" />
+35-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:26:9-35
+36    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+36-->[org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/AndroidManifest.xml:17:5-76
+36-->[org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/AndroidManifest.xml:17:22-73
+37    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- Required for Nearby Connections -->
+37-->[org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/AndroidManifest.xml:18:5-75
+37-->[org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/AndroidManifest.xml:18:22-72
+38    <uses-permission android:name="android.permission.BLUETOOTH" />
+38-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:12:5-68
+38-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:12:22-65
+39    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+39-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:13:5-74
+39-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:13:22-71
+40    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+40-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:15:5-76
+40-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:15:22-73
+41    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+41-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:16:5-81
+41-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:16:22-78
+42
+43    <uses-feature
+43-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:28:5-30:36
+44        android:name="android.hardware.camera.front"
+44-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:29:9-53
+45        android:required="false" />
+45-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:30:9-33
+46    <uses-feature
+46-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:36:5-38:36
+47        android:name="android.hardware.camera.flash"
+47-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:37:9-53
+48        android:required="false" />
+48-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:38:9-33
+49    <uses-feature
+49-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:39:5-41:36
+50        android:name="android.hardware.screen.landscape"
+50-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:40:9-57
+51        android:required="false" />
+51-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:41:9-33
+52    <uses-feature
+52-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:42:5-44:36
+53        android:name="android.hardware.wifi"
+53-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:43:9-45
+54        android:required="false" />
+54-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:44:9-33
+55
+56    <application
+56-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:25:5-115:19
+57        android:name="org.smartregister.kdp.application.KipApplication"
+57-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:26:9-72
+58        android:allowBackup="true"
+58-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:27:9-35
+59        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+59-->[androidx.core:core:1.3.2] /home/stephen/.gradle/caches/transforms-2/files-2.1/b2572946885ee46dfd249dfdef67a929/core-1.3.2/AndroidManifest.xml:24:18-86
+60        android:clearTaskOnLaunch="true"
+60-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:33:9-41
+61        android:debuggable="true"
+62        android:extractNativeLibs="false"
+63        android:icon="@mipmap/ic_launcher"
+63-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:28:9-43
+64        android:label="@string/app_name"
+64-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:29:9-41
+65        android:largeHeap="true"
+65-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:35:9-33
+66        android:roundIcon="@mipmap/ic_launcher_round"
+66-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:30:9-54
+67        android:supportsRtl="true"
+67-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:31:9-35
+68        android:testOnly="true"
+69        android:theme="@style/ChildTheme"
+69-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:32:9-42
+70        android:usesCleartextTraffic="true" >
+70-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:33:9-44
+71        <activity
+71-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:35:9-45:20
+72            android:name="org.smartregister.kdp.activity.LoginActivity"
+72-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:36:13-72
+73            android:screenOrientation="fullSensor"
+73-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:37:13-51
+74            android:theme="@style/AppTheme.Login"
+74-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:38:13-50
+75            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
+75-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:39:13-70
+76            <intent-filter>
+76-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:40:13-44:29
+77                <action android:name="android.intent.action.MAIN" />
+77-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:41:17-69
+77-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:41:25-66
+78
+79                <category android:name="android.intent.category.LAUNCHER" />
+79-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:43:17-77
+79-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:43:27-74
+80            </intent-filter>
+81        </activity>
+82        <activity
+82-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:47:9-51:76
+83            android:name="com.vijay.jsonwizard.activities.JsonFormActivity"
+83-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:48:13-76
+84            android:screenOrientation="portrait"
+84-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:49:13-49
+85            android:theme="@style/AppTheme.NoActionBar"
+85-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:50:13-56
+86            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+86-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:51:13-73
+87        <activity
+87-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:52:9-56:76
+88            android:name="com.vijay.jsonwizard.activities.JsonWizardFormActivity"
+88-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:53:13-82
+89            android:screenOrientation="portrait"
+89-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:54:13-49
+90            android:theme="@style/AppTheme.NoActionBar"
+90-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:55:13-56
+91            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+91-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:56:13-73
+92
+93        <provider
+94            android:name="androidx.core.content.FileProvider"
+94-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:59:13-62
+95            android:authorities="org.smartregister.kdp.fileprovider"
+95-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:60:13-64
+96            android:exported="false"
+96-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:61:13-37
+97            android:grantUriPermissions="true" >
+97-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:62:13-47
+98            <meta-data
+98-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:63:13-65:64
+99                android:name="android.support.FILE_PROVIDER_PATHS"
+99-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:64:17-67
+100                android:resource="@xml/captured_images_path" />
+100-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:65:17-61
+101        </provider>
+102
+103        <!-- OPD ACTIVITIES -->
+104        <activity
+104-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:69:9-73:61
+105            android:name="org.smartregister.kdp.activity.KipOpdRegisterActivity"
+105-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:70:13-81
+106            android:configChanges="keyboardHidden|orientation|screenSize"
+106-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:71:13-74
+107            android:screenOrientation="portrait"
+107-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:72:13-49
+108            android:theme="@style/ChildTheme.NoActionBar" />
+108-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:73:13-58
+109        <activity
+109-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:74:9-78:61
+110            android:name="org.smartregister.kdp.activity.OpdFormActivity"
+110-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:75:13-74
+111            android:configChanges="keyboardHidden|orientation|screenSize"
+111-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:76:13-74
+112            android:screenOrientation="portrait"
+112-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:77:13-49
+113            android:theme="@style/ChildTheme.NoActionBar" />
+113-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:78:13-58
+114        <activity
+114-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:79:9-83:61
+115            android:name="org.smartregister.opd.activity.BaseOpdProfileActivity"
+115-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:80:13-81
+116            android:configChanges="keyboardHidden|orientation|screenSize"
+116-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:81:13-74
+117            android:screenOrientation="portrait"
+117-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:82:13-49
+118            android:theme="@style/ChildTheme.NoActionBar" />
+118-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:83:13-58
+119        <activity
+119-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:84:9-89:45
+120            android:name="org.smartregister.kdp.activity.KipOpdProfileActivity"
+120-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:85:13-80
+121            android:configChanges="keyboardHidden|orientation|screenSize"
+121-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:86:13-74
+122            android:screenOrientation="portrait"
+122-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:87:13-49
+123            android:theme="@style/AppTheme.NoActionBar" />
+123-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:88:13-56
+124        <!-- END OF OPD ACTIVITIES -->
+125        <activity
+125-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:91:9-96:76
+126            android:name="org.smartregister.kdp.activity.EditJsonFormActivity"
+126-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:92:13-58
+127            android:launchMode="singleTask"
+127-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:93:13-44
+128            android:screenOrientation="portrait"
+128-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:94:13-49
+129            android:theme="@style/AppTheme.NoActionBar"
+129-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:95:13-56
+130            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+130-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:96:13-73
+131
+132        <service android:name="org.smartregister.sync.intent.PullUniqueIdsIntentService" />
+132-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:98:9-92
+132-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:98:18-89
+133        <service android:name="org.smartregister.sync.intent.ValidateIntentService" />
+133-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:99:9-87
+133-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:99:18-84
+134        <service android:name="org.smartregister.sync.intent.ExtendedSyncIntentService" />
+134-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:100:9-91
+134-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:100:18-88
+135        <service android:name="org.smartregister.sync.intent.SettingsSyncIntentService" />
+135-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:101:9-91
+135-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:101:18-88
+136        <service android:name="org.smartregister.sync.intent.SyncIntentService" />
+136-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:102:9-83
+136-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:102:18-80
+137
+138        <uses-library
+138-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:104:9-106:40
+139            android:name="org.apache.http.legacy"
+139-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:105:13-50
+140            android:required="false" />
+140-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:106:13-37
+141
+142        <meta-data
+142-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:108:9-110:72
+143            android:name="io.fabric.ApiKey"
+143-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:109:13-44
+144            android:value="3f94f9c3caeff331b3a2bd8c2182b663ad6a955a" />
+144-->/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/AndroidManifest.xml:110:13-69
+145
+146        <!-- <meta-data -->
+147        <!-- android:name="com.google.android.gms.version" -->
+148        <!-- android:value="@integer/google_play_services_version" /> -->
+149        <service
+149-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:36:9-40:40
+150            android:name="org.smartregister.service.ImageUploadSyncService"
+150-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:37:13-76
+151            android:description="@string/component_desc_image_upload_service"
+151-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:38:13-78
+152            android:enabled="true"
+152-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:39:13-35
+153            android:exported="false" />
+153-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:40:13-37
+154        <service
+154-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:41:9-52:19
+155            android:name="org.smartregister.account.AccountService"
+155-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:42:13-68
+156            android:description="@string/component_desc_account_service"
+156-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:43:13-73
+157            android:exported="false" >
+157-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:44:13-37
+158            <intent-filter>
+158-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:45:13-47:29
+159                <action android:name="android.accounts.AccountAuthenticator" />
+159-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:46:17-80
+159-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:46:25-77
+160            </intent-filter>
+161
+162            <meta-data
+162-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:49:13-51:57
+163                android:name="android.accounts.AccountAuthenticator"
+163-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:50:17-69
+164                android:resource="@xml/authenticator" />
+164-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:51:17-54
+165        </service>
+166
+167        <activity
+167-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:54:9-58:54
+168            android:name="org.smartregister.view.activity.ReportsActivity"
+168-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:55:13-75
+169            android:exported="false"
+169-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:56:13-37
+170            android:screenOrientation="landscape"
+170-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:57:13-50
+171            android:theme="@style/AppThemeNoTitle" />
+171-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:58:13-51
+172        <activity
+172-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:59:9-63:54
+173            android:name="org.smartregister.view.activity.VideosActivity"
+173-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:60:13-74
+174            android:exported="false"
+174-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:61:13-37
+175            android:screenOrientation="landscape"
+175-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:62:13-50
+176            android:theme="@style/AppThemeNoTitle" />
+176-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:63:13-51
+177        <activity
+177-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:64:9-68:54
+178            android:name="org.smartregister.view.activity.ReportIndicatorListViewActivity"
+178-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:65:13-91
+179            android:exported="false"
+179-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:66:13-37
+180            android:screenOrientation="landscape"
+180-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:67:13-50
+181            android:theme="@style/AppThemeNoTitle" />
+181-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:68:13-51
+182        <activity
+182-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:69:9-73:54
+183            android:name="org.smartregister.view.activity.ReportIndicatorDetailActivity"
+183-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:70:13-89
+184            android:exported="false"
+184-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:71:13-37
+185            android:screenOrientation="landscape"
+185-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:72:13-50
+186            android:theme="@style/AppThemeNoTitle" />
+186-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:73:13-51
+187        <activity
+187-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:74:9-78:54
+188            android:name="org.smartregister.view.activity.ReportIndicatorCaseListActivity"
+188-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:75:13-91
+189            android:exported="false"
+189-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:76:13-37
+190            android:screenOrientation="landscape"
+190-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:77:13-50
+191            android:theme="@style/AppThemeNoTitle" />
+191-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:78:13-51
+192        <activity
+192-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:79:9-83:54
+193            android:name="org.smartregister.view.activity.EligibleCoupleDetailActivity"
+193-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:80:13-88
+194            android:exported="false"
+194-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:81:13-37
+195            android:screenOrientation="landscape"
+195-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:82:13-50
+196            android:theme="@style/AppThemeNoTitle" />
+196-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:83:13-51
+197        <activity
+197-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:84:9-88:69
+198            android:name="org.smartregister.view.activity.CameraLaunchActivity"
+198-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:85:13-80
+199            android:exported="false"
+199-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:86:13-37
+200            android:screenOrientation="landscape"
+200-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:87:13-50
+201            android:theme="@android:style/Theme.Holo.NoActionBar" />
+201-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:88:13-66
+202        <activity
+202-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:89:9-93:54
+203            android:name="org.smartregister.view.activity.FormActivity"
+203-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:90:13-72
+204            android:exported="false"
+204-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:91:13-37
+205            android:screenOrientation="portrait"
+205-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:92:13-49
+206            android:theme="@style/AppThemeNoTitle" />
+206-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:93:13-51
+207        <activity
+207-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:94:9-98:76
+208            android:name="org.smartregister.view.activity.MicroFormActivity"
+208-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:95:13-77
+209            android:exported="false"
+209-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:96:13-37
+210            android:screenOrientation="landscape"
+210-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:97:13-50
+211            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
+211-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:98:13-73
+212        <activity
+212-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:99:9-103:54
+213            android:name="org.smartregister.view.activity.NativeECSmartRegisterActivity"
+213-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:100:13-89
+214            android:exported="false"
+214-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:101:13-37
+215            android:screenOrientation="landscape"
+215-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:102:13-50
+216            android:theme="@style/AppThemeNoTitle" />
+216-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:103:13-51
+217        <activity
+217-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:104:9-108:52
+218            android:name="org.smartregister.view.activity.BarcodeScanActivity"
+218-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:105:13-79
+219            android:configChanges="keyboardHidden|orientation"
+219-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:106:13-63
+220            android:exported="false"
+220-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:107:13-37
+221            android:screenOrientation="portrait" />
+221-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:108:13-49
+222        <activity
+222-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:109:9-112:53
+223            android:name="org.smartregister.view.activity.NativeHomeActivity"
+223-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:110:13-78
+224            android:exported="false"
+224-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:111:13-37
+225            android:screenOrientation="landscape" />
+225-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:112:13-50
+226        <activity
+226-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:113:9-117:52
+227            android:name="org.smartregister.view.activity.SettingsActivity"
+227-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:114:13-76
+228            android:exported="false"
+228-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:115:13-37
+229            android:launchMode="singleTask"
+229-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:116:13-44
+230            android:screenOrientation="portrait" />
+230-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:117:13-49
+231
+232        <receiver
+232-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:119:9-121:40
+233            android:name="org.smartregister.view.receiver.SyncBroadcastReceiver"
+233-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:120:13-81
+234            android:exported="false" />
+234-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:121:13-37
+235        <receiver
+235-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:122:9-128:20
+236            android:name="org.smartregister.view.receiver.ConnectivityChangeReceiver"
+236-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:123:13-86
+237            android:exported="false" >
+237-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:124:13-37
+238            <intent-filter>
+238-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:125:13-127:29
+239                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+239-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:126:17-79
+239-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:126:25-76
+240            </intent-filter>
+241        </receiver>
+242        <receiver
+242-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:129:9-136:20
+243            android:name="org.smartregister.view.receiver.TimeChangedBroadcastReceiver"
+243-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:130:13-88
+244            android:exported="false" >
+244-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:131:13-37
+245            <intent-filter>
+245-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:132:13-135:29
+246                <action android:name="android.intent.action.TIME_SET" />
+246-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:133:17-73
+246-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:133:25-70
+247                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+247-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:134:17-81
+247-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:134:25-78
+248            </intent-filter>
+249        </receiver>
+250
+251        <service
+251-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:138:9-140:40
+252            android:name="org.smartregister.service.intentservices.ReplicationIntentService"
+252-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:139:13-93
+253            android:exported="false" />
+253-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:140:13-37
+254        <service
+254-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:141:9-144:40
+255            android:name="org.smartregister.sync.intent.P2pProcessRecordsService"
+255-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:142:13-82
+256            android:description="@string/component_desc_p2p_process_records_service"
+256-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:143:13-85
+257            android:exported="false" />
+257-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:144:13-37
+258
+259        <meta-data
+259-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:146:9-148:39
+260            android:name="com.google.android.gms.vision.Dependencies"
+260-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:147:13-70
+261            android:value="barcode" />
+261-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:148:13-36
+262        <meta-data
+262-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:149:9-151:69
+263            android:name="com.google.android.gms.version"
+263-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:150:13-58
+264            android:value="@integer/google_play_services_version" />
+264-->[org.smartregister:opensrp-client-core:3.3.1-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/8e1ee315a9e9d2f8e841f45e502cf131/jetified-opensrp-client-core-3.3.1-SNAPSHOT/AndroidManifest.xml:151:13-66
+265
+266        <activity
+266-->[org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/AndroidManifest.xml:31:9-34:52
+267            android:name="com.vijay.jsonwizard.activities.JsonFormBarcodeScanActivity"
+267-->[org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/AndroidManifest.xml:32:13-87
+268            android:configChanges="keyboardHidden|orientation"
+268-->[org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/AndroidManifest.xml:33:13-63
+269            android:screenOrientation="portrait" />
+269-->[org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/AndroidManifest.xml:34:13-49
+270        <activity android:name="org.smartregister.opd.activity.BaseOpdFormActivity" />
+270-->[org.smartregister:opensrp-client-opd:0.0.18-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/e46d833d56f5015a0edb13bdf7befd0c/jetified-opensrp-client-opd-0.0.18-SNAPSHOT/AndroidManifest.xml:12:9-87
+270-->[org.smartregister:opensrp-client-opd:0.0.18-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/e46d833d56f5015a0edb13bdf7befd0c/jetified-opensrp-client-opd-0.0.18-SNAPSHOT/AndroidManifest.xml:12:19-84
+271
+272        <service android:name="org.smartregister.configurableviews.service.PullConfigurableViewsIntentService" />
+272-->[org.smartregister:opensrp-client-configurable-views:1.1.5-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/801f3f39ef06eae6587f99b6d57997c4/jetified-opensrp-client-configurable-views-1.1.5-SNAPSHOT/AndroidManifest.xml:15:9-114
+272-->[org.smartregister:opensrp-client-configurable-views:1.1.5-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/801f3f39ef06eae6587f99b6d57997c4/jetified-opensrp-client-configurable-views-1.1.5-SNAPSHOT/AndroidManifest.xml:15:18-111
+273
+274        <activity
+274-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:24:9-27:70
+275            android:name="org.smartregister.p2p.activity.P2pModeSelectActivity"
+275-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:25:13-80
+276            android:label="@string/peer_to_peer_activity_title"
+276-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:26:13-64
+277            android:windowSoftInputMode="stateHidden|adjustResize" />
+277-->[org.smartregister:android-p2p-sync:0.3.7-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/0c34ebbab9f2b439cbce4b0b34523ed3/jetified-android-p2p-sync-0.3.7-SNAPSHOT/AndroidManifest.xml:27:13-67
+278        <activity android:name="org.smartregister.simprint.SimPrintsRegisterActivity" />
+278-->[org.smartregister:opensrp-client-simprints:1.0.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/339a74406b43f3f13fbeaf5cd43fdb27/jetified-opensrp-client-simprints-1.0.3-SNAPSHOT/AndroidManifest.xml:16:9-89
+278-->[org.smartregister:opensrp-client-simprints:1.0.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/339a74406b43f3f13fbeaf5cd43fdb27/jetified-opensrp-client-simprints-1.0.3-SNAPSHOT/AndroidManifest.xml:16:19-86
+279        <activity android:name="org.smartregister.simprint.SimPrintsVerifyActivity" />
+279-->[org.smartregister:opensrp-client-simprints:1.0.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/339a74406b43f3f13fbeaf5cd43fdb27/jetified-opensrp-client-simprints-1.0.3-SNAPSHOT/AndroidManifest.xml:17:9-87
+279-->[org.smartregister:opensrp-client-simprints:1.0.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/339a74406b43f3f13fbeaf5cd43fdb27/jetified-opensrp-client-simprints-1.0.3-SNAPSHOT/AndroidManifest.xml:17:19-84
+280        <activity android:name="org.smartregister.simprint.SimPrintsIdentifyActivity" />
+280-->[org.smartregister:opensrp-client-simprints:1.0.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/339a74406b43f3f13fbeaf5cd43fdb27/jetified-opensrp-client-simprints-1.0.3-SNAPSHOT/AndroidManifest.xml:18:9-89
+280-->[org.smartregister:opensrp-client-simprints:1.0.3-SNAPSHOT] /home/stephen/.gradle/caches/transforms-2/files-2.1/339a74406b43f3f13fbeaf5cd43fdb27/jetified-opensrp-client-simprints-1.0.3-SNAPSHOT/AndroidManifest.xml:18:19-86
+281
+282        <service
+282-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:17:9-20:72
+283            android:name="com.evernote.android.job.v21.PlatformJobService"
+283-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:18:13-75
+284            android:exported="false"
+284-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:19:13-37
+285            android:permission="android.permission.BIND_JOB_SERVICE" />
+285-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:20:13-69
+286        <service
+286-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:21:9-24:72
+287            android:name="com.evernote.android.job.v14.PlatformAlarmService"
+287-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:22:13-77
+288            android:exported="false"
+288-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:23:13-37
+289            android:permission="android.permission.BIND_JOB_SERVICE" />
+289-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:24:13-69
+290        <service
+290-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:25:9-27:40
+291            android:name="com.evernote.android.job.v14.PlatformAlarmServiceExact"
+291-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:26:13-82
+292            android:exported="false" />
+292-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:27:13-37
+293
+294        <receiver
+294-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:29:9-38:20
+295            android:name="com.evernote.android.job.v14.PlatformAlarmReceiver"
+295-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:30:13-78
+296            android:exported="false" >
+296-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:31:13-37
+297            <intent-filter>
+297-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:32:13-37:29
+298
+299                <!-- Keep the filter for legacy intents -->
+300                <action android:name="com.evernote.android.job.v14.RUN_JOB" />
+300-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:35:17-79
+300-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:35:25-76
+301                <action android:name="net.vrallev.android.job.v14.RUN_JOB" />
+301-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:36:17-78
+301-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:36:25-75
+302            </intent-filter>
+303        </receiver>
+304        <receiver
+304-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:39:9-48:20
+305            android:name="com.evernote.android.job.JobBootReceiver"
+305-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:40:13-68
+306            android:exported="false" >
+306-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:41:13-37
+307            <intent-filter>
+307-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:42:13-47:29
+308                <action android:name="android.intent.action.BOOT_COMPLETED" />
+308-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:43:17-79
+308-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:43:25-76
+309                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+309-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:44:17-82
+309-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:44:25-79
+310                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+310-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:45:17-82
+310-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:45:25-79
+311                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+311-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:46:17-84
+311-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:46:25-81
+312            </intent-filter>
+313        </receiver>
+314
+315        <service
+315-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:50:9-58:19
+316            android:name="com.evernote.android.job.gcm.PlatformGcmService"
+316-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:51:13-75
+317            android:enabled="false"
+317-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:52:13-36
+318            android:exported="true"
+318-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:53:13-36
+319            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >
+319-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:54:13-93
+320            <intent-filter>
+320-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:55:13-57:29
+321                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+321-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:56:17-87
+321-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:56:25-84
+322            </intent-filter>
+323        </service>
+324        <service
+324-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:59:9-62:72
+325            android:name="com.evernote.android.job.JobRescheduleService"
+325-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:60:13-73
+326            android:exported="false"
+326-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:61:13-37
+327            android:permission="android.permission.BIND_JOB_SERVICE" />
+327-->[com.evernote:android-job:1.2.6] /home/stephen/.gradle/caches/transforms-2/files-2.1/f72ff403db07b7a9ec813ffc2a904303/jetified-android-job-1.2.6/AndroidManifest.xml:62:13-69
+328
+329        <activity
+329-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:47:9-53:63
+330            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+330-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:48:13-74
+331            android:clearTaskOnLaunch="true"
+331-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:49:13-45
+332            android:screenOrientation="sensorLandscape"
+332-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:50:13-56
+333            android:stateNotNeeded="true"
+333-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:51:13-42
+334            android:theme="@style/zxing_CaptureTheme"
+334-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:52:13-54
+335            android:windowSoftInputMode="stateAlwaysHidden" />
+335-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/077a62893485502f9db4236c4d31c389/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:53:13-60
+336        <activity
+336-->[com.google.android.gms:play-services-base:16.0.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/58db7b2f384d7a9165d9dfa49fbc7b65/jetified-play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
+337            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+337-->[com.google.android.gms:play-services-base:16.0.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/58db7b2f384d7a9165d9dfa49fbc7b65/jetified-play-services-base-16.0.1/AndroidManifest.xml:24:13-79
+338            android:exported="false"
+338-->[com.google.android.gms:play-services-base:16.0.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/58db7b2f384d7a9165d9dfa49fbc7b65/jetified-play-services-base-16.0.1/AndroidManifest.xml:25:13-37
+339            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+339-->[com.google.android.gms:play-services-base:16.0.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/58db7b2f384d7a9165d9dfa49fbc7b65/jetified-play-services-base-16.0.1/AndroidManifest.xml:26:13-72
+340
+341        <provider
+341-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/26b6f452b7c0933b0f13365c42582e04/jetified-crashlytics-2.10.1/AndroidManifest.xml:19:9-23:38
+342            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+342-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/26b6f452b7c0933b0f13365c42582e04/jetified-crashlytics-2.10.1/AndroidManifest.xml:20:13-75
+343            android:authorities="org.smartregister.kdp.crashlyticsinitprovider"
+343-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/26b6f452b7c0933b0f13365c42582e04/jetified-crashlytics-2.10.1/AndroidManifest.xml:21:13-75
+344            android:exported="false"
+344-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/26b6f452b7c0933b0f13365c42582e04/jetified-crashlytics-2.10.1/AndroidManifest.xml:22:13-37
+345            android:initOrder="90" />
+345-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /home/stephen/.gradle/caches/transforms-2/files-2.1/26b6f452b7c0933b0f13365c42582e04/jetified-crashlytics-2.10.1/AndroidManifest.xml:23:13-35
+346        <provider
+346-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/d8a7ff5be0b8a5ab9ec46e581b68d72c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+347            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+347-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/d8a7ff5be0b8a5ab9ec46e581b68d72c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+348            android:authorities="org.smartregister.kdp.lifecycle-process"
+348-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/d8a7ff5be0b8a5ab9ec46e581b68d72c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+349            android:exported="false"
+349-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/d8a7ff5be0b8a5ab9ec46e581b68d72c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+350            android:multiprocess="true" />
+350-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/stephen/.gradle/caches/transforms-2/files-2.1/d8a7ff5be0b8a5ab9ec46e581b68d72c/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+351    </application>
+352
+353</manifest>

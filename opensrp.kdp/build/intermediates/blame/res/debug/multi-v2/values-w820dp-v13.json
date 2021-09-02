@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
+            "map": [
+                {
+                    "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/values-w820dp/dimens.xml",
+                    "from": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "292",
+                        "endColumns": "60",
+                        "endOffsets": "348"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "113",
+                        "endColumns": "60",
+                        "endOffsets": "169"
+                    }
+                },
+                {
+                    "source": "/home/stephen/.gradle/caches/transforms-2/files-2.1/eefff715e9d4ff98251518beca1732eb/jetified-opensrp-client-native-form-1.14.5.3-SNAPSHOT/res/values-w820dp-v13/values-w820dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,113",
+                        "endColumns": "57,48",
+                        "endOffsets": "108,157"
+                    },
+                    "to": {
+                        "startLines": "2,4",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,174",
+                        "endColumns": "57,48",
+                        "endOffsets": "108,218"
+                    }
+                },
+                {
+                    "source": "/home/stephen/kdp/opensrp-client-kip/opensrp-kip/src/main/res/values-w820dp/strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "69",
+                        "endOffsets": "120"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "223",
+                        "endColumns": "69",
+                        "endOffsets": "288"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+---
+sub_group: "{visit_date}"
+fields:
+  - template: "Last vaccine Doses Given: {antigen_administered_last}"
+    relevance: "antigen_administered_last != ''"
+
+
+  - template: "Date Last Vaccine was Given: {administration_date}"
+    relevance: "administration_date != ''"
+
+
+  - template: "Missed (Vaccine) Antigen Doses: {missed_doses}"
+    relevance: "missed_doses != ''"
+    isHtml: true
+
+  - template: "Date Client Was Expected to Return: {return_date}"
+    relevance: "return_date != ''"
+    isHtml: true
+
+  - template: "Name of CHV Assigned: {chv_name}"
+    relevance: "chv_name != ''"
+    isHtml: true
+
+  - template: "Phone Number of CHV Assigned: {chv_phone_number}"
+    relevance: "chv_phone_number != ''"
+    isHtml: true
+
+  - template: "Phone Tracing: {phone_tracing}"
+    relevance: "phone_tracing != ''"
+    isHtml: true
+
+  - template: "Conducted a Physical Visit for Unreachable Client?: {physical_tracing}"
+    relevance: "physical_tracing != ''"
+    isHtml: true
+
+  - template: "Phone Tracing Outcome: {phone_tracing_outcome}"
+    relevance: "phone_tracing_outcome != ''"
+    isHtml: true
+
+  - template: "Physical Visit Tracing Outcome: {physical_tracing_outcome}"
+    relevance: "physical_tracing_outcome != ''"
+    isHtml: true
+
+  - template: "Home Vaccine Administration Date: {home_administration_date}"
+    relevance: "home_administration_date != ''"
+    isHtml: true
+
+  - template: "Other Facility Name: {other_facility_name}"
+    relevance: "other_facility_name != ''"
+    isHtml: true
+
+  - template: "Other Facility Date Vaccine was Given: {other_facility_administration_date}"
+    relevance: "other_facility_administration_date != ''"
+    isHtml: true
+
+  - template: "Proposed Date to come for Vaccine by Client: {date_to_confirm_vaccination}"
+    relevance: "date_to_confirm_vaccination != ''"
+    isHtml: true
+
+
