@@ -83,6 +83,7 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
                         break;
                     case KipConstants.EventType.UPDATE_DEFAULT:
                         showProgressDialog(R.string.saving_dialog_title);
+                        saveUpdateDefaulterForm();
                         ((KipOpdProfileActivityPresenter) presenter).saveUpdateDefaulterForm(encounterType, data);
                         onResumption();
                         break;
@@ -171,6 +172,12 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
         Map<String, String> details = getClient().getDetails();
         String baseEntityId = details.get(KipConstants.KEY.ID_LOWER_CASE);
         KipOpdDetailsRepository.updateLastVaccineGivenForm(baseEntityId);
+    }
+
+    private void saveUpdateDefaulterForm(){
+        Map<String, String> details = getClient().getDetails();
+        String baseEntityId = details.get(KipConstants.KEY.ID_LOWER_CASE);
+        KipOpdDetailsRepository.updateDefaulterStatus(baseEntityId);
     }
 
     public boolean getLastVaccineGiven(){

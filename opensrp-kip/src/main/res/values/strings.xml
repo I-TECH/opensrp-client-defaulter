@@ -162,7 +162,7 @@
     <string name="tracing_Mode">Mode of Tracing Form </string>
     <string name="missed_vaccine">Missed Vaccine Doses</string>
 
-    <string name="record_defaulter_form">Record Defaulter Tracing Form</string>
+    <string name="record_defaulter_form">Record Defaulter Form</string>
     <string name="update_defaulter_form">Update Defaulter Tracing Form</string>
 
     <string name="start_tracing">START TRACING</string>

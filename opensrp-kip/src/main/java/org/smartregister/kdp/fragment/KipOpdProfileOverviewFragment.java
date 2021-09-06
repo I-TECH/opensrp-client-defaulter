@@ -92,7 +92,7 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
                         ((KipOpdProfileActivity) activity).openDefaulterForms(form);
                     }
                 }
-                if (position == 1 ) {
+                if (position == 1) {
                     if (activity instanceof KipOpdProfileActivity) {
                         ((KipOpdProfileActivity) activity).openDefaulterForms(form);
                     }
@@ -115,7 +115,8 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
     }
 
     private void updateFormToDisplay(String form, String[] forms) {
-        if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_DEFAULTER_FORM)){
+
+        if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_DEFAULTER_FORM )){
             forms[0] = getString(R.string.update_defaulter_form);
         } else {
             forms[0] = getString(R.string.record_defaulter_form);
@@ -133,21 +134,21 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
 
                     FragmentActivity activity = getActivity();
 
-                    if (isPendingDiagnoseAndTreat) {
+                    if (isPendingDiagnoseAndTreat ) {
                         opdCheckedInTv.setText(R.string.opd_checked_in);
                         showDiagnoseAndTreatBtn();
-
-                        if (((KipOpdProfileActivity) activity).getLastVaccineGiven() && !((KipOpdProfileActivity) activity).getDefaulterUpdateStatus()) {
+                        if (((KipOpdProfileActivity) activity).getLastVaccineGiven()){
                             checkInDiagnoseAndTreatBtn.setVisibility(View.GONE);
                             checkInRecordDefaulterFormBtn.setVisibility(View.GONE);
-                            checkInChvDetailsBtn.setVisibility(View.GONE);
-                            checkInMissedVaccineBtn.setVisibility(View.GONE);
-                            checkInTracingModeBtn.setVisibility(View.GONE);
                             checkInUpdateDefaulterFormBtn.setVisibility(View.VISIBLE);
                             showUpdateDefaulterFormBtn();
+                        } else {
+                            checkInUpdateDefaulterFormBtn.setVisibility(View.GONE);
+                            opdCheckedInTv.setText(R.string.opd_checked_in);
+//                            showCheckInBtn();
                         }
 
-                    } else {
+                    } else  {
                         opdCheckedInTv.setText(R.string.defaulter);
                         showCheckInBtn();
                     }

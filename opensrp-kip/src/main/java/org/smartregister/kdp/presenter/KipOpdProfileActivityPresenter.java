@@ -162,12 +162,10 @@ public class KipOpdProfileActivityPresenter extends OpdProfileActivityPresenter 
                 Timber.e(e);
             }
         }
-
-        String baseEntityId = updateDefaulterForm.get(0).getBaseEntityId();
-        KipOpdDetailsRepository.restDefaulterSchedule(baseEntityId);
-        KipOpdDetailsRepository.updateDefaulterStatus(baseEntityId);
+//        String baseEntityId = updateDefaulterForm.get(0).getBaseEntityId();
+//        KipOpdDetailsRepository.restDefaulterSchedule(baseEntityId);
+//        KipOpdDetailsRepository.updateDefaulterStatus(baseEntityId);
         onOpdEventSaved();
-
     }
 
     public String loadForm(@NonNull String formName, @NonNull CommonPersonObjectClient commonPersonObjectClient) {

@@ -17,8 +17,6 @@ public class KipOpdDetailsRepository extends OpdDetailsRepository {
     private static final String SMS_REMINDER = "opd_sms_reminder";
     public static final String LAST_VACCINE_GIVEN = "last_vaccine";
     public static final String MISSED_VACCINE = "missed_vaccine";
-    public static final String CHV_DETAILS = "chv_details";
-    public static final String TRACING_MODE = "tracing_mode";
     public static final String UPDATE_DEFAULTER_STATUS = "defaulter_status";
 
 
@@ -33,6 +31,7 @@ public class KipOpdDetailsRepository extends OpdDetailsRepository {
     public static void updateDefaulterStatus(String baseEntityId){
         ContentValues contentValues = new ContentValues();
         contentValues.put(UPDATE_DEFAULTER_STATUS, 1);
+        contentValues.put(LAST_VACCINE_GIVEN, "");
 
         updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
         updateLastInteractedWith(baseEntityId);
@@ -41,34 +40,7 @@ public class KipOpdDetailsRepository extends OpdDetailsRepository {
     public static void updateLastVaccineGivenForm(String baseEntityId){
         ContentValues contentValues = new ContentValues();
         contentValues.put(LAST_VACCINE_GIVEN, 1);
-//        contentValues.put(MISSED_VACCINE, "");
-//        contentValues.put(CHV_DETAILS, "");
-//        contentValues.put(TRACING_MODE, "");
         contentValues.put(UPDATE_DEFAULTER_STATUS, "");
-
-        updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
-        updateLastInteractedWith(baseEntityId);
-    }
-
-    public static void updateMissedVaccineForm(String baseEntityId){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(MISSED_VACCINE, 1);
-
-        updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
-        updateLastInteractedWith(baseEntityId);
-    }
-
-    public static void updateChvDetailsForm(String baseEntityId){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(CHV_DETAILS, 1);
-
-        updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
-        updateLastInteractedWith(baseEntityId);
-    }
-
-    public static void updateTracingModeForm(String baseEntityId){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(TRACING_MODE, 1);
 
         updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
         updateLastInteractedWith(baseEntityId);
@@ -77,6 +49,7 @@ public class KipOpdDetailsRepository extends OpdDetailsRepository {
     public static void restDefaulterSchedule(String baseEntityId){
         ContentValues contentValues = new ContentValues();
         contentValues.put(LAST_VACCINE_GIVEN, "");
+        contentValues.put(UPDATE_DEFAULTER_STATUS, "");
         updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
         updateLastInteractedWith(baseEntityId);
     }

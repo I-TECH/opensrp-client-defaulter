@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.clientandeventmodel.FormEntityConstants;
 import org.smartregister.domain.tag.FormTag;
+import org.smartregister.kdp.repository.KipOpdDetailsRepository;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.kdp.util.KipOpdConstants;
 import org.smartregister.opd.OpdLibrary;
@@ -85,6 +86,7 @@ public class KipMiniProcessor implements OpdFormProcessor<List<Event>> {
 
                 if (encounterType.equals(KipConstants.EventType.UPDATE_DEFAULT)){
                     closeOpdVisit(entityId,formTag,visitId,eventList);
+                    KipOpdDetailsRepository.restDefaulterSchedule(entityId);
                 }
 
                 return eventList;

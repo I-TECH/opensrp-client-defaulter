@@ -219,6 +219,10 @@
               "rules-file": "opd/opd_update_defaulter_relevance.yml"
             }
           }
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please add the Date Vaccine was Given"
         }
       },
       {
@@ -236,6 +240,10 @@
               "rules-file": "opd/opd_update_defaulter_relevance.yml"
             }
           }
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please add the Date Vaccine was Given"
         }
       },
       {
@@ -252,6 +260,10 @@
               "rules-file": "opd/opd_update_defaulter_relevance.yml"
             }
           }
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter Vaccination Facility"
         }
       },
       {
@@ -263,13 +275,17 @@
         "type": "date_picker",
         "min_date": "today",
         "max_date": "today+1y",
-        "hint": "Please Confirm when Client will Come for the Vaccine",
+        "hint": "Confirm when Client will Come for the Vaccine",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "opd/opd_update_defaulter_relevance.yml"
             }
           }
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please Confirm when Client will Come for the Vaccine"
         }
       }
     ]

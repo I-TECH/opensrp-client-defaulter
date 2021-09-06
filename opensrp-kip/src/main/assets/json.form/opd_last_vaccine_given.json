@@ -122,7 +122,7 @@
         "openmrs_entity_id": "",
         "type": "date_picker",
         "max_date": "today",
-        "hint": "Indicate the date the last vaccine was given",
+        "hint": "The date the last vaccine was given",
         "v_required": {
           "value": true,
           "err": "Indicate the date the last vaccine was given"
@@ -201,7 +201,7 @@
         "openmrs_entity_id": "",
         "type": "date_picker",
         "max_date": "today",
-        "hint": "Please add the date the client was expected back",
+        "hint": "Add the date the client was expected back",
         "v_required": {
           "value": true,
           "err": "Please add the date the client was expected back"
