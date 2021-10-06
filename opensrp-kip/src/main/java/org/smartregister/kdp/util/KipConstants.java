@@ -2,6 +2,9 @@ package org.smartregister.kdp.util;
 
 public class KipConstants {
 
+    public static final String AGE = "age";
+    public static final String VALUE = "value";
+
     public interface DateFormat {
         String HH_MM_AMPM = "h:mm a";
     }
@@ -46,6 +49,7 @@ public class KipConstants {
         public static String SITE_CHARACTERISTICS = "site_characteristics";
         public static final String KEY = "key";
         public static final String FATHER_PHONE = "father_phone";
+        public static final String ENCOUNTER_TYPE = "encounter_type";
     }
 
     public static final class DrawerMenu {
@@ -62,11 +66,16 @@ public class KipConstants {
         public static final String OPD_SMS_REMINDER = "OPD SMS Reminder";
         public static final String UPDATE_DEFAULT = "Tracing Outcome";
         public static final String RECORD_DEFAULTER_FORM = "Record Defaulter Form";
+        public static final String RECORD_COVID_DEFAULTER_FORM = "Record Covid 19 Defaulter Form";
+        public static final String UPDATE_COVID_DEFAULT = "Covid 19 Tracing Outcome";
     }
 
     public static class JSON_FORM {
         public static final String OPD_RECORD_DEFAULTER_FORM = "opd_last_vaccine_given";
         public static final String OPD_UPDATE_DEFAULTER_FORM = "opd_update_defaulter_form";
+
+        public static final String OPD_COVID_DEFAULTER_FORM = "opd_covid_defaulter_form";
+        public static final String OPD_UPDATE_COVID_DEFAULTER_FORM = "opd_update_covid_defaulter_form";
 
     }
 
@@ -110,43 +119,49 @@ public class KipConstants {
             String OPD_SMS_REMINDER = "opd_sms_reminder";
 
             String RECORD_DEFAULTER_FORM = "last_vaccine_given_table";
-            String MISSED_VACCINE = "missed_vaccine_table";
-            String CHV_DETAILS = "chv_details_table";
-            String MODE_OF_TRACING = "tracing_mode_table";
             String UPDATE_DEFAULTER_FORM_TABLE = "update_defaulter_form_table";
+
+            String RECORD_COVID_DEFAULTER_FORM = "covid_defaulter_form_table";
+            String UPDATE_COVID_DEFAULTER_FORM_TABLE = "update_covid_defaulter_form_table";
         }
 
         interface Columns {
-            interface CalculateRiskFactor {
+
+            interface RecordCovidDefaulerForm {
                 String ID = "id";
                 String VISIT_ID = "visit_id";
                 String VISIT_DATE = "visit_date";
                 String BASE_ENTITY_ID = "base_entity_id";
                 String VISIT_TYPE = "visit_type";
-                String PRE_EXISTING_CONDITIONS = "pre_existing_conditions";
-                String OTHER_PRE_EXISTING_CONDITIONS = "other_pre_existing_conditions";
-                String OCCUPATION = "occupation";
-                String OTHER_OCCUPATION = "other_occupation";
+                String COVID_ANTIGEN_ADMINISTERED_LAST = "covid_antigen_administered_last";
+                String COVID_ADMINISTRATION_DATE = "covid_administration_date";
+                String COVID_MISSED_VACCINE = "covid_missed_doses";
+                String COVID_RETURN_DATE = "covid_return_date";
+                String COVID_CHV_NAME = "covid_chv_name";
+                String COVID_CHV_PHONE_NUMBER = "covid_chv_phone_number";
                 String AGE = "age";
                 String DATE = "date";
                 String CREATED_AT = "created_at";
             }
 
-            interface VaccineRecord {
+            interface UpdateCovidDefaulterForm {
                 String ID = "id";
                 String VISIT_ID = "visit_id";
-                String VISIT_DATE = "visit_date";
                 String BASE_ENTITY_ID = "base_entity_id";
                 String VISIT_TYPE = "visit_type";
-                String COVID_19_ANTIGENS = "covid19_antigens";
-                String SITE_OF_ADMINISTRATION = "site_of_administration";
-                String ADMINISTRATION_DATE = "administration_date";
-                String ADMINISTRATION_ROUTE = "administration_route";
-                String LOT_NUMBER = "lot_number";
-                String VACCINE_EXPIRY = "vaccine_expiry";
-                String AGE = "age";
+                String COVID_PHONE_TRACING_OUTCOME = "covid_phone_tracing_outcome";
+                String COVID_PHYSICAL_TRACING_OUTCOME = "covid_physical_tracing_outcome";
+                String COVID_PHONE_TRACING = "covid_phone_tracing";
+                String COVID_PHYSICAL_TRACING = "covid_physical_tracing";
+                String COVID_HOME_ADMINISTRATION_DATE = "covid_home_administration_date";
+                String COVID_OTHER_FACILITY_ADMINISTRATION_DATE = "covid_other_facility_administration_date";
+                String COVID_OTHER_FACILITY_NAME = "covid_other_facility_name";
+                String COVID_DATE_TO_CONFIRM_VACCINATION = "covid_date_to_confirm_vaccination";
+                String COVID_MODE_OF_TRACING = "covid_mode_of_tracing";
                 String DATE = "date";
+                String AGE = "age";
                 String CREATED_AT = "created_at";
+
             }
 
             interface RecordDefaulerForm {
@@ -172,26 +187,10 @@ public class KipConstants {
                 String CREATED_AT = "created_at";
             }
 
-            interface MissedVaccineForm{
-                String MISSED_VACCINE = "missed_doses";
-                String RETURN_DATE = "return_date";
-                String BIRTH_DOSE_ANTIGEN = "birth_dose_antigen";
-                String SIX_WKS_ANTIGEN = "six_wks_antigen";
-                String TEN_WKS_ANTIGEN = "ten_wks_antigen";
-                String FOURTEEN_WKS_ANTIGEN = "fourteen_wks_antigen";
-                String NINE_MONTHS_ANTIGEN = "nine_months_antigen";
-                String EIGHTEEN_MONTHS_ANTIGEN = "eighteen_months_antigen";
-            }
-
-            interface TracingMode{
-                String PHONE_TRACING = "phone_tracing";
-                String PHYSICAL_TRACING = "physical_tracing";
-            }
-
-            interface ChvDetails{
-                String CHV_NAME = "chv_name";
-                String CHV_PHONE_NUMBER = "chv_phone_number";
-            }
+//            interface TracingMode{
+//                String PHONE_TRACING = "phone_tracing";
+//                String PHYSICAL_TRACING = "physical_tracing";
+//            }
 
             interface UpdateDefaulterForm {
                 String ID = "id";

@@ -103,7 +103,7 @@ public class OpdSMSReminderFormRepository extends BaseRepository implements OpdS
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         Cursor cursor = sqLiteDatabase.query(KipConstants.DbConstants.Tables.OPD_SMS_REMINDER
                 , columns
-                , KipConstants.DbConstants.Columns.CalculateRiskFactor.BASE_ENTITY_ID + " = ? AND " + KipConstants.DbConstants.Columns.CalculateRiskFactor.VISIT_ID + " = ?"
+                , KipConstants.DbConstants.Columns.SmsReminder.BASE_ENTITY_ID + " = ? AND " + KipConstants.DbConstants.Columns.SmsReminder.VISIT_ID + " = ?"
                 , new String[]{opdSmsReminderForm.getBaseEntityId(), opdSmsReminderForm.getVisitId()}
                 , null
                 , null

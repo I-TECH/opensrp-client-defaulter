@@ -9,6 +9,7 @@ import org.smartregister.AllConstants;
 import org.smartregister.configurableviews.repository.ConfigurableViewsRepository;
 import org.smartregister.kdp.BuildConfig;
 import org.smartregister.kdp.application.KipApplication;
+import org.smartregister.kdp.pojo.RecordCovidDefaulterForm;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.opd.repository.OpdDetailsRepository;
 import org.smartregister.opd.repository.OpdDiagnosisAndTreatmentFormRepository;
@@ -155,6 +156,8 @@ public class KipRepository extends Repository {
             OpdSMSReminderFormRepository.updateIndex(db);
             RecordDefaulterFormRepository.updateIndex(db);
             UpdateDefaulterFormRepository.updateIndex(db);
+            RecordCovidDefaulterFormRepository.updateIndex(db);
+            UpdateCovidDefaulterFormRepository.updateIndex(db);
         } catch (Exception e) {
             Timber.e(e, " --> upgradeToVersion10 ");
         }

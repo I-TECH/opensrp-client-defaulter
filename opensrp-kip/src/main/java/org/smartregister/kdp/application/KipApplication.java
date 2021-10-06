@@ -34,7 +34,9 @@ import org.smartregister.kdp.repository.ClientRegisterTypeRepository;
 import org.smartregister.kdp.repository.KipOpdVisitSummaryRepository;
 import org.smartregister.kdp.repository.KipRepository;
 import org.smartregister.kdp.repository.OpdSMSReminderFormRepository;
+import org.smartregister.kdp.repository.RecordCovidDefaulterFormRepository;
 import org.smartregister.kdp.repository.RecordDefaulterFormRepository;
+import org.smartregister.kdp.repository.UpdateCovidDefaulterFormRepository;
 import org.smartregister.kdp.repository.UpdateDefaulterFormRepository;
 import org.smartregister.kdp.util.KipChildUtils;
 import org.smartregister.kdp.util.KipConstants;
@@ -76,6 +78,8 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
     private OpdSMSReminderFormRepository opdSMSReminderFormRepository;
     private RecordDefaulterFormRepository recordDefaulterFormRepository;
     private UpdateDefaulterFormRepository updateDefaulterFormRepository;
+    private RecordCovidDefaulterFormRepository recordCovidDefaulterFormRepository;
+    private UpdateCovidDefaulterFormRepository updateCovidDefaulterFormRepository;
 
 
     public static JsonSpecHelper getJsonSpecHelper() {
@@ -286,6 +290,21 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
             updateDefaulterFormRepository = new UpdateDefaulterFormRepository();
         }
         return updateDefaulterFormRepository;
+    }
+
+    public RecordCovidDefaulterFormRepository recordCovidDefaulterFormRepository(){
+
+        if (recordCovidDefaulterFormRepository == null){
+            recordCovidDefaulterFormRepository = new RecordCovidDefaulterFormRepository();
+        }
+        return recordCovidDefaulterFormRepository;
+    }
+
+    public UpdateCovidDefaulterFormRepository updateCovidDefaulterFormRepository(){
+        if (updateCovidDefaulterFormRepository == null){
+            updateCovidDefaulterFormRepository = new UpdateCovidDefaulterFormRepository();
+        }
+        return updateCovidDefaulterFormRepository;
     }
 
     public KipOpdVisitSummaryRepository kipOpdVisitSummaryRepository(){

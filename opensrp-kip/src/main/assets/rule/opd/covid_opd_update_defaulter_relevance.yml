@@ -1,0 +1,79 @@
+---
+name: step1_home_administration_date
+description: home_administration_date
+priority: 1
+condition: "(step1_phone_tracing_outcome != '' && step1_phone_tracing_outcome == 'vaccinated_home_facility') || (step1_physical_tracing_outcome != '' && step1_physical_tracing_outcome == 'vaccinated_home_facility')"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_covid_other_facility_administration_date
+description: covid_other_facility_administration_date
+priority: 1
+condition: "(step1_covid_phone_tracing_outcome != '' && step1_covid_phone_tracing_outcome == 'vaccinated_other_facility') || (step1_covid_physical_tracing_outcome != '' && step1_covid_physical_tracing_outcome == 'vaccinated_other_facility')"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_covid_other_facility_name
+description: covid_other_facility_name
+priority: 1
+condition: "(step1_covid_phone_tracing_outcome != '' && step1_covid_phone_tracing_outcome == 'vaccinated_other_facility') || (step1_covid_physical_tracing_outcome != '' && step1_covid_physical_tracing_outcome == 'vaccinated_other_facility')"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_covid_date_to_confirm_vaccination
+description: covid_date_to_confirm_vaccination
+priority: 1
+condition: "(step1_covid_phone_tracing_outcome != '' && step1_covid_phone_tracing_outcome == 'not_vaccinated') || (step1_covid_physical_tracing_outcome != '' && step1_covid_physical_tracing_outcome == 'not_vaccinated')"
+actions:
+  - "isRelevant = true"
+
+#---
+#name: step1_home_administration_date
+#description: home_administration_date
+#priority: 1
+#condition: "step1_physical_tracing_outcome != '' && step1_physical_tracing_outcome == 'vaccinated_home_facility'"
+#actions:
+#  - "isRelevant = true"
+#
+#---
+#name: step1_other_facility_administration_date
+#description: other_facility_administration_date
+#priority: 1
+#condition: "step1_physical_tracing_outcome != '' && step1_physical_tracing_outcome == 'vaccinated_other_facility'"
+#actions:
+#  - "isRelevant = true"
+#
+#---
+#name: step1_other_facility_name
+#description: other_facility_name
+#priority: 1
+#condition: "step1_physical_tracing_outcome != '' && step1_physical_tracing_outcome == 'vaccinated_other_facility'"
+#actions:
+#  - "isRelevant = true"
+#
+#---
+#name: step1_date_to_confirm_vaccination
+#description: date_to_confirm_vaccination
+#priority: 1
+#condition: "step1_physical_tracing_outcome != '' && step1_physical_tracing_outcome == 'not_vaccinated'"
+#actions:
+#  - "isRelevant = true"
+
+---
+name: step1_covid_phone_tracing_outcome
+description: covid_phone_tracing_outcome
+priority: 1
+condition: "step1_covid_phone_tracing != '' && step1_covid_phone_tracing == 'reached'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_covid_physical_tracing_outcome
+description: covid_physical_tracing_outcome
+priority: 1
+condition: "step1_covid_physical_tracing != '' && step1_covid_physical_tracing == 'yes_conducted_a_physical_visit'"
+actions:
+  - "isRelevant = true"

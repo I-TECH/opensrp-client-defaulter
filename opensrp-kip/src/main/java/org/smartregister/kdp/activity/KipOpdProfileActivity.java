@@ -1,10 +1,7 @@
 package org.smartregister.kdp.activity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.telephony.SmsManager;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,11 +17,7 @@ import org.smartregister.kdp.fragment.KipOpdProfileOverviewFragment;
 import org.smartregister.kdp.fragment.KipOpdProfileVisitsFragment;
 import org.smartregister.kdp.presenter.KipOpdProfileActivityPresenter;
 import org.smartregister.kdp.repository.KipOpdDetailsRepository;
-import org.smartregister.kdp.util.KipChildUtils;
 import org.smartregister.kdp.util.KipConstants;
-//import org.smartregister.kip.util.KipJsonFormUtils;
-import org.smartregister.kdp.util.KipOpdConstants;
-import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.opd.activity.BaseOpdProfileActivity;
 import org.smartregister.opd.adapter.ViewPagerAdapter;
 import org.smartregister.opd.presenter.OpdProfileActivityPresenter;
@@ -87,6 +80,18 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
                         ((KipOpdProfileActivityPresenter) presenter).saveUpdateDefaulterForm(encounterType, data);
                         onResumption();
                         break;
+                    case KipConstants.EventType.UPDATE_COVID_DEFAULT:
+                        showProgressDialog(R.string.saving_dialog_title);
+                        saveUpdateCovidDefaulterStatusForm();
+                        ((KipOpdProfileActivityPresenter) presenter).saveUpdateCovidDefaulterForm(encounterType, data);
+                        onResumption();
+                        break;
+                    case KipConstants.EventType.RECORD_COVID_DEFAULTER_FORM:
+                        showProgressDialog(R.string.saving_dialog_title);
+                        saveCovidDefaulterForm();
+                        ((KipOpdProfileActivityPresenter) presenter).saveRecordCovidDefaulter(encounterType, data);
+                        onResumption();
+                        break;
                     case OpdConstants.EventType.OPD_CLOSE:
                         showProgressDialog(org.smartregister.opd.R.string.saving_dialog_title);
                         ((OpdProfileActivityPresenter) this.presenter).saveCloseForm(encounterType, data);
@@ -110,48 +115,26 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
 
         if (KipConstants.RegisterType.OPD.equalsIgnoreCase(getRegisterType())) {
             MenuItem closeMenu = menu.findItem(R.id.opd_menu_item_close_client);
-            MenuItem sendSmsReminder = menu.findItem(R.id.opd_menu_item_send_sms);
             if (closeMenu != null) {
                 closeMenu.setEnabled(true);
-                sendSmsReminder.setVisible(false);
-
-                toggleViews(sendSmsReminder);
             }
         }
 
         return true;
     }
 
-    private void toggleViews(MenuItem sendSmsReminder) {
-        if (checkReminder()) {
-            sendSmsReminder.setEnabled(true);
-            sendSmsReminder.setVisible(false);
-        }
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.opd_menu_item_send_sms){
-        }
-        return super.onOptionsItemSelected(item);
-    }
+        super.onOptionsItemSelected(item);
+        int id = item.getItemId();
 
-//    private void sendReminderSms(){
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-//
-//            if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-//                Map<String, String> details = getClient().getDetails();
-//                String client = details.get("first_name");
-//                String messageTxt = formatMessage().trim();
-//                String phone = phoneNumber().trim();
-//                sendSmsReminder(messageTxt, phone);
-//                org.smartregister.child.util.Utils.showToast(this, "Reminder Message Successfully Sent to "+ client);
-//                ((KipOpdProfileActivityPresenter) this.presenter).startForm(KipOpdConstants.KipForms.OPD_SMS_REMINDER, Objects.requireNonNull(getClient()));
-//            } else {
-//                requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
-//            }
-//        }
-//    }
+        if (id == R.id.opd_menu_item_close_client){
+            openCloseForm();
+        }
+        else if (id == R.id.opd_menu_item_send_sms){
+        }
+        return true;
+    }
 
     @Override
     public void updateVaccineStockForm(Map<String, String> vaccineStock) {
@@ -168,6 +151,10 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
         ((KipOpdProfileActivityPresenter) this.presenter).startForm(formName, Objects.requireNonNull(getClient()));
     }
 
+    public int getAge() {
+        return Integer.parseInt(((KipOpdProfileActivityPresenter) this.presenter).getAge(getClient()));
+    }
+
     private void saveLastVaccineGiven(){
         Map<String, String> details = getClient().getDetails();
         String baseEntityId = details.get(KipConstants.KEY.ID_LOWER_CASE);
@@ -180,6 +167,18 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
         KipOpdDetailsRepository.updateDefaulterStatus(baseEntityId);
     }
 
+    private void saveCovidDefaulterForm(){
+        Map<String, String> details = getClient().getDetails();
+        String baseEntityId = details.get(KipConstants.KEY.ID_LOWER_CASE);
+        KipOpdDetailsRepository.updateCovidDefaulterForm(baseEntityId);
+    }
+
+    private void saveUpdateCovidDefaulterStatusForm(){
+        Map<String, String> details = getClient().getDetails();
+        String baseEntityId = details.get(KipConstants.KEY.ID_LOWER_CASE);
+        KipOpdDetailsRepository.updateCovidDefaulterStatus(baseEntityId);
+    }
+
     public boolean getLastVaccineGiven(){
         boolean isLastVaccine = false;
         Map<String, String> details = getPatientDetails();
@@ -188,6 +187,16 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
             isLastVaccine = true;
         }
         return isLastVaccine;
+    }
+
+    public boolean getCovidDefaulter(){
+        boolean isCovidDefaulter = false;
+        Map<String, String> details = getPatientDetails();
+        String covidDefaulter = details.get("covid_defaulter");
+        if (StringUtils.isNotEmpty(covidDefaulter) && covidDefaulter.equalsIgnoreCase("1")){
+            isCovidDefaulter = true;
+        }
+        return isCovidDefaulter;
     }
 
     public boolean getDefaulterUpdateStatus(){
@@ -204,44 +213,13 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
         return OpdUtils.getClientDemographicDetails(getClient().getDetails().get(KipConstants.KEY.ID_LOWER_CASE));
     }
 
-    public String phoneNumber(){
-        Map<String, String> details = getClient().getDetails();
-        String phoneNum = details.get("phone_number");
-        return phoneNum;
-    }
-
-    public boolean checkReminder(){
-        boolean isEnrolledInSmsMessages = false;
-        Map<String, String> details = getClient().getDetails();
-        String tracing = details.get("defaulter_status");
-        String phoneNumber = details.get("phone_number");
-        if (phoneNumber != null && tracing != null){
-            isEnrolledInSmsMessages = true;
-        }
-        return isEnrolledInSmsMessages;
-    }
-
 
     public void openDefaulterForms(String form) {
         ((KipOpdProfileActivityPresenter) this.presenter).startForm(form, Objects.requireNonNull(getClient()));
     }
 
+    public void openCovid19Forms(String form) {
+        ((KipOpdProfileActivityPresenter) this.presenter).startForm(form, Objects.requireNonNull(getClient()));
+    }
 
-
-//    private String formatMessage(){
-//        Map<String, String> details = getClient().getDetails();
-//        String firstName = details.get("first_name");
-//        String facilliTy = LocationHelper.getInstance().getOpenMrsReadableName(KipChildUtils.getCurrentLocality());
-//
-//        return "Dear parent, "+" " + firstName + " "+ KipConstants.TXT_SMS_REMINDER + " " + KipConstants.TXT + facilliTy;
-//    }
-//
-//    public void sendSmsReminder(String messageTxt, String phone){
-//        try {
-//            SmsManager smsManager = SmsManager.getDefault();
-//            smsManager.sendTextMessage(phone,null, messageTxt, null, null);
-//        } catch (Exception e){
-//            Timber.e(e, "Message could not be sent");
-//        }
-//    }
 }

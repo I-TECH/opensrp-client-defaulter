@@ -8,10 +8,12 @@ import androidx.annotation.Nullable;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
+import org.smartregister.kdp.R;
 import org.smartregister.kdp.contract.KipOpdProfileActivityContract;
 import org.smartregister.kdp.repository.KipOpdDetailsRepository;
 import org.smartregister.kdp.util.KipConstants;
@@ -30,11 +32,13 @@ import org.smartregister.util.Utils;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import timber.log.Timber;
 
 public class KipOpdProfileActivityPresenter extends OpdProfileActivityPresenter {
-    private static final String SMS_REMINDER = "opd_sms_reminder";
+
     private final OpdProfileActivityModel model;
     private final WeakReference<KipOpdProfileActivityContract.View> mProfileView;
     private final OpdProfileActivityContract.Interactor mProfileInteractor;
@@ -88,6 +92,31 @@ public class KipOpdProfileActivityPresenter extends OpdProfileActivityPresenter 
                 }
             }), new String[]{baseEntityId});
         }
+    }
+
+    private void addAgeToTheForm(@Nullable JSONObject form) {
+        try {
+            if (form != null && form.has(KipConstants.KEY.ENCOUNTER_TYPE)) {
+                JSONArray formFields = OpdJsonFormUtils.getMultiStepFormFields(form);
+                JSONObject ageJsonObject = OpdJsonFormUtils.getFieldJSONObject(formFields, KipConstants.AGE);
+                if (ageJsonObject != null) {
+                    CommonPersonObjectClient commonPersonObjectClient = Objects.requireNonNull(getProfileView()).getClient();
+                    if (commonPersonObjectClient != null) {
+                        ageJsonObject.put(KipConstants.VALUE, getAge(commonPersonObjectClient));
+
+                    }
+                }
+            }
+        } catch (JSONException jsonException) {
+            jsonException.printStackTrace();
+        }
+    }
+
+    public String getAge(CommonPersonObjectClient commonPersonObjectClient) {
+        Map<String, String> details = commonPersonObjectClient.getDetails();
+        String dateOfBirth = details.get(OpdConstants.KEY.DOB);
+        String translatedYearInitial = getProfileView().getString(R.string.abbrv_years);
+        return OpdUtils.getClientAge(Utils.getDuration(dateOfBirth), Objects.requireNonNull(translatedYearInitial));
     }
 
     public JSONObject updateRegistrationDetails(@NonNull JSONObject form) {
@@ -162,9 +191,53 @@ public class KipOpdProfileActivityPresenter extends OpdProfileActivityPresenter 
                 Timber.e(e);
             }
         }
-//        String baseEntityId = updateDefaulterForm.get(0).getBaseEntityId();
-//        KipOpdDetailsRepository.restDefaulterSchedule(baseEntityId);
-//        KipOpdDetailsRepository.updateDefaulterStatus(baseEntityId);
+        onOpdEventSaved();
+    }
+
+
+
+    public void saveRecordCovidDefaulter(@NonNull String eventType, @Nullable Intent data) {
+        String jsonString = null;
+        if (data != null) {
+            jsonString = data.getStringExtra(OpdConstants.JSON_FORM_EXTRA.JSON);
+        }
+
+        if (jsonString == null) {
+            return;
+        }
+
+        if (eventType.equals(KipConstants.EventType.RECORD_COVID_DEFAULTER_FORM)) {
+            try {
+                List<Event> recordCovidDefaulter = OpdLibrary.getInstance().processOpdForm(jsonString, data);
+                mProfileInteractor.saveEvents(recordCovidDefaulter, this);
+            } catch (JSONException e) {
+                Timber.e(e);
+            }
+        }
+        onOpdEventSaved();
+    }
+
+
+    public void saveUpdateCovidDefaulterForm(@NonNull String eventType, @Nullable Intent data) {
+        String jsonString = null;
+        if (data != null) {
+            jsonString = data.getStringExtra(OpdConstants.JSON_FORM_EXTRA.JSON);
+        }
+
+        if (jsonString == null) {
+            return;
+        }
+
+
+        List<Event> updateDefaulterForm = null;
+        if (eventType.equals(KipConstants.EventType.UPDATE_COVID_DEFAULT)) {
+            try {
+                updateDefaulterForm = OpdLibrary.getInstance().processOpdForm(jsonString, data);
+                mProfileInteractor.saveEvents(updateDefaulterForm, this);
+            } catch (JSONException e) {
+                Timber.e(e);
+            }
+        }
         onOpdEventSaved();
     }
 

@@ -19,8 +19,8 @@ import java.util.List;
 public class UpdateDefaulterFormRepository extends BaseRepository implements UpdateDefaulterFormDao {
 
     private static final String INDEX_BASE_ENTITY_ID = "CREATE INDEX " + KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE
-            + "_" + KipConstants.DbConstants.Columns.VaccineRecord.BASE_ENTITY_ID + "_index ON " + KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE +
-            "(" + KipConstants.DbConstants.Columns.VaccineRecord.BASE_ENTITY_ID + " COLLATE NOCASE);";
+            + "_" + KipConstants.DbConstants.Columns.UpdateDefaulterForm.BASE_ENTITY_ID + "_index ON " + KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE +
+            "(" + KipConstants.DbConstants.Columns.UpdateDefaulterForm.BASE_ENTITY_ID + " COLLATE NOCASE);";
     private String[] columns = new String[]{
             KipConstants.DbConstants.Columns.UpdateDefaulterForm.ID,
             KipConstants.DbConstants.Columns.UpdateDefaulterForm.BASE_ENTITY_ID,
@@ -60,7 +60,7 @@ public class UpdateDefaulterFormRepository extends BaseRepository implements Upd
         contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.AGE, updateDefaulterForm.getAge());
         contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.DATE, updateDefaulterForm.getDate());
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        contentValues.put(KipConstants.DbConstants.Columns.VaccineRecord.CREATED_AT, updateDefaulterForm.getCreatedAt());
+        contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.CREATED_AT, updateDefaulterForm.getCreatedAt());
         long rows = sqLiteDatabase.insertWithOnConflict(KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         return rows != -1;
     }
@@ -128,7 +128,7 @@ public class UpdateDefaulterFormRepository extends BaseRepository implements Upd
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         Cursor cursor = sqLiteDatabase.query(KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE
                 , columns
-                , KipConstants.DbConstants.Columns.CalculateRiskFactor.BASE_ENTITY_ID + " = ? AND " + KipConstants.DbConstants.Columns.CalculateRiskFactor.VISIT_ID + " = ?"
+                , KipConstants.DbConstants.Columns.UpdateDefaulterForm.BASE_ENTITY_ID + " = ? AND " + KipConstants.DbConstants.Columns.UpdateDefaulterForm.VISIT_ID + " = ?"
                 , new String[]{updateDefaulterForm.getBaseEntityId(), updateDefaulterForm.getVisitId()}
                 , null
                 , null

@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 
 import org.smartregister.kdp.application.KipApplication;
 import org.smartregister.kdp.contract.KipOpdProfileOverviewFragmentContract;
+import org.smartregister.kdp.pojo.RecordCovidDefaulterForm;
 import org.smartregister.kdp.pojo.RecordDefaulterForm;
+import org.smartregister.kdp.pojo.UpdateCovidDefaulterForm;
 import org.smartregister.kdp.pojo.UpdateDefaulterForm;
 import org.smartregister.opd.OpdLibrary;
 import org.smartregister.opd.model.OpdProfileOverviewFragmentModel;
@@ -20,6 +22,9 @@ public class KipOpdProfileOverviewFragmentModel extends OpdProfileOverviewFragme
     private RecordDefaulterForm recordDefaulterForm = null;
     private UpdateDefaulterForm updateDefaulterForm = null;
 
+    private RecordCovidDefaulterForm recordCovidDefaulterForm = null;
+    private UpdateCovidDefaulterForm updateCovidDefaulterForm = null;
+
     public KipOpdProfileOverviewFragmentModel() {
         this.appExecutors = new AppExecutors();
     }
@@ -34,6 +39,9 @@ public class KipOpdProfileOverviewFragmentModel extends OpdProfileOverviewFragme
             if (opdDetails != null && opdDetails.getCurrentVisitEndDate() == null) {
                 getLastVaccineGivenForm(baseEntityId,visit);
                 getUpdateDefaulterForm(baseEntityId,visit);
+
+                getCovidDefaulterForm(baseEntityId, visit);
+                getUpdateCovidDefaulterForm(baseEntityId,visit);
             }
 
             appExecutors.mainThread().execute(() -> onFetchedCallback.onFetched(checkInMap, visit, opdDetails, recordDefaulterForm,updateDefaulterForm));
@@ -68,6 +76,28 @@ public class KipOpdProfileOverviewFragmentModel extends OpdProfileOverviewFragme
             updateDefaulterForm.setBaseEntityId(baseEntityId);
             updateDefaulterForm.setVisitId(visit.getId());
             updateDefaulterForm = KipApplication.getInstance().updateDefaulterFormRepository().findOneByVisit(updateDefaulterForm);
+        }
+    }
+
+    private void getCovidDefaulterForm(@NonNull String baseEntityId, OpdVisit visit) {
+        recordCovidDefaulterForm = null;
+
+        if (visit != null) {
+            recordCovidDefaulterForm = new RecordCovidDefaulterForm();
+            recordCovidDefaulterForm.setBaseEntityId(baseEntityId);
+            recordCovidDefaulterForm.setVisitId(visit.getId());
+            recordCovidDefaulterForm = KipApplication.getInstance().recordCovidDefaulterFormRepository().findOneByVisit(recordCovidDefaulterForm);
+        }
+    }
+
+    private void getUpdateCovidDefaulterForm(@NonNull String baseEntityId, OpdVisit visit) {
+        updateCovidDefaulterForm = null;
+
+        if (visit != null) {
+            updateCovidDefaulterForm = new UpdateCovidDefaulterForm();
+            updateCovidDefaulterForm.setBaseEntityId(baseEntityId);
+            updateCovidDefaulterForm.setVisitId(visit.getId());
+            updateCovidDefaulterForm = KipApplication.getInstance().updateCovidDefaulterFormRepository().findOneByVisit(updateCovidDefaulterForm);
         }
     }
 }

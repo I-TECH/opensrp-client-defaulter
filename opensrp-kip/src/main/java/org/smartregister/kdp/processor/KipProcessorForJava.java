@@ -25,8 +25,10 @@ import org.smartregister.kdp.application.KipApplication;
 import org.smartregister.kdp.exceptions.SmsReminderException;
 import org.smartregister.kdp.exceptions.RecordDefaulterException;
 import org.smartregister.kdp.exceptions.UpdateDefaulterTracingException;
+import org.smartregister.kdp.pojo.RecordCovidDefaulterForm;
 import org.smartregister.kdp.pojo.RecordDefaulterForm;
 import org.smartregister.kdp.pojo.OpdSMSReminderForm;
+import org.smartregister.kdp.pojo.UpdateCovidDefaulterForm;
 import org.smartregister.kdp.pojo.UpdateDefaulterForm;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.opd.OpdLibrary;
@@ -111,6 +113,10 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
                     processRecordDefaulterForm(eventClient, clientClassification);
                 } else if (eventType.equals(KipConstants.EventType.UPDATE_DEFAULT)) {
                     processUpdateDefaulterForm(eventClient, clientClassification);
+                } else if (eventType.equals(KipConstants.EventType.RECORD_COVID_DEFAULTER_FORM)) {
+                    processRecordCovidDefaulterForm(eventClient, clientClassification);
+                } else if (eventType.equals(KipConstants.EventType.UPDATE_COVID_DEFAULT)) {
+                    processUpdateCovidDefaulterForm(eventClient, clientClassification);
                 }  else if (coreProcessedEvents.contains(eventType)) {
                     processKipCoreEvents(clientClassification, eventClient, event, eventType);
                 } else if (processorMap.containsKey(eventType)) {
@@ -383,6 +389,119 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         }
     }
 
+    protected void processRecordCovidDefaulterForm(@NonNull EventClient eventClient, @NonNull ClientClassification clientClassification) throws RecordDefaulterException {
+        HashMap<String, String> keyValues = new HashMap<>();
+        Event event = eventClient.getEvent();
+        // Todo: This might not work as expected when openmrs_entity_ids are added
+        generateKeyValuesFromEvent(event, keyValues);
+
+
+        String visitId = event.getDetails().get(OpdConstants.VISIT_ID);
+        String visitDateString = event.getDetails().get(OpdConstants.VISIT_DATE);
+        String antigenAdministeredLast = keyValues.get(KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_ANTIGEN_ADMINISTERED_LAST);
+        String admissionDate = keyValues.get(KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_ADMINISTRATION_DATE);
+        String chvName = keyValues.get(KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_CHV_NAME);
+        String chvPhoneNumber = keyValues.get(KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_CHV_PHONE_NUMBER);
+        String missedDose = keyValues.get(KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_MISSED_VACCINE);
+        String returnDate = keyValues.get(KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_RETURN_DATE);
+        String age = keyValues.get(KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.AGE);
+        String date = keyValues.get(KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.DATE);
+
+        Date visitDate;
+        try {
+            visitDate = dateFormat.parse(visitDateString != null ? visitDateString : "");
+        } catch (ParseException e) {
+            Timber.e(e);
+            visitDate = event.getEventDate().toDate();
+        }
+
+        if (visitDate != null && visitId != null) {
+            // Start transaction
+            OpdLibrary.getInstance().getRepository().getWritableDatabase().beginTransaction();
+            boolean saved = saveRecordCovidDefaulterForm(event, visitId,antigenAdministeredLast, admissionDate,missedDose, returnDate,chvName, chvPhoneNumber, age,  date);
+            if (!saved) {
+                abortTransaction();
+                throw new RecordDefaulterException(String.format("Visit (Record Covid Defaulter Tracing) with id %s could not be saved in the db. Fail operation failed", visitId));
+            }
+
+            try {
+                processEvent(event, eventClient.getClient(), clientClassification);
+            } catch (Exception e) {
+                Timber.e(e);
+            }
+
+            // Update the last interacted with of the user
+            try {
+                updateLastInteractedWith(event, visitId);
+            } catch (SQLiteException | CheckInEventProcessException ex) {
+                abortTransaction();
+                throw new RecordDefaulterException("An error occurred saving last_interacted_with");
+            }
+
+            commitSuccessfulTransaction();
+        } else {
+            throw new RecordDefaulterException(String.format("OPD Record Defaulter Tracing event %s could not be processed because it the visitDate OR visitId is null", new Gson().toJson(event)));
+        }
+    }
+
+    protected void processUpdateCovidDefaulterForm(@NonNull EventClient eventClient, @NonNull ClientClassification clientClassification) throws UpdateDefaulterTracingException {
+        HashMap<String, String> keyValues = new HashMap<>();
+        Event event = eventClient.getEvent();
+        // Todo: This might not work as expected when openmrs_entity_ids are added
+        generateKeyValuesFromEvent(event, keyValues);
+
+
+        String visitId = event.getDetails().get(OpdConstants.VISIT_ID);
+        String visitDateString = event.getDetails().get(OpdConstants.VISIT_DATE);
+        String phoneTracingOutcome = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_PHONE_TRACING_OUTCOME);
+        String physicalTracingOutcome = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_PHYSICAL_TRACING_OUTCOME);
+        String phoneTracing = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_PHONE_TRACING);
+        String physicalTracing = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_PHYSICAL_TRACING);
+        String homeAdminDate = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_HOME_ADMINISTRATION_DATE);
+        String otherFacilityAdminDate = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_OTHER_FACILITY_ADMINISTRATION_DATE);
+        String otherFacilityName = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_OTHER_FACILITY_NAME);
+        String confirmVaccination = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_DATE_TO_CONFIRM_VACCINATION);
+        String tracingMode = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_MODE_OF_TRACING);
+        String age = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.AGE);
+        String date = keyValues.get(KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.DATE);
+
+        Date visitDate;
+        try {
+            visitDate = dateFormat.parse(visitDateString != null ? visitDateString : "");
+        } catch (ParseException e) {
+            Timber.e(e);
+            visitDate = event.getEventDate().toDate();
+        }
+
+        if (visitDate != null && visitId != null) {
+            // Start transaction
+            OpdLibrary.getInstance().getRepository().getWritableDatabase().beginTransaction();
+            boolean saved = saveUpdateCovidDefaulterForm(event, visitId, phoneTracingOutcome,physicalTracingOutcome,phoneTracing,physicalTracing,homeAdminDate,otherFacilityName, otherFacilityAdminDate,confirmVaccination,tracingMode,age,date);
+            if (!saved) {
+                abortTransaction();
+                throw new UpdateDefaulterTracingException(String.format("Visit (Update Defaulter Tracing) with id %s could not be saved in the db. Fail operation failed", visitId));
+            }
+
+            try {
+                processEvent(event, eventClient.getClient(), clientClassification);
+            } catch (Exception e) {
+                Timber.e(e);
+            }
+
+            // Update the last interacted with of the user
+            try {
+                updateLastInteractedWith(event, visitId);
+            } catch (SQLiteException | CheckInEventProcessException ex) {
+                abortTransaction();
+                throw new UpdateDefaulterTracingException("An error occurred saving last_interacted_with");
+            }
+
+            commitSuccessfulTransaction();
+        } else {
+            throw new UpdateDefaulterTracingException(String.format("OPD Update Defaulter Tracing event %s could not be processed because it the visitDate OR visitId is null", new Gson().toJson(event)));
+        }
+    }
+
 
     private boolean saveRecordDefaulterForm(Event event, String visitId, String antigenAdministeredLast, String admissionDate, String missedDose, String returnDate, String chvName, String chvPhoneNumber, String birthDose, String sixWksDose, String tenWksDose, String fourteeneenWksDose, String nineMonthsDose, String EighteenMonthsDose, String age, String date) {
         RecordDefaulterForm recordDefaulterForm = new RecordDefaulterForm();
@@ -429,6 +548,45 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         return KipApplication.getInstance().updateDefaulterFormRepository().saveOrUpdate(recordDefaulterForm);
     }
 
+    private boolean saveRecordCovidDefaulterForm(Event event, String visitId, String antigenAdministeredLast, String admissionDate, String missedDose, String returnDate, String chvName, String chvPhoneNumber, String age, String date) {
+        RecordCovidDefaulterForm recordDefaulterForm = new RecordCovidDefaulterForm();
+        recordDefaulterForm.setVisitId(visitId);
+        recordDefaulterForm.setId(visitId);
+        recordDefaulterForm.setBaseEntityId(event.getBaseEntityId());
+        recordDefaulterForm.setCovidAntigenAdministeredLast(antigenAdministeredLast);
+        recordDefaulterForm.setCovidAdministrationDate(admissionDate);
+        recordDefaulterForm.setCovidMissedDoses(missedDose);
+        recordDefaulterForm.setCovidReturnDate(returnDate);
+        recordDefaulterForm.setCovidChvName(chvName);
+        recordDefaulterForm.setCovidChvPhoneNumber(chvPhoneNumber);
+        recordDefaulterForm.setAge(age);
+        recordDefaulterForm.setCreatedAt(OpdUtils.convertDate(event.getEventDate().toLocalDate().toDate(), OpdDbConstants.DATE_FORMAT));
+        recordDefaulterForm.setDate(date);
+
+        return KipApplication.getInstance().recordCovidDefaulterFormRepository().saveOrUpdate(recordDefaulterForm);
+    }
+
+    private boolean saveUpdateCovidDefaulterForm(Event event, String visitId, String phoneTracingOutcome,String physicalTracingOutcome,String phoneTracing,String physicalTracing, String homeAdministrationDate, String otherFacilityName, String otherFacilityAdministrationDate, String confirmVaccination, String tracingMode, String age, String date) {
+        UpdateCovidDefaulterForm recordDefaulterForm = new UpdateCovidDefaulterForm();
+        recordDefaulterForm.setVisitId(visitId);
+        recordDefaulterForm.setId(visitId);
+        recordDefaulterForm.setBaseEntityId(event.getBaseEntityId());
+        recordDefaulterForm.setCovidPhoneTracingOutcome(phoneTracingOutcome);
+        recordDefaulterForm.setCovidPhysicalTracingOutcome(physicalTracingOutcome);
+        recordDefaulterForm.setCovidPhoneTracing(phoneTracing);
+        recordDefaulterForm.setCovidPhysicalTracing(physicalTracing);
+        recordDefaulterForm.setCovidHomeAdministrationDate(homeAdministrationDate);
+        recordDefaulterForm.setCovidOtherFacilityName(otherFacilityName);
+        recordDefaulterForm.setCovidOtherFacilityAdministrationDate(otherFacilityAdministrationDate);
+        recordDefaulterForm.setCovidDateToConfirmVaccination(confirmVaccination);
+        recordDefaulterForm.setCovidModeOfTracing(tracingMode);
+        recordDefaulterForm.setAge(age);
+        recordDefaulterForm.setCreatedAt(OpdUtils.convertDate(event.getEventDate().toLocalDate().toDate(), OpdDbConstants.DATE_FORMAT));
+        recordDefaulterForm.setDate(date);
+
+        return KipApplication.getInstance().updateCovidDefaulterFormRepository().saveOrUpdate(recordDefaulterForm);
+    }
+
     protected void processSmsReminder(@NonNull EventClient eventClient, @NonNull ClientClassification clientClassification) throws SmsReminderException {
         HashMap<String, String> keyValues = new HashMap<>();
         Event event = eventClient.getEvent();
@@ -439,7 +597,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         String visitId = event.getDetails().get(OpdConstants.VISIT_ID);
         String visitDateString = event.getDetails().get(OpdConstants.VISIT_DATE);
         String smsReminder = keyValues.get(KipConstants.DbConstants.Columns.SmsReminder.SMS_REMINDER);
-        String date = keyValues.get(KipConstants.DbConstants.Columns.VaccineRecord.DATE);
+        String date = keyValues.get(KipConstants.DbConstants.Columns.SmsReminder.DATE);
 
         Date visitDate;
         try {

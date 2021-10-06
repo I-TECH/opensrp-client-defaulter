@@ -3,10 +3,7 @@ package org.smartregister.kdp.contract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.smartregister.kdp.pojo.ChvDetailsForm;
-import org.smartregister.kdp.pojo.MissedVaccineForm;
 import org.smartregister.kdp.pojo.RecordDefaulterForm;
-import org.smartregister.kdp.pojo.TracingModeForm;
 import org.smartregister.kdp.pojo.UpdateDefaulterForm;
 import org.smartregister.opd.contract.OpdProfileOverviewFragmentContract;
 import org.smartregister.opd.pojo.OpdDetails;

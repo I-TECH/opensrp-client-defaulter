@@ -19,8 +19,8 @@ import java.util.List;
 public class RecordDefaulterFormRepository extends BaseRepository implements RecordDefaulterFormDao {
 
     private static final String INDEX_BASE_ENTITY_ID = "CREATE INDEX " + KipConstants.DbConstants.Tables.RECORD_DEFAULTER_FORM
-            + "_" + KipConstants.DbConstants.Columns.VaccineRecord.BASE_ENTITY_ID + "_index ON " + KipConstants.DbConstants.Tables.RECORD_DEFAULTER_FORM +
-            "(" + KipConstants.DbConstants.Columns.VaccineRecord.BASE_ENTITY_ID + " COLLATE NOCASE);";
+            + "_" + KipConstants.DbConstants.Columns.RecordDefaulerForm.BASE_ENTITY_ID + "_index ON " + KipConstants.DbConstants.Tables.RECORD_DEFAULTER_FORM +
+            "(" + KipConstants.DbConstants.Columns.RecordDefaulerForm.BASE_ENTITY_ID + " COLLATE NOCASE);";
     private String[] columns = new String[]{
             KipConstants.DbConstants.Columns.RecordDefaulerForm.ID,
             KipConstants.DbConstants.Columns.RecordDefaulerForm.BASE_ENTITY_ID,
@@ -66,7 +66,7 @@ public class RecordDefaulterFormRepository extends BaseRepository implements Rec
         contentValues.put(KipConstants.DbConstants.Columns.RecordDefaulerForm.AGE, recordDefaulterForm.getAge());
         contentValues.put(KipConstants.DbConstants.Columns.RecordDefaulerForm.DATE, recordDefaulterForm.getDate());
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        contentValues.put(KipConstants.DbConstants.Columns.VaccineRecord.CREATED_AT, recordDefaulterForm.getCreatedAt());
+        contentValues.put(KipConstants.DbConstants.Columns.RecordDefaulerForm.CREATED_AT, recordDefaulterForm.getCreatedAt());
         long rows = sqLiteDatabase.insertWithOnConflict(KipConstants.DbConstants.Tables.RECORD_DEFAULTER_FORM, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         return rows != -1;
     }
@@ -137,7 +137,7 @@ public class RecordDefaulterFormRepository extends BaseRepository implements Rec
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         Cursor cursor = sqLiteDatabase.query(KipConstants.DbConstants.Tables.RECORD_DEFAULTER_FORM
                 , columns
-                , KipConstants.DbConstants.Columns.CalculateRiskFactor.BASE_ENTITY_ID + " = ? AND " + KipConstants.DbConstants.Columns.CalculateRiskFactor.VISIT_ID + " = ?"
+                , KipConstants.DbConstants.Columns.RecordDefaulerForm.BASE_ENTITY_ID + " = ? AND " + KipConstants.DbConstants.Columns.RecordDefaulerForm.VISIT_ID + " = ?"
                 , new String[]{recordDefaulterForm.getBaseEntityId(), recordDefaulterForm.getVisitId()}
                 , null
                 , null

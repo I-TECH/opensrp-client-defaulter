@@ -16,7 +16,8 @@ public class KipOpdDetailsRepository extends OpdDetailsRepository {
 
     private static final String SMS_REMINDER = "opd_sms_reminder";
     public static final String LAST_VACCINE_GIVEN = "last_vaccine";
-    public static final String MISSED_VACCINE = "missed_vaccine";
+    public static final String COVID_DEFAULTER = "covid_defaulter";
+    public static final String UPDATE_COVID_DEFAULTER_STATUS = "update_covid_defaulter_form";
     public static final String UPDATE_DEFAULTER_STATUS = "defaulter_status";
 
 
@@ -46,10 +47,37 @@ public class KipOpdDetailsRepository extends OpdDetailsRepository {
         updateLastInteractedWith(baseEntityId);
     }
 
+
+    public static void updateCovidDefaulterStatus(String baseEntityId){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(UPDATE_COVID_DEFAULTER_STATUS, 1);
+        contentValues.put(COVID_DEFAULTER, "");
+
+        updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
+        updateLastInteractedWith(baseEntityId);
+    }
+
+    public static void updateCovidDefaulterForm(String baseEntityId){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COVID_DEFAULTER, 1);
+        contentValues.put(UPDATE_COVID_DEFAULTER_STATUS, "");
+
+        updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
+        updateLastInteractedWith(baseEntityId);
+    }
+
     public static void restDefaulterSchedule(String baseEntityId){
         ContentValues contentValues = new ContentValues();
         contentValues.put(LAST_VACCINE_GIVEN, "");
         contentValues.put(UPDATE_DEFAULTER_STATUS, "");
+        updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
+        updateLastInteractedWith(baseEntityId);
+    }
+
+    public static void restCovidDefaulterSchedule(String baseEntityId){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COVID_DEFAULTER, "");
+        contentValues.put(UPDATE_COVID_DEFAULTER_STATUS, "");
         updatePatient(baseEntityId, contentValues, getRegisterQueryProvider().getDemographicTable());
         updateLastInteractedWith(baseEntityId);
     }

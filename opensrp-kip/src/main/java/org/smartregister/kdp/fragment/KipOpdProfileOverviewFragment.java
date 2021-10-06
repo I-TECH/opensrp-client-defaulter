@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.kdp.R;
 import org.smartregister.kdp.activity.KipOpdProfileActivity;
@@ -33,7 +34,7 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
     private LinearLayout opdCheckinSectionLayout;
     private Button checkInDiagnoseAndTreatBtn;
     private TextView opdCheckedInTv;
-    private Button checkInUpdateDefaulterFormBtn,checkInRecordDefaulterFormBtn, checkInMissedVaccineBtn, checkInChvDetailsBtn, checkInTracingModeBtn;
+    private Button checkInUpdateDefaulterFormBtn,checkInRecordDefaulterFormBtn, checkInRecordCovidDefaulterFormBtn, checkInUpdateCovidDefaulterFormBtn;
     CommonPersonObjectClient commonPersonObjectClient;
     private String baseEntityId;
     private OpdProfileOverviewFragmentContract.Presenter presenter;
@@ -72,9 +73,8 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
         opdCheckedInTv = mainView.findViewById(R.id.tv_opdFragmentProfileOverview_checkedInTitle);
         checkInDiagnoseAndTreatBtn = mainView.findViewById(R.id.btn_opdFragmentProfileOverview_diagnoseAndTreat);
         checkInRecordDefaulterFormBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_record_defaulter_form);
-        checkInMissedVaccineBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_missed_vaccine);
-        checkInChvDetailsBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_chv_details);
-        checkInTracingModeBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_tracing_mode);
+        checkInRecordCovidDefaulterFormBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_RecordCovidDefaulterForm);
+        checkInUpdateCovidDefaulterFormBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_UpdateCovidDefaulterForm);
         checkInUpdateDefaulterFormBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_update_defaulter_form);
         commonPersonObjectClient = (CommonPersonObjectClient) getArguments().getSerializable(OpdConstants.IntentKey.CLIENT_OBJECT);
 
@@ -87,14 +87,13 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
             builder.setTitle("Select an action to proceed");
             builder.setItems(formsToOpen(form), (dialog, position) -> {
                 FragmentActivity activity = getActivity();
-                if (position == 0) {
+                if (position==1 || (position == 0 && ((KipOpdProfileActivity) activity).getAge() < 17 )) {
                     if (activity instanceof KipOpdProfileActivity) {
                         ((KipOpdProfileActivity) activity).openDefaulterForms(form);
                     }
-                }
-                if (position == 1) {
+                } else if (position == 0 && ((KipOpdProfileActivity) activity).getAge() > 17) {
                     if (activity instanceof KipOpdProfileActivity) {
-                        ((KipOpdProfileActivity) activity).openDefaulterForms(form);
+                        ((KipOpdProfileActivity) activity).openCovid19Forms(form);
                     }
                 }
 
@@ -111,6 +110,14 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
 
         updateFormToDisplay(form, forms);
 
+        if (activity instanceof KipOpdProfileActivity){
+            if (((KipOpdProfileActivity) activity).getAge() < 17) {
+                forms = ArrayUtils.remove(forms, 0);
+            }
+            if (((KipOpdProfileActivity) activity).getAge() > 17) {
+                forms = ArrayUtils.remove(forms, 1);
+            }
+        }
         return forms;
     }
 
@@ -118,8 +125,12 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
 
         if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_DEFAULTER_FORM )){
             forms[0] = getString(R.string.update_defaulter_form);
+
+        } else if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_COVID_DEFAULTER_FORM)){
+            forms[0] = getString(R.string.update_covid_defaulter_form);
         } else {
-            forms[0] = getString(R.string.record_defaulter_form);
+            forms[0] = getString(R.string.record_covid_defaulter_form);
+            forms[1] = getString(R.string.record_defaulter_form);
 
         }
     }
@@ -137,15 +148,16 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
                     if (isPendingDiagnoseAndTreat ) {
                         opdCheckedInTv.setText(R.string.opd_checked_in);
                         showDiagnoseAndTreatBtn();
+                        showRecordCovidDefaulterFormBtn();
                         if (((KipOpdProfileActivity) activity).getLastVaccineGiven()){
                             checkInDiagnoseAndTreatBtn.setVisibility(View.GONE);
                             checkInRecordDefaulterFormBtn.setVisibility(View.GONE);
                             checkInUpdateDefaulterFormBtn.setVisibility(View.VISIBLE);
                             showUpdateDefaulterFormBtn();
-                        } else {
-                            checkInUpdateDefaulterFormBtn.setVisibility(View.GONE);
-                            opdCheckedInTv.setText(R.string.opd_checked_in);
-//                            showCheckInBtn();
+                        }
+                        if (((KipOpdProfileActivity) activity).getCovidDefaulter()){
+                            checkInUpdateCovidDefaulterFormBtn.setVisibility(View.VISIBLE);
+                            showUpdateCovidDefaulterFormBtn();
                         }
 
                     } else  {
@@ -200,6 +212,30 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
             checkInUpdateDefaulterFormBtn.setTextColor(getActivity().getResources().getColor(R.color.diagnose_treat_txt_color));
             checkInUpdateDefaulterFormBtn.setOnClickListener(v -> {
                 checkInActionDialog(KipConstants.JSON_FORM.OPD_UPDATE_DEFAULTER_FORM);
+            });
+        }
+    }
+
+    private void showRecordCovidDefaulterFormBtn() {
+        if (getActivity() != null) {
+            opdCheckinSectionLayout.setVisibility(View.VISIBLE);
+            checkInRecordCovidDefaulterFormBtn.setText(R.string.diagnose_and_treat);
+            checkInRecordCovidDefaulterFormBtn.setBackgroundResource(R.drawable.diagnose_treat_bg);
+            checkInRecordCovidDefaulterFormBtn.setTextColor(getActivity().getResources().getColor(R.color.diagnose_treat_txt_color));
+            checkInRecordCovidDefaulterFormBtn.setOnClickListener(v -> {
+                checkInActionDialog(KipConstants.JSON_FORM.OPD_COVID_DEFAULTER_FORM);
+            });
+        }
+    }
+
+    private void showUpdateCovidDefaulterFormBtn() {
+        if (getActivity() != null) {
+            opdCheckinSectionLayout.setVisibility(View.VISIBLE);
+            checkInUpdateCovidDefaulterFormBtn.setText(R.string.diagnose_and_treat);
+            checkInUpdateCovidDefaulterFormBtn.setBackgroundResource(R.drawable.diagnose_treat_bg);
+            checkInUpdateCovidDefaulterFormBtn.setTextColor(getActivity().getResources().getColor(R.color.diagnose_treat_txt_color));
+            checkInUpdateCovidDefaulterFormBtn.setOnClickListener(v -> {
+                checkInActionDialog(KipConstants.JSON_FORM.OPD_UPDATE_COVID_DEFAULTER_FORM);
             });
         }
     }

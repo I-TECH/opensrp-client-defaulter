@@ -58,25 +58,25 @@
                 android:visibility="gone"/>
 
             <Button
-                android:id="@+id/btn_opdFragmentProfileOverview_missed_vaccine"
+                android:id="@+id/btn_opdFragmentProfileOverview_RecordCovidDefaulterForm"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/diagnose_treat_bg"
-                android:text="@string/missed_vaccine"
+                android:text="@string/record_covid_defaulter_form"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/diagnose_treat_txt_color"
                 android:visibility="gone"/>
 
             <Button
-                android:id="@+id/btn_opdFragmentProfileOverview_chv_details"
+                android:id="@+id/btn_opdFragmentProfileOverview_UpdateCovidDefaulterForm"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/diagnose_treat_bg"
-                android:text="@string/chv_details"
+                android:text="@string/update_covid_defaulter_form"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/diagnose_treat_txt_color"
                 android:visibility="gone"/>

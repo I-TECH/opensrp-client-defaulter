@@ -156,11 +156,11 @@
     <string name="menu_opd_clients">Defaulter Clients</string>
     <string name="opd_close">OPD CLOSE</string>
     <string name="diagnose_and_treat"><![CDATA[Click to proceed]]></string>
-    <string name="chv_details">CHV Details Form</string>
+    <string name="update_covid_defaulter_form">Update Covid 19 Defaulter Form</string>
     <string name="abbrv_years_empty"></string>
     <string name="opd_send_sms">Send SMS Reminder</string>
     <string name="tracing_Mode">Mode of Tracing Form </string>
-    <string name="missed_vaccine">Missed Vaccine Doses</string>
+    <string name="record_covid_defaulter_form">Record Covid 19 Defaulter Form</string>
 
     <string name="record_defaulter_form">Record Defaulter Form</string>
     <string name="update_defaulter_form">Update Defaulter Tracing Form</string>

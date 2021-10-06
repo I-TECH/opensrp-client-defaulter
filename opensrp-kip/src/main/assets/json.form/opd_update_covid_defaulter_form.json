@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "Tracing Outcome",
+  "encounter_type": "Covid 19 Tracing Outcome",
   "entity_id": "",
   "relational_id": "",
   "validate_on_submit": true,
@@ -54,10 +54,10 @@
     }
   },
   "step1": {
-    "title": "Update Tracing Outcome",
+    "title": "Update Covid 19 Tracing Outcome",
     "fields": [
       {
-        "key": "phone_tracing",
+        "key": "covid_phone_tracing",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -84,7 +84,7 @@
         }
       },
       {
-        "key": "physical_tracing",
+        "key": "covid_physical_tracing",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -95,7 +95,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+              "rules-file": "opd/covid_opd_record_defaulter_relevance.yml"
             }
           }
         },
@@ -119,7 +119,7 @@
         }
       },
       {
-        "key": "phone_tracing_outcome",
+        "key": "covid_phone_tracing_outcome",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
@@ -159,13 +159,13 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+              "rules-file": "opd/covid_opd_update_defaulter_relevance.yml"
             }
           }
         }
       },
       {
-        "key": "physical_tracing_outcome",
+        "key": "covid_physical_tracing_outcome",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
@@ -211,13 +211,13 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+              "rules-file": "opd/covid_opd_update_defaulter_relevance.yml"
             }
           }
         }
       },
       {
-        "key": "home_administration_date",
+        "key": "covid_home_administration_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -228,7 +228,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+              "rules-file": "opd/covid_opd_update_defaulter_relevance.yml"
             }
           }
         },
@@ -238,7 +238,7 @@
         }
       },
       {
-        "key": "other_facility_administration_date",
+        "key": "covid_other_facility_administration_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -249,7 +249,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+              "rules-file": "opd/covid_opd_update_defaulter_relevance.yml"
             }
           }
         },
@@ -259,7 +259,7 @@
         }
       },
       {
-        "key": "other_facility_name",
+        "key": "covid_other_facility_name",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -269,7 +269,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+              "rules-file": "opd/covid_opd_update_defaulter_relevance.yml"
             }
           }
         },
@@ -279,7 +279,7 @@
         }
       },
       {
-        "key": "date_to_confirm_vaccination",
+        "key": "covid_date_to_confirm_vaccination",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -291,7 +291,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+              "rules-file": "opd/covid_opd_update_defaulter_relevance.yml"
             }
           }
         },

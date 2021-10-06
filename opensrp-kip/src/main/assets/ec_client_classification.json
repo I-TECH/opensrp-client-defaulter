@@ -49,30 +49,23 @@
           },
           {
             "field": "eventType",
-            "field_value": "Missed Vaccine",
-            "creates_case": [
-              "opd_missed_vaccine"
-            ]
-          },
-          {
-            "field": "eventType",
-            "field_value": "Mode of Tracing",
-            "creates_case": [
-              "opd_mode_of_tracing"
-            ]
-          },
-          {
-            "field": "eventType",
-            "field_value": "CHV Details",
-            "creates_case": [
-              "opd_chv_details"
-            ]
-          },
-          {
-            "field": "eventType",
             "field_value": "Tracing Outcome",
             "creates_case": [
               "opd_update_defaulter_form"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Record Covid 19 Defaulter Form",
+            "creates_case": [
+              "opd_covid_defaulter_form"
+            ]
+          },
+          {
+            "field": "eventType",
+            "field_value": "Covid 19 Tracing Outcome",
+            "creates_case": [
+              "opd_update_covid_defaulter_form"
             ]
           }
         ]

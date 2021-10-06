@@ -89,6 +89,11 @@ public class KipMiniProcessor implements OpdFormProcessor<List<Event>> {
                     KipOpdDetailsRepository.restDefaulterSchedule(entityId);
                 }
 
+                if (encounterType.equals(KipConstants.EventType.UPDATE_COVID_DEFAULT)){
+                    closeOpdVisit(entityId,formTag,visitId,eventList);
+                    KipOpdDetailsRepository.restCovidDefaulterSchedule(entityId);
+                }
+
                 return eventList;
             } else {
                 Timber.e("Corresponding OpdCheckIn record for EntityId %s is missing", entityId);

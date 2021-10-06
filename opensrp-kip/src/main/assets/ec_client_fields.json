@@ -290,6 +290,20 @@
           "json_mapping": {
             "field": "attributes.defaulter_status"
           }
+        },
+        {
+          "column_name": "covid_defaulter",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.covid_defaulter"
+          }
+        },
+        {
+          "column_name": "update_covid_defaulter_form",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.update_covid_defaulter_form"
+          }
         }
       ]
     },
@@ -688,231 +702,6 @@
       ]
     },
     {
-      "name": "missed_vaccine_table",
-      "columns": [
-        {
-          "column_name": "base_entity_id",
-          "type": "Client",
-          "json_mapping": {
-            "field": "baseEntityId"
-          }
-        },
-        {
-          "column_name": "visit_type",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_type"
-          }
-        },
-        {
-          "column_name": "missed_doses",
-          "type": "Event",
-          "json_mapping": {
-            "field": "missed_doses"
-          }
-        },
-        {
-          "column_name": "return_date",
-          "type": "Event",
-          "json_mapping": {
-            "field": "return_date"
-          }
-        },
-        {
-          "column_name": "birth_dose_antigen",
-          "type": "Event",
-          "json_mapping": {
-            "field": "birth_dose_antigen"
-          }
-        },
-        {
-          "column_name": "six_wks_antigen",
-          "type": "Event",
-          "json_mapping": {
-            "field": "six_wks_antigen"
-          }
-        },
-        {
-          "column_name": "ten_wks_antigen",
-          "type": "Event",
-          "json_mapping": {
-            "field": "ten_wks_antigen"
-          }
-        },
-        {
-          "column_name": "fourteen_wks_antigen",
-          "type": "Event",
-          "json_mapping": {
-            "field": "fourteen_wks_antigen"
-          }
-        },
-        {
-          "column_name": "nine_months_antigen",
-          "type": "Event",
-          "json_mapping": {
-            "field": "nine_months_antigen"
-          }
-        },
-        {
-          "column_name": "eighteen_months_antigen",
-          "type": "Event",
-          "json_mapping": {
-            "field": "eighteen_months_antigen"
-          }
-        },
-        {
-          "column_name": "age",
-          "type": "Event",
-          "json_mapping": {
-            "field": "age"
-          }
-        },
-        {
-          "column_name": "visit_id",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_id"
-          }
-        },
-        {
-          "column_name": "created_at",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_date"
-          }
-        },
-        {
-          "column_name": "date",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_date"
-          }
-        }
-      ]
-    },
-    {
-      "name": "chv_details_table",
-      "columns": [
-        {
-          "column_name": "base_entity_id",
-          "type": "Client",
-          "json_mapping": {
-            "field": "baseEntityId"
-          }
-        },
-        {
-          "column_name": "visit_type",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_type"
-          }
-        },
-        {
-          "column_name": "chv_name",
-          "type": "Event",
-          "json_mapping": {
-            "field": "chv_name"
-          }
-        },
-        {
-          "column_name": "chv_phone_number",
-          "type": "Event",
-          "json_mapping": {
-            "field": "chv_phone_number"
-          }
-        },
-        {
-          "column_name": "age",
-          "type": "Event",
-          "json_mapping": {
-            "field": "age"
-          }
-        },
-        {
-          "column_name": "visit_id",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_id"
-          }
-        },
-        {
-          "column_name": "created_at",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_date"
-          }
-        },
-        {
-          "column_name": "date",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_date"
-          }
-        }
-      ]
-    },
-    {
-      "name": "tracing_mode_table",
-      "columns": [
-        {
-          "column_name": "base_entity_id",
-          "type": "Client",
-          "json_mapping": {
-            "field": "baseEntityId"
-          }
-        },
-        {
-          "column_name": "visit_type",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_type"
-          }
-        },
-        {
-          "column_name": "phone_tracing",
-          "type": "Event",
-          "json_mapping": {
-            "field": "phone_tracing"
-          }
-        },
-        {
-          "column_name": "physical_tracing",
-          "type": "Event",
-          "json_mapping": {
-            "field": "physical_tracing"
-          }
-        },
-        {
-          "column_name": "age",
-          "type": "Event",
-          "json_mapping": {
-            "field": "age"
-          }
-        },
-        {
-          "column_name": "visit_id",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_id"
-          }
-        },
-        {
-          "column_name": "created_at",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_date"
-          }
-        },
-        {
-          "column_name": "date",
-          "type": "Event",
-          "json_mapping": {
-            "field": "visit_date"
-          }
-        }
-      ]
-    },
-    {
       "name": "update_defaulter_form_table",
       "columns": [
         {
@@ -990,6 +779,198 @@
           "type": "Event",
           "json_mapping": {
             "field": "mode_of_tracing"
+          }
+        },
+        {
+          "column_name": "age",
+          "type": "Event",
+          "json_mapping": {
+            "field": "age"
+          }
+        },
+        {
+          "column_name": "visit_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "visit_id"
+          }
+        },
+        {
+          "column_name": "created_at",
+          "type": "Event",
+          "json_mapping": {
+            "field": "visit_date"
+          }
+        },
+        {
+          "column_name": "date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "covid_defaulter_form_table",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "visit_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "visit_type"
+          }
+        },
+        {
+          "column_name": "covid_antigen_administered_last",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_antigen_administered_last"
+          }
+        },
+        {
+          "column_name": "covid_administration_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_administration_date"
+          }
+        },
+        {
+          "column_name": "covid_missed_doses",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_missed_doses"
+          }
+        },
+        {
+          "column_name": "covid_return_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_return_date"
+          }
+        },
+        {
+          "column_name": "covid_chv_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "chv_name"
+          }
+        },
+        {
+          "column_name": "covid_chv_phone_number",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_chv_phone_number"
+          }
+        },
+        {
+          "column_name": "age",
+          "type": "Event",
+          "json_mapping": {
+            "field": "age"
+          }
+        },
+        {
+          "column_name": "visit_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "visit_id"
+          }
+        },
+        {
+          "column_name": "created_at",
+          "type": "Event",
+          "json_mapping": {
+            "field": "visit_date"
+          }
+        },
+        {
+          "column_name": "date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "visit_date"
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_covid_defaulter_form_table",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "visit_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "visit_type"
+          }
+        },
+        {
+          "column_name": "covid_phone_tracing_outcome",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_phone_tracing_outcome"
+          }
+        },
+        {
+          "column_name": "covid_physical_tracing_outcome",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_physical_tracing_outcome"
+          }
+        },
+        {
+          "column_name": "covid_phone_tracing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_phone_tracing"
+          }
+        },
+        {
+          "column_name": "covid_physical_tracing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_physical_tracing"
+          }
+        },
+        {
+          "column_name": "covid_home_administration_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_home_administration_date"
+          }
+        },
+        {
+          "column_name": "covid_other_facility_administration_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_other_facility_administration_date"
+          }
+        },
+        {
+          "column_name": "covid_other_facility_name",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_other_facility_name"
+          }
+        },
+        {
+          "column_name": "covid_date_to_confirm_vaccination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_date_to_confirm_vaccination"
           }
         },
         {

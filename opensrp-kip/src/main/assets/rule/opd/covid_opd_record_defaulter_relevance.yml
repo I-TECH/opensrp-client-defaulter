@@ -1,0 +1,7 @@
+---
+name: step1_covid_physical_tracing
+description: covid_physical_tracing
+priority: 1
+condition: "step1_covid_phone_tracing != '' && step1_covid_phone_tracing == 'unreachable'"
+actions:
+  - "isRelevant = true"
