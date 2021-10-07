@@ -182,6 +182,27 @@ public class KipOpdProfileVisitsFragmentPresenter extends OpdProfileVisitsFragme
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.OTHER_FACILITY_NAME, opdVisitSummary.getOtherFacilityName());
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.DATE_TO_CONFIRM_VACCINATION, opdVisitSummary.getDateToConfirmVaccination());
 
+//        covid tracing
+
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_ANTIGEN_ADMINISTERED_LAST, opdVisitSummary.getCovidAntigenAdminLast());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_DADMINISTRATION_DATE, opdVisitSummary.getCovidAdminDate());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_ANTIGEN_MISSED, opdVisitSummary.getCovidAntigenMissed());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_RETURN_DATE, opdVisitSummary.getCovidReturnDate());
+
+
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_CHV_PHONE_NUMBER, opdVisitSummary.getCovidChvPhoneNumber());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_CHW_NAME, opdVisitSummary.getCovidChvName());
+
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_PHONE_TRACING, opdVisitSummary.getCovidPhoneTracing());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_PHYSICAL_TRACING, opdVisitSummary.getCovidPhysicalTracing());
+
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_PHONE_TRACING_OUTCOME, opdVisitSummary.getCovidPhoneTracingOutcome());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_PHYSICAL_TRACING_OUTCOME, opdVisitSummary.getCovidPhysicalTracingOutcome());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_HOME_ADMINISTRATION_DATE, opdVisitSummary.getCovidHomeAdminDate());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_OTHER_FACILITY_ADMINISTRATION_DATE, opdVisitSummary.getCovidOtherFacilityAdminDate());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_OTHER_FACILITY_NAME, opdVisitSummary.getCovidOtherFacilityName());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.COVID_DATE_TO_CONFIRM_VACCINATION, opdVisitSummary.getCovidDateToConfirmVaccination());
+
 
 
         // Add translate-able labels

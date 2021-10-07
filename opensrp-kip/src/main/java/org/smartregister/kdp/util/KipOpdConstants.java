@@ -53,6 +53,20 @@ public class KipOpdConstants extends OpdConstants {
             String DATE_TO_CONFIRM_VACCINATION = "date_to_confirm_vaccination";
             String DATE_TO_CONFIRM_VACCINATION_LABEL = "date_to_confirm_vaccination_label";
 
+            String COVID_ANTIGEN_ADMINISTERED_LAST = "covid_antigen_administered_last";
+            String COVID_DADMINISTRATION_DATE = "covid_administration_date";
+            String COVID_ANTIGEN_MISSED = "covid_missed_doses" ;
+            String COVID_RETURN_DATE = "covid_return_date";
+            String COVID_CHV_PHONE_NUMBER = "covid_chv_phone_number";
+            String COVID_CHW_NAME = "covid_chv_name";
+            String COVID_PHONE_TRACING = "covid_phone_tracing";
+            String COVID_PHYSICAL_TRACING = "covid_physical_tracing";
+            String COVID_PHONE_TRACING_OUTCOME ="covid_phone_tracing_outcome" ;
+            String COVID_PHYSICAL_TRACING_OUTCOME = "covid_physical_tracing_outcome";
+            String COVID_HOME_ADMINISTRATION_DATE = "covid_home_administration_date";
+            String COVID_OTHER_FACILITY_ADMINISTRATION_DATE = "covid_other_facility_administration_date";
+            String COVID_OTHER_FACILITY_NAME = "covid_other_facility_name";
+            String COVID_DATE_TO_CONFIRM_VACCINATION = "covid_date_to_confirm_vaccination";
         }
 
     }

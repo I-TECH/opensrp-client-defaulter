@@ -76,3 +76,66 @@ fields:
 
   - template: "Proposed Date to come for Vaccine by Client: {date_to_confirm_vaccination}"
     relevance: "date_to_confirm_vaccination != ''"
+
+
+---
+group:
+sub_group: Last_Covid_Vaccine_Given
+fields:
+  - template: "Last Covid Vaccine (Antigen) Given: {covid_antigen_administered_last}"
+    relevance: "covid_antigen_administered_last != ''"
+
+  - template: "Date Last Covid Vaccine (Antigen) Given: {covid_administration_date}"
+    relevance: "covid_administration_date != ''"
+
+---
+group:
+sub_group: Missed_Covid_Vaccine
+fields:
+  - template: "Missed Covid (Vaccine) Antigen: {covid_missed_doses}"
+    relevance: "covid_missed_doses != ''"
+
+  - template: "Date Client Was Expected to Return: {covid_return_date}"
+    relevance: "covid_return_date != ''"
+
+---
+group:
+sub_group: CHV_Details
+fields:
+  - template: "Name of CHV Assigned: {covid_chv_name}"
+    relevance: "covid_chv_name != ''"
+
+  - template: "Phone Number of CHV Assigned: {covid_chv_phone_number}"
+    relevance: "covid_chv_phone_number != ''"
+
+---
+group:
+sub_group: Mode_of_Tracing
+fields:
+
+  - template: "Phone Tracing: {covid_phone_tracing}"
+    relevance: "covid_phone_tracing != ''"
+
+  - template: "Conducted a Physical Visit for Unreachable Client?: {covid_physical_tracing}"
+    relevance: "covid_physical_tracing != ''"
+
+---
+sub_group: Covid_Tracing_Outcome
+fields:
+  - template: "Covid Phone Tracing Outcome: {covid_phone_tracing_outcome}"
+    relevance: "phone_tracing_outcome != ''"
+
+  - template: "Covid Physical Visit Tracing Outcome: {covid_physical_tracing_outcome}"
+    relevance: "covid_physical_tracing_outcome != ''"
+
+  - template: "Home Vaccine Administration Date: {covid_home_administration_date}"
+    relevance: "covid_home_administration_date != ''"
+
+  - template: "Other Facility Name: {covid_other_facility_name}"
+    relevance: "covid_other_facility_name != ''"
+
+  - template: "Other Facility Administration Date: {covid_other_facility_administration_date}"
+    relevance: "covid_other_facility_administration_date != ''"
+
+  - template: "Proposed Date to come for Vaccine by Client: {covid_date_to_confirm_vaccination}"
+    relevance: "covid_date_to_confirm_vaccination != ''"
