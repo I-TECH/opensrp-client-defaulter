@@ -107,9 +107,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
                 if (eventType == null) {
                     continue;
                 }
-                if (eventType.equals(KipConstants.EventType.OPD_SMS_REMINDER)) {
-                    processSmsReminder(eventClient, clientClassification);
-                } else if (eventType.equals(KipConstants.EventType.RECORD_DEFAULTER_FORM)) {
+                if (eventType.equals(KipConstants.EventType.RECORD_DEFAULTER_FORM)) {
                     processRecordDefaulterForm(eventClient, clientClassification);
                 } else if (eventType.equals(KipConstants.EventType.UPDATE_DEFAULT)) {
                     processUpdateDefaulterForm(eventClient, clientClassification);
@@ -585,67 +583,6 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         recordDefaulterForm.setDate(date);
 
         return KipApplication.getInstance().updateCovidDefaulterFormRepository().saveOrUpdate(recordDefaulterForm);
-    }
-
-    protected void processSmsReminder(@NonNull EventClient eventClient, @NonNull ClientClassification clientClassification) throws SmsReminderException {
-        HashMap<String, String> keyValues = new HashMap<>();
-        Event event = eventClient.getEvent();
-        // Todo: This might not work as expected when openmrs_entity_ids are added
-        generateKeyValuesFromEvent(event, keyValues);
-
-
-        String visitId = event.getDetails().get(OpdConstants.VISIT_ID);
-        String visitDateString = event.getDetails().get(OpdConstants.VISIT_DATE);
-        String smsReminder = keyValues.get(KipConstants.DbConstants.Columns.SmsReminder.SMS_REMINDER);
-        String date = keyValues.get(KipConstants.DbConstants.Columns.SmsReminder.DATE);
-
-        Date visitDate;
-        try {
-            visitDate = dateFormat.parse(visitDateString != null ? visitDateString : "");
-        } catch (ParseException e) {
-            Timber.e(e);
-            visitDate = event.getEventDate().toDate();
-        }
-
-        if (visitDate != null && visitId != null) {
-            // Start transaction
-            OpdLibrary.getInstance().getRepository().getWritableDatabase().beginTransaction();
-            boolean saved = saveSMSReminder(event, visitId, smsReminder, date);
-            if (!saved) {
-                abortTransaction();
-                throw new SmsReminderException(String.format("Visit (COVID19 Waiting List) with id %s could not be saved in the db. Fail operation failed", visitId));
-            }
-
-            try {
-                processEvent(event, eventClient.getClient(), clientClassification);
-            } catch (Exception e) {
-                Timber.e(e);
-            }
-
-            // Update the last interacted with of the user
-            try {
-                updateLastInteractedWith(event, visitId);
-            } catch (SQLiteException | CheckInEventProcessException ex) {
-                abortTransaction();
-                throw new SmsReminderException("An error occurred saving last_interacted_with");
-            }
-
-            commitSuccessfulTransaction();
-        } else {
-            throw new SmsReminderException(String.format("OPD COVID19 Waiting List event %s could not be processed because it the visitDate OR visitId is null", new Gson().toJson(event)));
-        }
-    }
-
-    private boolean saveSMSReminder(Event event, String visitId, String smsReminder, String date){
-        OpdSMSReminderForm opdSMSReminderForm = new OpdSMSReminderForm();
-        opdSMSReminderForm.setVisitId(visitId);
-        opdSMSReminderForm.setId(visitId);
-        opdSMSReminderForm.setBaseEntityId(event.getBaseEntityId());
-        opdSMSReminderForm.setSmsReminder(smsReminder);
-        opdSMSReminderForm.setCreatedAt(String.valueOf(new Date()));
-        opdSMSReminderForm.setDate(date);
-
-        return KipApplication.getInstance().opdSMSReminderFormRepository().saveOrUpdate(opdSMSReminderForm);
     }
 
 

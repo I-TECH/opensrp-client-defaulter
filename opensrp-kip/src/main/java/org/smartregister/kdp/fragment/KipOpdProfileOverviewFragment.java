@@ -87,11 +87,12 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
             builder.setTitle("Select an action to proceed");
             builder.setItems(formsToOpen(form), (dialog, position) -> {
                 FragmentActivity activity = getActivity();
-                if (position==1 || (position == 0 && ((KipOpdProfileActivity) activity).getAge() < 17 )) {
+                if (position == 1) {
                     if (activity instanceof KipOpdProfileActivity) {
                         ((KipOpdProfileActivity) activity).openDefaulterForms(form);
                     }
-                } else if (position == 0 && ((KipOpdProfileActivity) activity).getAge() > 17) {
+                }
+                if (position == 0 ) {
                     if (activity instanceof KipOpdProfileActivity) {
                         ((KipOpdProfileActivity) activity).openCovid19Forms(form);
                     }
@@ -106,18 +107,19 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
 
     private String[] formsToOpen(String form) {
         FragmentActivity activity = getActivity();
-        String[] forms = new String[]{""};
+        String[] forms = new String[]{"",""};
 
         updateFormToDisplay(form, forms);
 
-        if (activity instanceof KipOpdProfileActivity){
-            if (((KipOpdProfileActivity) activity).getAge() < 17) {
-                forms = ArrayUtils.remove(forms, 0);
-            }
-            if (((KipOpdProfileActivity) activity).getAge() > 17) {
-                forms = ArrayUtils.remove(forms, 1);
-            }
-        }
+//        if (activity instanceof KipOpdProfileActivity){
+//            if (((KipOpdProfileActivity) activity).getAge() < 17) {
+//                forms = ArrayUtils.remove(forms, 0);
+//            }
+//            if (((KipOpdProfileActivity) activity).getAge() > 17) {
+//                forms = ArrayUtils.remove(forms, 1);
+//            }
+//        }
+
         return forms;
     }
 
@@ -125,7 +127,6 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
 
         if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_DEFAULTER_FORM )){
             forms[0] = getString(R.string.update_defaulter_form);
-
         } else if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_COVID_DEFAULTER_FORM)){
             forms[0] = getString(R.string.update_covid_defaulter_form);
         } else {
@@ -134,6 +135,60 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
 
         }
     }
+
+//    private void checkInActionDialog(String form) {
+//        if (getActivity() != null) {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//            builder.setTitle("Select an action to proceed");
+//            builder.setItems(formsToOpen(form), (dialog, position) -> {
+//                FragmentActivity activity = getActivity();
+//                if (position==1 || (position == 0 && ((KipOpdProfileActivity) activity).getAge() < 17 )) {
+//                    if (activity instanceof KipOpdProfileActivity) {
+//                        ((KipOpdProfileActivity) activity).openDefaulterForms(form);
+//                    }
+//                } else if (position == 0 && ((KipOpdProfileActivity) activity).getAge() > 17) {
+//                    if (activity instanceof KipOpdProfileActivity) {
+//                        ((KipOpdProfileActivity) activity).openCovid19Forms(form);
+//                    }
+//                }
+//
+//            });
+//
+//            AlertDialog dialog = builder.create();
+//            dialog.show();
+//        }
+//    }
+//
+//    private String[] formsToOpen(String form) {
+//        FragmentActivity activity = getActivity();
+//        String[] forms = new String[]{"",""};
+//
+//        updateFormToDisplay(form, forms);
+//
+//        if (activity instanceof KipOpdProfileActivity){
+//            if (((KipOpdProfileActivity) activity).getAge() < 17) {
+//                forms = ArrayUtils.remove(forms, 0);
+//            }
+//            if (((KipOpdProfileActivity) activity).getAge() > 17) {
+//                forms = ArrayUtils.remove(forms, 1);
+//            }
+//        }
+//        return forms;
+//    }
+//
+//    private void updateFormToDisplay(String form, String[] forms) {
+//
+//        if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_DEFAULTER_FORM )){
+//            forms[0] = getString(R.string.update_defaulter_form);
+//
+//        } else if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_COVID_DEFAULTER_FORM)){
+//            forms[0] = getString(R.string.update_covid_defaulter_form);
+//        } else {
+//            forms[0] = getString(R.string.record_covid_defaulter_form);
+//            forms[1] = getString(R.string.record_defaulter_form);
+//
+//        }
+//    }
 
     @Override
     protected void onResumption() {
@@ -157,6 +212,8 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
                         }
                         if (((KipOpdProfileActivity) activity).getCovidDefaulter()){
                             checkInUpdateCovidDefaulterFormBtn.setVisibility(View.VISIBLE);
+                            checkInDiagnoseAndTreatBtn.setVisibility(View.GONE);
+                            checkInRecordCovidDefaulterFormBtn.setVisibility(View.GONE);
                             showUpdateCovidDefaulterFormBtn();
                         }
 

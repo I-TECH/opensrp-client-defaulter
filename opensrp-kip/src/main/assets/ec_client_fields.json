@@ -974,6 +974,13 @@
           }
         },
         {
+          "column_name": "covid_mode_of_tracing",
+          "type": "Event",
+          "json_mapping": {
+            "field": "covid_mode_of_tracing"
+          }
+        },
+        {
           "column_name": "age",
           "type": "Event",
           "json_mapping": {

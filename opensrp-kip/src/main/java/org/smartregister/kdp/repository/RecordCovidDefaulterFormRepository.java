@@ -94,8 +94,7 @@ public class RecordCovidDefaulterFormRepository extends BaseRepository implement
                     cursor.getString(8),
                     cursor.getString(9),
                     cursor.getString(10),
-                    cursor.getString(11),
-                    cursor.getString(12));
+                    cursor.getString(11));
         }
         cursor.close();
         return covidDefaulterForm;
@@ -118,7 +117,7 @@ public class RecordCovidDefaulterFormRepository extends BaseRepository implement
 
     public RecordCovidDefaulterForm findOneByVisit(RecordCovidDefaulterForm recordCovidDefaulterForm) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.query(KipConstants.DbConstants.Tables.RECORD_DEFAULTER_FORM
+        Cursor cursor = sqLiteDatabase.query(KipConstants.DbConstants.Tables.RECORD_COVID_DEFAULTER_FORM
                 , columns
                 , KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.BASE_ENTITY_ID + " = ? AND " + KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.VISIT_ID + " = ?"
                 , new String[]{recordCovidDefaulterForm.getBaseEntityId(), recordCovidDefaulterForm.getVisitId()}
@@ -145,8 +144,7 @@ public class RecordCovidDefaulterFormRepository extends BaseRepository implement
                     cursor.getString(8),
                     cursor.getString(9),
                     cursor.getString(10),
-                    cursor.getString(11),
-                    cursor.getString(12));
+                    cursor.getString(11));
         }
         cursor.close();
 

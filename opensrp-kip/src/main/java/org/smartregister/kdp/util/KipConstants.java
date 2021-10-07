@@ -187,11 +187,6 @@ public class KipConstants {
                 String CREATED_AT = "created_at";
             }
 
-//            interface TracingMode{
-//                String PHONE_TRACING = "phone_tracing";
-//                String PHYSICAL_TRACING = "physical_tracing";
-//            }
-
             interface UpdateDefaulterForm {
                 String ID = "id";
                 String VISIT_ID = "visit_id";
@@ -208,18 +203,6 @@ public class KipConstants {
                 String MODE_OF_TRACING = "mode_of_tracing";
                 String DATE = "date";
                 String AGE = "age";
-                String CREATED_AT = "created_at";
-
-            }
-
-            interface SmsReminder {
-                String ID = "id";
-                String VISIT_ID = "visit_id";
-                String VISIT_DATE = "visit_date";
-                String BASE_ENTITY_ID = "base_entity_id";
-                String VISIT_TYPE = "visit_type";
-                String SMS_REMINDER = "sms_reminder";
-                String DATE = "date";
                 String CREATED_AT = "created_at";
 
             }

@@ -44,7 +44,7 @@ public class KipOpdProfileOverviewFragmentModel extends OpdProfileOverviewFragme
                 getUpdateCovidDefaulterForm(baseEntityId,visit);
             }
 
-            appExecutors.mainThread().execute(() -> onFetchedCallback.onFetched(checkInMap, visit, opdDetails, recordDefaulterForm,updateDefaulterForm));
+            appExecutors.mainThread().execute(() -> onFetchedCallback.onFetched(checkInMap, visit, opdDetails, recordDefaulterForm,updateDefaulterForm,recordCovidDefaulterForm,updateCovidDefaulterForm));
         });
     }
 

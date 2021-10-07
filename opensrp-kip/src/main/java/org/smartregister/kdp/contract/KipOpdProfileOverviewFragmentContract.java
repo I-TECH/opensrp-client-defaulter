@@ -3,7 +3,9 @@ package org.smartregister.kdp.contract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.smartregister.kdp.pojo.RecordCovidDefaulterForm;
 import org.smartregister.kdp.pojo.RecordDefaulterForm;
+import org.smartregister.kdp.pojo.UpdateCovidDefaulterForm;
 import org.smartregister.kdp.pojo.UpdateDefaulterForm;
 import org.smartregister.opd.contract.OpdProfileOverviewFragmentContract;
 import org.smartregister.opd.pojo.OpdDetails;
@@ -13,7 +15,7 @@ import java.util.Map;
 
 public interface KipOpdProfileOverviewFragmentContract extends OpdProfileOverviewFragmentContract {
     interface Presenter extends OpdProfileOverviewFragmentContract.Presenter {
-        void loadOverviewDataAndDisplay(@Nullable Map<String, String> opdCheckIn, @Nullable OpdVisit opdVisit, @Nullable OpdDetails opdDetails, @NonNull RecordDefaulterForm recordDefaulterForm, @NonNull UpdateDefaulterForm updateDefaulterForm, @NonNull final OnFinishedCallback onFinishedCallback);
+        void loadOverviewDataAndDisplay(@Nullable Map<String, String> opdCheckIn, @Nullable OpdVisit opdVisit, @Nullable OpdDetails opdDetails, @NonNull RecordDefaulterForm recordDefaulterForm, @NonNull UpdateDefaulterForm updateDefaulterForm, RecordCovidDefaulterForm recordCovidDefaulterForm, UpdateCovidDefaulterForm updateCovidDefaulterForm, @NonNull final OnFinishedCallback onFinishedCallback);
     }
 
     interface View extends OpdProfileOverviewFragmentContract.View {
@@ -23,7 +25,7 @@ public interface KipOpdProfileOverviewFragmentContract extends OpdProfileOvervie
         void fetchLastCheckAndVisit(@NonNull String baseEntityId, @NonNull KipOpdProfileOverviewFragmentContract.Model.OnFetchedCallback onFetchedCallback);
 
         interface OnFetchedCallback {
-            void onFetched(@Nullable Map<String, String> opdCheckIn, @Nullable OpdVisit opdVisit, @Nullable OpdDetails opdDetails, @NonNull RecordDefaulterForm recordDefaulterForm, @NonNull UpdateDefaulterForm updateDefaulterForm);
+            void onFetched(@Nullable Map<String, String> opdCheckIn, @Nullable OpdVisit opdVisit, @Nullable OpdDetails opdDetails, @NonNull RecordDefaulterForm recordDefaulterForm, @NonNull UpdateDefaulterForm updateDefaulterForm, @NonNull RecordCovidDefaulterForm recordCovidDefaulterForm, @NonNull UpdateCovidDefaulterForm updateCovidDefaulterForm);
         }
     }
 }

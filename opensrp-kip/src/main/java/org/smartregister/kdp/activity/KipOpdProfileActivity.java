@@ -219,7 +219,7 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
     }
 
     public void openCovid19Forms(String form) {
-        ((KipOpdProfileActivityPresenter) this.presenter).startForm(form, Objects.requireNonNull(getClient()));
+        ((KipOpdProfileActivityPresenter) this.presenter).startForm(KipConstants.JSON_FORM.OPD_COVID_DEFAULTER_FORM, Objects.requireNonNull(getClient()));
     }
 
 }

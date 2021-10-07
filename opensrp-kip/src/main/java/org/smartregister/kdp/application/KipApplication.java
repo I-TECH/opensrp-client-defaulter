@@ -33,7 +33,6 @@ import org.smartregister.kdp.processor.KipProcessorForJava;
 import org.smartregister.kdp.repository.ClientRegisterTypeRepository;
 import org.smartregister.kdp.repository.KipOpdVisitSummaryRepository;
 import org.smartregister.kdp.repository.KipRepository;
-import org.smartregister.kdp.repository.OpdSMSReminderFormRepository;
 import org.smartregister.kdp.repository.RecordCovidDefaulterFormRepository;
 import org.smartregister.kdp.repository.RecordDefaulterFormRepository;
 import org.smartregister.kdp.repository.UpdateCovidDefaulterFormRepository;
@@ -75,7 +74,6 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
     private ECSyncHelper ecSyncHelper;
     private ClientRegisterTypeRepository registerTypeRepository;
     private KipOpdVisitSummaryRepository kipOpdVisitSummaryRepository;
-    private OpdSMSReminderFormRepository opdSMSReminderFormRepository;
     private RecordDefaulterFormRepository recordDefaulterFormRepository;
     private UpdateDefaulterFormRepository updateDefaulterFormRepository;
     private RecordCovidDefaulterFormRepository recordCovidDefaulterFormRepository;
@@ -190,6 +188,8 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
                 .addOpdFormProcessingClass(KipConstants.EventType.OPD_SMS_REMINDER, new KipMiniProcessor())
                 .addOpdFormProcessingClass(KipConstants.EventType.RECORD_DEFAULTER_FORM, new KipMiniProcessor())
                 .addOpdFormProcessingClass(KipConstants.EventType.UPDATE_DEFAULT, new KipMiniProcessor())
+                .addOpdFormProcessingClass(KipConstants.EventType.UPDATE_COVID_DEFAULT, new KipMiniProcessor())
+                .addOpdFormProcessingClass(KipConstants.EventType.RECORD_COVID_DEFAULTER_FORM, new KipMiniProcessor())
                 .build();
 
         OpdLibrary.init(context, getRepository(), opdConfiguration, BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
@@ -269,13 +269,6 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
             ecSyncHelper = ECSyncHelper.getInstance(getApplicationContext());
         }
         return ecSyncHelper;
-    }
-
-    public OpdSMSReminderFormRepository opdSMSReminderFormRepository(){
-        if (opdSMSReminderFormRepository == null){
-            opdSMSReminderFormRepository = new OpdSMSReminderFormRepository();
-        }
-        return opdSMSReminderFormRepository;
     }
 
     public RecordDefaulterFormRepository lastVaccineGivenFormRepository(){

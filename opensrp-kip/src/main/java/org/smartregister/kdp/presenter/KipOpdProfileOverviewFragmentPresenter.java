@@ -8,7 +8,9 @@ import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.kdp.application.KipApplication;
 import org.smartregister.kdp.contract.KipOpdProfileOverviewFragmentContract;
 import org.smartregister.kdp.model.KipOpdProfileOverviewFragmentModel;
+import org.smartregister.kdp.pojo.RecordCovidDefaulterForm;
 import org.smartregister.kdp.pojo.RecordDefaulterForm;
+import org.smartregister.kdp.pojo.UpdateCovidDefaulterForm;
 import org.smartregister.kdp.pojo.UpdateDefaulterForm;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.opd.OpdLibrary;
@@ -44,11 +46,12 @@ public class KipOpdProfileOverviewFragmentPresenter extends OpdProfileOverviewFr
 
     @Override
     public void loadOverviewFacts(@NonNull String baseEntityId, @NonNull final OnFinishedCallback onFinishedCallback) {
-        model.fetchLastCheckAndVisit(baseEntityId, (opdCheckIn, opdVisit, opdDetails,recordDefaulterForm, updateDefaulterForm) -> loadOverviewDataAndDisplay(opdCheckIn, opdVisit, opdDetails, recordDefaulterForm, updateDefaulterForm, onFinishedCallback));
+        model.fetchLastCheckAndVisit(baseEntityId, (opdCheckIn, opdVisit, opdDetails,recordDefaulterForm, updateDefaulterForm, recordCovidDefaulterForm,updateCovidDefaulterForm ) -> loadOverviewDataAndDisplay(opdCheckIn, opdVisit, opdDetails, recordDefaulterForm, updateDefaulterForm,recordCovidDefaulterForm,updateCovidDefaulterForm, onFinishedCallback));
     }
 
     @Override
-    public void loadOverviewDataAndDisplay(@Nullable Map<String, String> opdCheckIn, @Nullable OpdVisit opdVisit, @Nullable OpdDetails opdDetails, @NonNull RecordDefaulterForm recordDefaulterForm, @NonNull UpdateDefaulterForm updateDefaulterForm, @NonNull final OnFinishedCallback onFinishedCallback) {
+    public void loadOverviewDataAndDisplay(@Nullable Map<String, String> opdCheckIn, @Nullable OpdVisit opdVisit, @Nullable OpdDetails opdDetails,
+                                           @NonNull RecordDefaulterForm recordDefaulterForm, @NonNull UpdateDefaulterForm updateDefaulterForm, @NonNull RecordCovidDefaulterForm recordCovidDefaulterForm, @NonNull UpdateCovidDefaulterForm updateCovidDefaulterForm, @NonNull final OnFinishedCallback onFinishedCallback) {
         List<YamlConfigWrapper> yamlConfigListGlobal = new ArrayList<>(); //This makes sure no data duplication happens
         Facts facts = new Facts();
         setDataFromCheckIn(opdCheckIn, opdVisit, opdDetails, facts);
@@ -59,6 +62,14 @@ public class KipOpdProfileOverviewFragmentPresenter extends OpdProfileOverviewFr
 
         if (updateDefaulterForm != null){
             generateUpdateDefaulterFormFacts(updateDefaulterForm, facts);
+        }
+
+        if (recordCovidDefaulterForm != null){
+            generateRecordCovidDefaulterFormFacts(recordCovidDefaulterForm, facts);
+        }
+
+        if (updateCovidDefaulterForm != null){
+            generateUpdateCovidDefaulterFormFacts(updateCovidDefaulterForm, facts);
         }
 
         try {
@@ -94,6 +105,26 @@ public class KipOpdProfileOverviewFragmentPresenter extends OpdProfileOverviewFr
         OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_ADMINISTRATION_DATE, updateDefaulterForm.getOtherFacilityAdministrationDate());
         OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_NAME, updateDefaulterForm.getOtherFacilityName());
         OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateDefaulterForm.DATE_TO_CONFIRM_VACCINATION, updateDefaulterForm.getDateToConfirmVaccination());
+    }
+
+    public void generateRecordCovidDefaulterFormFacts(@Nullable RecordCovidDefaulterForm recordDefaulterForm, @NonNull Facts facts){
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_ANTIGEN_ADMINISTERED_LAST, recordDefaulterForm.getCovidAntigenAdministeredLast());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_ADMINISTRATION_DATE, recordDefaulterForm.getCovidAdministrationDate());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_MISSED_VACCINE, recordDefaulterForm.getCovidMissedDoses());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_RETURN_DATE, recordDefaulterForm.getCovidReturnDate());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_CHV_NAME, recordDefaulterForm.getCovidChvName());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.COVID_CHV_PHONE_NUMBER, recordDefaulterForm.getCovidChvPhoneNumber());
+    }
+
+    public void generateUpdateCovidDefaulterFormFacts(@Nullable UpdateCovidDefaulterForm updateDefaulterForm, @NonNull Facts facts){
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_PHONE_TRACING_OUTCOME, updateDefaulterForm.getCovidPhoneTracingOutcome());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_PHYSICAL_TRACING_OUTCOME, updateDefaulterForm.getCovidPhysicalTracingOutcome());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_PHONE_TRACING, updateDefaulterForm.getCovidPhoneTracing());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_PHYSICAL_TRACING, updateDefaulterForm.getCovidPhysicalTracing());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_HOME_ADMINISTRATION_DATE, updateDefaulterForm.getCovidHomeAdministrationDate());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_OTHER_FACILITY_ADMINISTRATION_DATE, updateDefaulterForm.getCovidOtherFacilityAdministrationDate());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_OTHER_FACILITY_NAME, updateDefaulterForm.getCovidOtherFacilityName());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.COVID_DATE_TO_CONFIRM_VACCINATION, updateDefaulterForm.getCovidDateToConfirmVaccination());
     }
 
     private void generateYamlConfigList(@NonNull Facts facts, @NonNull List<YamlConfigWrapper> yamlConfigListGlobal) throws IOException {
@@ -156,5 +187,4 @@ public class KipOpdProfileOverviewFragmentPresenter extends OpdProfileOverviewFr
         facts.put(OpdDbConstants.Column.OpdDetails.PENDING_DIAGNOSE_AND_TREAT, !shouldCheckIn);
 
     }
-
 }

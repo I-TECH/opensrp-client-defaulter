@@ -112,7 +112,7 @@ public class UpdateCovidDefaulterFormRepository extends BaseRepository implement
     @Override
     public boolean delete(UpdateCovidDefaulterForm updateDefaulterForm) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        int rows = sqLiteDatabase.delete(KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE
+        int rows = sqLiteDatabase.delete(KipConstants.DbConstants.Tables.UPDATE_COVID_DEFAULTER_FORM_TABLE
                 , KipConstants.DbConstants.Columns.RecordCovidDefaulerForm.BASE_ENTITY_ID + " = ? "
                 , new String[]{updateDefaulterForm.getBaseEntityId()});
 
@@ -126,7 +126,7 @@ public class UpdateCovidDefaulterFormRepository extends BaseRepository implement
 
     public UpdateCovidDefaulterForm findOneByVisit(UpdateCovidDefaulterForm updateDefaulterForm) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.query(KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE
+        Cursor cursor = sqLiteDatabase.query(KipConstants.DbConstants.Tables.UPDATE_COVID_DEFAULTER_FORM_TABLE
                 , columns
                 , KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.BASE_ENTITY_ID + " = ? AND " + KipConstants.DbConstants.Columns.UpdateCovidDefaulterForm.VISIT_ID + " = ?"
                 , new String[]{updateDefaulterForm.getBaseEntityId(), updateDefaulterForm.getVisitId()}

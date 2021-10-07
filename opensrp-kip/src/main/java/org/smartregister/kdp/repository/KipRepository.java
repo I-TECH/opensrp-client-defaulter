@@ -153,7 +153,6 @@ public class KipRepository extends Repository {
 
     private void upgradeToVersion9(@NonNull SQLiteDatabase db) {
         try {
-            OpdSMSReminderFormRepository.updateIndex(db);
             RecordDefaulterFormRepository.updateIndex(db);
             UpdateDefaulterFormRepository.updateIndex(db);
             RecordCovidDefaulterFormRepository.updateIndex(db);

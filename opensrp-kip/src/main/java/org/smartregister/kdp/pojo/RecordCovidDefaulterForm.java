@@ -11,7 +11,6 @@ public class RecordCovidDefaulterForm {
     private String covidReturnDate;
     private String covidChvName;
     private String covidChvPhoneNumber;
-    private String covidBirthDoseAntigen;
     private String age;
     private String date;
     private String createdAt;
@@ -21,7 +20,7 @@ public class RecordCovidDefaulterForm {
 
     public RecordCovidDefaulterForm(String id, String baseEntityId, String visitId, String covidAntigenAdministeredLast,
                                     String covidAdministrationDate, String covidMissedDoses, String covidReturnDate, String covidChvName,
-                                    String covidChvPhoneNumber, String covidBirthDoseAntigen, String age, String date, String createdAt) {
+                                    String covidChvPhoneNumber, String age, String date, String createdAt) {
         this.id = id;
         this.baseEntityId = baseEntityId;
         this.visitId = visitId;
@@ -31,7 +30,6 @@ public class RecordCovidDefaulterForm {
         this.covidReturnDate = covidReturnDate;
         this.covidChvName = covidChvName;
         this.covidChvPhoneNumber = covidChvPhoneNumber;
-        this.covidBirthDoseAntigen = covidBirthDoseAntigen;
         this.age = age;
         this.date = date;
         this.createdAt = createdAt;
@@ -107,14 +105,6 @@ public class RecordCovidDefaulterForm {
 
     public void setCovidChvPhoneNumber(String covidChvPhoneNumber) {
         this.covidChvPhoneNumber = covidChvPhoneNumber;
-    }
-
-    public String getCovidBirthDoseAntigen() {
-        return covidBirthDoseAntigen;
-    }
-
-    public void setCovidBirthDoseAntigen(String covidBirthDoseAntigen) {
-        this.covidBirthDoseAntigen = covidBirthDoseAntigen;
     }
 
     public String getAge() {
