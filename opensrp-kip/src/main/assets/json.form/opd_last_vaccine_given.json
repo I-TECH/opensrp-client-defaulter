@@ -54,7 +54,7 @@
     }
   },
   "step1": {
-    "title": "Record Defaulter Form",
+    "title": "Record KEPI Defaulter Form",
     "fields": [
       {
         "key": "antigen_administered_last",

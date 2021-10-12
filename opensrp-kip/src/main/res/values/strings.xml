@@ -162,8 +162,8 @@
     <string name="tracing_Mode">Mode of Tracing Form </string>
     <string name="record_covid_defaulter_form">Record Covid 19 Defaulter Form</string>
 
-    <string name="record_defaulter_form">Record Defaulter Form</string>
-    <string name="update_defaulter_form">Update Defaulter Tracing Form</string>
+    <string name="record_defaulter_form">Record KEPI Defaulter Form</string>
+    <string name="update_defaulter_form">Update KEPI Defaulter Tracing Form</string>
 
     <string name="start_tracing">START TRACING</string>
     <string name="opd_checked_in">TRACING DEFAULTER</string>

@@ -186,10 +186,24 @@
           }
         },
         {
+          "column_name": "phone_number_covid",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.phone_number_covid"
+          }
+        },
+        {
           "column_name": "reminders",
           "type": "Client",
           "json_mapping": {
             "field": "attributes.reminders"
+          }
+        },
+        {
+          "column_name": "covid_19_defaulter",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.covid_19_defaulter"
           }
         },
         {

@@ -107,7 +107,7 @@ public class KipMiniProcessor implements OpdFormProcessor<List<Event>> {
     private void closeOpdVisit(String entityId, FormTag formTag, String visitId, List<Event> eventList) {
         Event closeOpdVisit = JsonFormUtils.createEvent(new JSONArray(), new JSONObject(), formTag, entityId, OpdConstants.EventType.CLOSE_OPD_VISIT, "");
         closeOpdVisit.setEventType(OpdConstants.EventType.CLOSE_OPD_VISIT);
-        closeOpdVisit.setEntityType(OpdConstants.EventType.CLOSE_OPD_VISIT);
+//        closeOpdVisit.setEntityType(OpdConstants.EventType.CLOSE_OPD_VISIT);
         OpdJsonFormUtils.tagSyncMetadata(closeOpdVisit);
         closeOpdVisit.addDetails(OpdConstants.JSON_FORM_KEY.VISIT_ID, visitId);
         closeOpdVisit.addDetails(OpdConstants.JSON_FORM_KEY.VISIT_END_DATE, OpdUtils.convertDate(new Date(), OpdConstants.DateFormat.YYYY_MM_DD_HH_MM_SS));

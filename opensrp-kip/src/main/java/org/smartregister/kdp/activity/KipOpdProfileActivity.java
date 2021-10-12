@@ -199,6 +199,22 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
         return isCovidDefaulter;
     }
 
+    public boolean getCovid19Defaulter(){
+        boolean isCovidDefaulter = false;
+        Map<String, String> details = getPatientDetails();
+        String covidDefaulter = details.get("covid_19_defaulter");
+        if (StringUtils.isNotEmpty(covidDefaulter) && covidDefaulter.equalsIgnoreCase(covid19Defaulter())){
+            isCovidDefaulter = true;
+        }
+        return isCovidDefaulter;
+    }
+
+    private String covid19Defaulter(){
+        Map<String, String> details = getPatientDetails();
+        String covidDefaulter = details.get("covid_19_defaulter");
+        return covidDefaulter;
+    }
+
     public boolean getDefaulterUpdateStatus(){
         boolean isDefaulterStatus = false;
         Map<String, String> details = getPatientDetails();
@@ -220,6 +236,10 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
 
     public void openCovid19Forms(String form) {
         ((KipOpdProfileActivityPresenter) this.presenter).startForm(KipConstants.JSON_FORM.OPD_COVID_DEFAULTER_FORM, Objects.requireNonNull(getClient()));
+    }
+
+    public void openUpdateCovid19Forms(String form) {
+        ((KipOpdProfileActivityPresenter) this.presenter).startForm(KipConstants.JSON_FORM.OPD_UPDATE_COVID_DEFAULTER_FORM, Objects.requireNonNull(getClient()));
     }
 
 }

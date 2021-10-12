@@ -54,7 +54,7 @@
     }
   },
   "step1": {
-    "title": "Update Tracing Outcome",
+    "title": "Update KEPI Tracing Outcome",
     "fields": [
       {
         "key": "phone_tracing",
