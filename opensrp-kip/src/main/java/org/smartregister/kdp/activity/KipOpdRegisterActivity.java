@@ -3,6 +3,7 @@ package org.smartregister.kdp.activity;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
@@ -13,6 +14,7 @@ import org.smartregister.AllConstants;
 import org.smartregister.kdp.R;
 import org.smartregister.kdp.contract.NavigationMenuContract;
 import org.smartregister.kdp.fragment.KipOpdRegisterFragment;
+import org.smartregister.kdp.fragment.MeFragment;
 import org.smartregister.kdp.presenter.KipOpdRegisterActivityPresenter;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.kdp.view.NavDrawerActivity;
@@ -101,31 +103,18 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
 
                 JSONObject form = new JSONObject(jsonString);
                 String encounterType = form.getString(OpdJsonFormUtils.ENCOUNTER_TYPE);
-                switch (encounterType) {
-                    case OpdConstants.EventType.CHECK_IN:
-                        showProgressDialog(org.smartregister.opd.R.string.saving_dialog_title);
-                        ((OpdProfileActivityPresenter) presenter).saveVisitOrDiagnosisForm(encounterType, data);
-                        break;
-                    case OpdConstants.EventType.DIAGNOSIS_AND_TREAT:
-                        showProgressDialog(org.smartregister.opd.R.string.saving_dialog_title);
-                        ((OpdProfileActivityPresenter) presenter).saveVisitOrDiagnosisForm(encounterType, data);
-                        break;
-                    case OpdConstants.EventType.UPDATE_OPD_REGISTRATION:
-                        showProgressDialog(org.smartregister.opd.R.string.saving_dialog_title);
-
-                        RegisterParams registerParam = new RegisterParams();
-                        registerParam.setEditMode(true);
-                        registerParam.setFormTag(OpdJsonFormUtils.formTag(OpdUtils.context().allSharedPreferences()));
-                        showProgressDialog(org.smartregister.opd.R.string.saving_dialog_title);
-
-                        ((OpdProfileActivityPresenter) presenter).saveUpdateRegistrationForm(jsonString, registerParam);
-                        break;
-                    case OpdConstants.EventType.OPD_CLOSE:
-                        showProgressDialog(org.smartregister.opd.R.string.saving_dialog_title);
-                        ((OpdProfileActivityPresenter) this.presenter).saveCloseForm(encounterType, data);
-                        break;
-                    default:
-                        break;
+                if (encounterType.equals(OpdUtils.metadata().getRegisterEventType())) {
+                    RegisterParams registerParam = new RegisterParams();
+                    registerParam.setEditMode(false);
+                    registerParam.setFormTag(OpdJsonFormUtils.formTag(OpdUtils.context().allSharedPreferences()));
+                    showProgressDialog(R.string.saving_dialog_title);
+                    presenter().saveForm(jsonString, registerParam);
+                } else if (encounterType.equals(OpdConstants.EventType.CHECK_IN)) {
+                    showProgressDialog(R.string.saving_dialog_title);
+                    presenter().saveVisitOrDiagnosisForm(encounterType, data);
+                } else if (encounterType.equals(OpdConstants.EventType.DIAGNOSIS_AND_TREAT)) {
+                    showProgressDialog(R.string.saving_dialog_title);
+                    presenter().saveVisitOrDiagnosisForm(encounterType, data);
                 }
 
             } catch (JSONException e) {
@@ -225,5 +214,15 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
     @Override
     public void startRegistration() {
         //Do nothing
+    }
+
+    @Override
+    protected Fragment[] getOtherFragments() {
+        ME_POSITION = 1;
+
+        Fragment[] fragments = new Fragment[1];
+        fragments[ME_POSITION - 1] = new MeFragment();
+
+        return fragments;
     }
 }
