@@ -54,7 +54,7 @@
     }
   },
   "step1": {
-    "title": "Update Tracing Outcome",
+    "title": "Update KEPI Tracing Outcome",
     "fields": [
       {
         "key": "phone_tracing",
@@ -121,9 +121,9 @@
       {
         "key": "phone_tracing_outcome",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
+        "openmrs_entity": "",
         "openmrs_entity_id": "",
-        "openmrs_data_type": "select one",
+        "openmrs_data_type": "",
         "type": "native_radio",
         "hint": "Select Tracing Outcome",
         "options": [
@@ -142,6 +142,12 @@
           {
             "key": "not_vaccinated",
             "text": "Not Vaccinated",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "deceased",
+            "text": "Deceased",
             "openmrs_entity": "",
             "openmrs_entity_id": ""
           }
@@ -161,9 +167,9 @@
       {
         "key": "physical_tracing_outcome",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
+        "openmrs_entity": "",
         "openmrs_entity_id": "",
-        "openmrs_data_type": "select one",
+        "openmrs_data_type": "",
         "type": "native_radio",
         "hint": "Select Tracing Outcome",
         "options": [
@@ -182,6 +188,12 @@
           {
             "key": "not_vaccinated",
             "text": "Not Vaccinated",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "deceased",
+            "text": "Deceased",
             "openmrs_entity": "",
             "openmrs_entity_id": ""
           },

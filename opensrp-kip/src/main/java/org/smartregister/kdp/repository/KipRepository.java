@@ -62,7 +62,7 @@ public class KipRepository extends Repository {
         ClientRegisterTypeRepository.createTable(database);
         runLegacyUpgrades(database);
 
-        onUpgrade(database, 10, BuildConfig.DATABASE_VERSION);
+        onUpgrade(database, 11, BuildConfig.DATABASE_VERSION);
     }
 
 
