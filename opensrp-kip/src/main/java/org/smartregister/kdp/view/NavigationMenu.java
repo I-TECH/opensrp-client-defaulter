@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.github.ybq.android.spinkit.style.FadingCircle;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
 import org.smartregister.domain.FetchStatus;
 import org.smartregister.kdp.R;
 import org.smartregister.kdp.adapter.NavigationAdapter;
@@ -34,6 +35,7 @@ import org.smartregister.kdp.contract.NavigationContract;
 import org.smartregister.kdp.listener.OnLocationChangeListener;
 import org.smartregister.kdp.model.NavigationOption;
 import org.smartregister.kdp.presenter.NavigationPresenter;
+import org.smartregister.kdp.service.FormatClientOpensrpId;
 import org.smartregister.kdp.util.KipChildUtils;
 import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.receiver.SyncStatusBroadcastReceiver;
@@ -254,6 +256,12 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         View.OnClickListener syncClicker = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FormatClientOpensrpId opensrpId = new FormatClientOpensrpId();
+                try {
+                    opensrpId.getClientsJson();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(parentActivity, parentActivity.getResources().getText(R.string.action_start_sync),
                         Toast.LENGTH_SHORT).show();
                 mPresenter.sync(parentActivity);

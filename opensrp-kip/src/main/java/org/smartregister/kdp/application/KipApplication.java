@@ -31,6 +31,7 @@ import org.smartregister.kdp.job.KipJobCreator;
 import org.smartregister.kdp.processor.KipMiniProcessor;
 import org.smartregister.kdp.processor.KipProcessorForJava;
 import org.smartregister.kdp.repository.ClientRegisterTypeRepository;
+import org.smartregister.kdp.repository.FormatSqlClientRepository;
 import org.smartregister.kdp.repository.KipOpdVisitSummaryRepository;
 import org.smartregister.kdp.repository.KipRepository;
 import org.smartregister.kdp.repository.OpdSMSReminderFormRepository;
@@ -76,6 +77,7 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
     private OpdSMSReminderFormRepository opdSMSReminderFormRepository;
     private RecordDefaulterFormRepository recordDefaulterFormRepository;
     private UpdateDefaulterFormRepository updateDefaulterFormRepository;
+    private FormatSqlClientRepository formatSqlClientRepository;
 
 
     public static JsonSpecHelper getJsonSpecHelper() {
@@ -300,6 +302,13 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
             this.registerTypeRepository = new ClientRegisterTypeRepository();
         }
         return this.registerTypeRepository;
+    }
+
+    public FormatSqlClientRepository formatSqlDateRepository(){
+        if (formatSqlClientRepository == null){
+            formatSqlClientRepository = new FormatSqlClientRepository();
+        }
+        return formatSqlClientRepository;
     }
 
     /**
