@@ -108,6 +108,7 @@
     <string name="action_start_sync">Sync Started</string>
     <string name="all_registers">All Registers</string>
     <string name="menu_child_clients">KEPI Clients</string>
+    <string name="re_sync_data">Re Sync</string>
 
 
     <string name="menu_anc_clients">ANC Clients</string>

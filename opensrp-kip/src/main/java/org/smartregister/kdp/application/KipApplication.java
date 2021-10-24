@@ -31,6 +31,7 @@ import org.smartregister.kdp.job.KipJobCreator;
 import org.smartregister.kdp.processor.KipMiniProcessor;
 import org.smartregister.kdp.processor.KipProcessorForJava;
 import org.smartregister.kdp.repository.ClientRegisterTypeRepository;
+import org.smartregister.kdp.repository.FormatSqlClientRepository;
 import org.smartregister.kdp.repository.KipOpdVisitSummaryRepository;
 import org.smartregister.kdp.repository.KipRepository;
 import org.smartregister.kdp.repository.RecordCovidDefaulterFormRepository;
@@ -78,6 +79,7 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
     private UpdateDefaulterFormRepository updateDefaulterFormRepository;
     private RecordCovidDefaulterFormRepository recordCovidDefaulterFormRepository;
     private UpdateCovidDefaulterFormRepository updateCovidDefaulterFormRepository;
+    private FormatSqlClientRepository formatSqlClientRepository;
 
 
     public static JsonSpecHelper getJsonSpecHelper() {
@@ -158,6 +160,7 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
         CoreLibrary.init(context, new KipSyncConfiguration(), BuildConfig.BUILD_TIMESTAMP);
 
         ConfigurableViewsLibrary.init(context);
+
 
         setupOpdLibrary();
 
@@ -312,6 +315,13 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
             this.registerTypeRepository = new ClientRegisterTypeRepository();
         }
         return this.registerTypeRepository;
+    }
+
+    public FormatSqlClientRepository formatSqlDateRepository(){
+        if (formatSqlClientRepository == null){
+            formatSqlClientRepository = new FormatSqlClientRepository();
+        }
+        return formatSqlClientRepository;
     }
 
     /**

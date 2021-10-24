@@ -61,6 +61,7 @@
         "openmrs_entity_id": "covid_19_defaulter",
         "openmrs_data_type": "select one",
         "type": "check_box",
+        "type": "hidden",
         "options": [
           {
             "key" : "isCovid19Defaulter",
@@ -122,6 +123,22 @@
         }
       },
       {
+        "key": "age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "age",
+        "type": "hidden",
+        "read_only": true,
+        "hint": "Client's Age",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_calculation_rules.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "Sex",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person",
@@ -159,6 +176,7 @@
         "openmrs_entity": "person_attribute",
         "openmrs_entity_id": "phone_number",
         "type": "edit_text",
+        "type": "hidden",
         "hint": "Phone number",
         "v_numeric": {
           "value": "true",
