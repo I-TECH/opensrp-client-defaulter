@@ -3,6 +3,7 @@ package org.smartregister.kdp.activity;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
@@ -12,6 +13,7 @@ import org.json.JSONObject;
 import org.smartregister.AllConstants;
 import org.smartregister.kdp.R;
 import org.smartregister.kdp.contract.NavigationMenuContract;
+import org.smartregister.kdp.fragment.MeFragment;
 import org.smartregister.kdp.fragment.KipOpdRegisterFragment;
 import org.smartregister.kdp.presenter.KipOpdRegisterActivityPresenter;
 import org.smartregister.kdp.util.KipConstants;
@@ -211,5 +213,15 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
     @Override
     public void startRegistration() {
         //Do nothing
+    }
+
+    @Override
+    protected Fragment[] getOtherFragments() {
+        ME_POSITION = 1;
+
+        Fragment[] fragments = new Fragment[1];
+        fragments[ME_POSITION - 1] = new MeFragment();
+
+        return fragments;
     }
 }

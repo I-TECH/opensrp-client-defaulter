@@ -215,11 +215,7 @@
         "type": "edit_text",
         "edit_type": "text",
         "label": "Name of CHV assigned",
-        "hint": "Name of CHV assigned",
-        "v_required": {
-          "value": true,
-          "err": "Name of CHV assigned"
-        }
+        "hint": "Name of CHV assigned"
       },
       {
         "key": "chv_phone_number",
