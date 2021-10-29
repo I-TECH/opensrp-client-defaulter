@@ -1,0 +1,23 @@
+---
+name: step1_Permanent_Register_Number
+description: Permanent_Register_Number
+priority: 1
+condition: "step1_covid_19_defaulter != '' && step1_covid_19_defaulter == 'KEPI'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_phone_number
+description: phone_number
+priority: 1
+condition: "step1_covid_19_defaulter != '' && step1_covid_19_defaulter == 'KEPI'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_phone_number_covid
+description: phone_number_covid
+priority: 1
+condition: "step1_covid_19_defaulter != '' && step1_covid_19_defaulter == 'Covid 19'"
+actions:
+  - "isRelevant = true"

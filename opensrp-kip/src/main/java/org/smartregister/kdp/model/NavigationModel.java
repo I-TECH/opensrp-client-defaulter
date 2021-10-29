@@ -31,6 +31,20 @@ public class NavigationModel implements NavigationContract.Model {
             if (opdNavigationOption.isEnabled()) {
                 navigationOptions.add(opdNavigationOption);
             }
+
+            NavigationOption childNavigationOption = new NavigationOption(R.mipmap.sidemenu_children,
+                    R.mipmap.sidemenu_children_active, R.string.menu_child_clients, KipConstants.DrawerMenu.KEPI_CLIENT,
+                    0, true);
+            if (childNavigationOption.isEnabled()) {
+                navigationOptions.add(childNavigationOption);
+            }
+
+            NavigationOption covidNavigationOption = new NavigationOption(R.mipmap.sidemenu_children,
+                    R.mipmap.sidemenu_children_active, R.string.covid_client, KipConstants.DrawerMenu.COVID_19_CLIENT,
+                    0, true);
+            if (covidNavigationOption.isEnabled()) {
+                navigationOptions.add(covidNavigationOption);
+            }
         }
 
         return navigationOptions;

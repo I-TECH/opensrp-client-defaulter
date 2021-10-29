@@ -58,17 +58,18 @@
         "key": "covid_19_defaulter",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
-        "openmrs_entity_id": "covid_19_defaulter",
+        "openmrs_entity_id": "",
         "openmrs_data_type": "select one",
-        "type": "check_box",
-        "type": "hidden",
-        "options": [
-          {
-            "key" : "isCovid19Defaulter",
-            "text": "Enroll as a Covid 19 Defaulter",
-            "value": "false"
-          }
-        ]
+        "type": "spinner",
+        "hint": "Defaulter Category",
+        "values": [
+          "KEPI",
+          "Covid 19"
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please Select Category"
+        }
       },
       {
         "key": "First_Name",
@@ -168,6 +169,13 @@
         "v_regex": {
           "value": "([0][0-9]{9})|\\s*",
           "err": "Number must begin with 0 and must be a total of 10 digits in length"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_registration_relevance.yml"
+            }
+          }
         }
       },
       {
@@ -176,7 +184,6 @@
         "openmrs_entity": "person_attribute",
         "openmrs_entity_id": "phone_number",
         "type": "edit_text",
-        "type": "hidden",
         "hint": "Phone number",
         "v_numeric": {
           "value": "true",
@@ -185,6 +192,13 @@
         "v_regex": {
           "value": "([0][0-9]{9})|\\s*",
           "err": "Number must begin with 0 and must be a total of 10 digits in length"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_registration_relevance.yml"
+            }
+          }
         }
       },
       {
@@ -194,7 +208,14 @@
         "openmrs_entity_id": "PERMANENT_REGISTER_NUMBER",
         "type": "edit_text",
         "hint": "Permanent register number",
-        "edit_type": "name"
+        "edit_type": "name",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_registration_relevance.yml"
+            }
+          }
+        }
       },
       {
         "key": "OPENSRP_ID",
