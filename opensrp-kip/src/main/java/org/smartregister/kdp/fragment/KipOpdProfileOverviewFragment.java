@@ -113,49 +113,6 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
         }
     }
 
-//    private void checkInActionDialog(String form) {
-//        if (getActivity() != null) {
-//            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//            builder.setTitle("Select an action to proceed");
-//            builder.setItems(formsToOpen(form), (dialog, position) -> {
-//                FragmentActivity activity = getActivity();
-//                if (position == 0) {
-//                    if (activity instanceof KipOpdProfileActivity) {
-//                        ((KipOpdProfileActivity) activity).openDefaulterForms(form);
-//                    }
-//                }
-//                if (position == 1) {
-//                    if (activity instanceof KipOpdProfileActivity) {
-//                        ((KipOpdProfileActivity) activity).openDefaulterForms(form);
-//                    }
-//                }
-//
-//            });
-//
-//            AlertDialog dialog = builder.create();
-//            dialog.show();
-//        }
-//    }
-
-//    private String[] formsToOpen(String form) {
-//        FragmentActivity activity = getActivity();
-//        String[] forms = new String[]{""};
-//
-//        updateFormToDisplay(form, forms);
-//
-//        return forms;
-//    }
-
-//    private void updateFormToDisplay(String form, String[] forms) {
-//
-//        if (form.equalsIgnoreCase(KipConstants.JSON_FORM.OPD_UPDATE_DEFAULTER_FORM )){
-//            forms[0] = getString(R.string.update_defaulter_form);
-//        } else {
-//            forms[0] = getString(R.string.record_defaulter_form);
-//
-//        }
-//    }
-
     private String[] formsToOpen(String form) {
         FragmentActivity activity = getActivity();
         String[] forms = new String[]{"",""};
@@ -224,43 +181,23 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
                                 checkInUpdateDefaulterFormBtn.setVisibility(View.VISIBLE);
                                 showUpdateDefaulterFormBtn();
                             }
-                            if (((KipOpdProfileActivity) activity).getCovidDefaulter()) {
+                             else if (((KipOpdProfileActivity) activity).getCovidDefaulter()) {
                                 checkInUpdateCovidDefaulterFormBtn.setVisibility(View.VISIBLE);
                                 checkInDiagnoseAndTreatBtn.setVisibility(View.GONE);
                                 checkInRecordCovidDefaulterFormBtn.setVisibility(View.GONE);
                                 showUpdateCovidDefaulterFormBtn();
                             }
 
-                            if (((KipOpdProfileActivity) activity).getDefaulterUpdateStatus() || ((KipOpdProfileActivity) activity).getCovid19DefaulterUpdateStatus()){
+                            else{
                                 checkInUpdateCovidDefaulterFormBtn.setVisibility(View.GONE);
-                                checkInDiagnoseAndTreatBtn.setVisibility(View.GONE);
-                                checkInRecordCovidDefaulterFormBtn.setVisibility(View.GONE);
                                 checkInUpdateDefaulterFormBtn.setVisibility(View.GONE);
+                                opdCheckedInTv.setText(R.string.opd_checked_in);
                             }
 
                     } else  {
                         opdCheckedInTv.setText(R.string.defaulter);
                         showCheckInBtn();
                     }
-//
-//                    if (isPendingDiagnoseAndTreat ) {
-//                        opdCheckedInTv.setText(R.string.opd_checked_in);
-//                        showDiagnoseAndTreatBtn();
-//                        if (((KipOpdProfileActivity) activity).getLastVaccineGiven()){
-//                            checkInDiagnoseAndTreatBtn.setVisibility(View.GONE);
-//                            checkInRecordDefaulterFormBtn.setVisibility(View.GONE);
-//                            checkInUpdateDefaulterFormBtn.setVisibility(View.VISIBLE);
-//                            showUpdateDefaulterFormBtn();
-//                        } else {
-//                            checkInUpdateDefaulterFormBtn.setVisibility(View.GONE);
-//                            opdCheckedInTv.setText(R.string.opd_checked_in);
-////                            showCheckInBtn();
-//                        }
-//
-//                    } else  {
-//                        opdCheckedInTv.setText(R.string.defaulter);
-//                        showCheckInBtn();
-//                    }
 
                     OpdProfileOverviewAdapter adapter = new OpdProfileOverviewAdapter(getActivity(), yamlConfigListGlobal, facts);
                     adapter.notifyDataSetChanged();
