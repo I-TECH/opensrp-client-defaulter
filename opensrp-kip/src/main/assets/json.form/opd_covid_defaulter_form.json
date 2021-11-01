@@ -82,8 +82,8 @@
             "openmrs_entity_id": ""
           },
           {
-            "key": "az_oxford",
-            "text": "AZ/Oxford",
+            "key": "astrazeneca",
+            "text": "AstraZeneca",
             "openmrs_entity_parent": "",
             "openmrs_entity": "",
             "openmrs_entity_id": ""
@@ -140,8 +140,8 @@
             "openmrs_entity_id": ""
           },
           {
-            "key": "az_oxford",
-            "text": "AZ/Oxford",
+            "key": "astrazeneca",
+            "text": "AstraZeneca",
             "openmrs_entity_parent": "",
             "openmrs_entity": "",
             "openmrs_entity_id": ""
@@ -180,11 +180,7 @@
         "type": "edit_text",
         "edit_type": "text",
         "label": "Name of CHV assigned",
-        "hint": "Name of CHV assigned",
-        "v_required": {
-          "value": true,
-          "err": "Name of CHV assigned"
-        }
+        "hint": "Name of CHV assigned"
       },
       {
         "key": "covid_chv_phone_number",

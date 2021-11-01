@@ -202,7 +202,7 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
     public boolean getCovid19Defaulter(){
         boolean isCovidDefaulter = false;
         Map<String, String> details = getPatientDetails();
-        String covidDefaulter = details.get("covid_19_defaulter");
+        String covidDefaulter = details.get("category");
         if (StringUtils.isNotEmpty(covidDefaulter) && covidDefaulter.equalsIgnoreCase("Covid 19")){
             isCovidDefaulter = true;
         }
@@ -211,7 +211,7 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
 
     private String covid19Defaulter(){
         Map<String, String> details = getPatientDetails();
-        String covidDefaulter = details.get("covid_19_defaulter");
+        String covidDefaulter = details.get("category");
         return covidDefaulter;
     }
 

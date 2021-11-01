@@ -200,10 +200,10 @@
           }
         },
         {
-          "column_name": "covid_19_defaulter",
+          "column_name": "category",
           "type": "Client",
           "json_mapping": {
-            "field": "attributes.covid_19_defaulter"
+            "field": "attributes.category"
           }
         },
         {

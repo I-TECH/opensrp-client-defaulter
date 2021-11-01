@@ -2,7 +2,7 @@
 name: step1_Permanent_Register_Number
 description: Permanent_Register_Number
 priority: 1
-condition: "step1_covid_19_defaulter != '' && step1_covid_19_defaulter == 'KEPI'"
+condition: "step1_category != '' && step1_category == 'kepi'"
 actions:
   - "isRelevant = true"
 
@@ -10,7 +10,7 @@ actions:
 name: step1_phone_number
 description: phone_number
 priority: 1
-condition: "step1_covid_19_defaulter != '' && step1_covid_19_defaulter == 'KEPI'"
+condition: "step1_category != '' && step1_category == 'KEPI'"
 actions:
   - "isRelevant = true"
 
@@ -18,6 +18,6 @@ actions:
 name: step1_phone_number_covid
 description: phone_number_covid
 priority: 1
-condition: "step1_covid_19_defaulter != '' && step1_covid_19_defaulter == 'Covid 19'"
+condition: "step1_category != '' && step1_category == 'Covid 19'"
 actions:
   - "isRelevant = true"

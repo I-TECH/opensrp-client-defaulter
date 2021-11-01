@@ -55,12 +55,13 @@
     "title": "Defaulter Registration",
     "fields": [
       {
-        "key": "covid_19_defaulter",
+        "key": "category",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
-        "openmrs_entity_id": "",
+        "openmrs_entity_id": "category",
         "openmrs_data_type": "select one",
         "type": "spinner",
+        "label": "Defaulter Category",
         "hint": "Defaulter Category",
         "values": [
           "KEPI",
@@ -182,7 +183,7 @@
         "key": "phone_number_covid",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
-        "openmrs_entity_id": "phone_number",
+        "openmrs_entity_id": "phone_number_covid",
         "type": "edit_text",
         "hint": "Phone number",
         "v_numeric": {
@@ -199,6 +200,10 @@
               "rules-file": "opd/opd_registration_relevance.yml"
             }
           }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the Phone number"
         }
       },
       {
