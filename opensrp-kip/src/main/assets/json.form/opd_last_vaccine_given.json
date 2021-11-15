@@ -108,6 +108,27 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "",
             "openmrs_entity_id": ""
+          },
+          {
+            "key": "malaria_1",
+            "text": "Malaria Dose 1",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "malaria_2",
+            "text": "Malaria Dose 2",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "malaria_3",
+            "text": "Malaria Dose 3",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
           }
         ],
         "v_required": {
@@ -184,6 +205,27 @@
           {
             "key": "HPV_Dose_2",
             "text": "HPV Dose 2",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "malaria_2",
+            "text": "Malaria Dose 2",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "malaria_3",
+            "text": "Malaria Dose 3",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "malaria_4",
+            "text": "Malaria Dose 4",
             "openmrs_entity_parent": "",
             "openmrs_entity": "",
             "openmrs_entity_id": ""
