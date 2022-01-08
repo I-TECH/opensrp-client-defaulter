@@ -958,6 +958,13 @@
           }
         },
         {
+          "column_name": "reason_not_conduct_physical_visit",
+          "type": "Event",
+          "json_mapping": {
+            "field": "reason_not_conduct_physical_visit"
+          }
+        },
+        {
           "column_name": "home_administration_date",
           "type": "Event",
           "json_mapping": {

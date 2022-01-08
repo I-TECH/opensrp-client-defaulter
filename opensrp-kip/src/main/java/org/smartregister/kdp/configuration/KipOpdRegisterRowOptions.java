@@ -11,8 +11,8 @@ import android.widget.Button;
 
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.kdp.R;
+import org.smartregister.kdp.application.KipApplication;
 import org.smartregister.kdp.util.KipConstants;
-import org.smartregister.opd.OpdLibrary;
 import org.smartregister.opd.configuration.OpdRegisterRowOptions;
 import org.smartregister.opd.holders.OpdRegisterViewHolder;
 import org.smartregister.opd.utils.OpdConstants;
@@ -40,8 +40,8 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
         Button dueButton = opdRegisterViewHolder.dueButton;
         if (strVisitEndDate != null) {
             Date visitEndDate = OpdUtils.convertStringToDate(OpdConstants.DateFormat.YYYY_MM_DD_HH_MM_SS, strVisitEndDate);
-            if (visitEndDate != null && OpdLibrary.getInstance().isPatientInTreatedState(visitEndDate)) {
-                String treatedTime = OpdUtils.convertDate(visitEndDate, KipConstants.DateFormat.HH_MM_AMPM);
+            if (visitEndDate != null && KipApplication.getInstance().isPatientInTreatedState(visitEndDate)) {
+                String treatedTime = OpdUtils.convertDate(visitEndDate, KipConstants.DateFormat.YYYY_MM_DD_H_MM_A);
 
                 Context context = dueButton.getContext();
                 dueButton.setText(String.format(context.getResources().getString(R.string.treated_at_time), treatedTime));

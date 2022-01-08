@@ -3,7 +3,7 @@ package org.smartregister.kdp.util;
 public class KipConstants {
 
     public interface DateFormat {
-        String HH_MM_AMPM = "h:mm a";
+        String YYYY_MM_DD_H_MM_A = "yyyy-MM-dd h:mm a";
     }
 
     public interface RegisterType {
@@ -211,6 +211,7 @@ public class KipConstants {
                 String AGE = "age";
                 String CREATED_AT = "created_at";
 
+                String DID_NOT_CONDUCT_A_PHYSICAL_VISIT = "reason_not_conduct_physical_visit";
             }
 
             interface SmsReminder {

@@ -56,6 +56,9 @@ fields:
   - template: "Conducted a Physical Visit for Unreachable Client?: {physical_tracing}"
     relevance: "physical_tracing != ''"
 
+  - template: "Reason Not conduct a physical visit: {reason_not_conduct_physical_visit}"
+    relevance: "reason_not_conduct_physical_visit != ''"
+
 ---
 sub_group: Tracing_Outcome
 fields:

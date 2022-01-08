@@ -285,8 +285,6 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         String age = keyValues.get(KipConstants.DbConstants.Columns.RecordDefaulerForm.AGE);
         String date = keyValues.get(KipConstants.DbConstants.Columns.RecordDefaulerForm.DATE);
 
-        System.out.println();
-
         Date visitDate;
         try {
             visitDate = dateFormat.parse(visitDateString != null ? visitDateString : "");
@@ -341,6 +339,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         String homeAdminDate = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.HOME_ADMINISTRATION_DATE);
         String otherFacilityAdminDate = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_ADMINISTRATION_DATE);
         String otherFacilityName = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_NAME);
+        String didNotConductVisit = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.DID_NOT_CONDUCT_A_PHYSICAL_VISIT);
         String confirmVaccination = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.DATE_TO_CONFIRM_VACCINATION);
         String tracingMode = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.MODE_OF_TRACING);
         String age = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.AGE);
@@ -357,7 +356,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         if (visitDate != null && visitId != null) {
             // Start transaction
             OpdLibrary.getInstance().getRepository().getWritableDatabase().beginTransaction();
-            boolean saved = saveUpdateDefaulterForm(event, visitId, phoneTracingOutcome,physicalTracingOutcome,phoneTracing,physicalTracing,homeAdminDate,otherFacilityName, otherFacilityAdminDate,confirmVaccination,tracingMode,age,date);
+            boolean saved = saveUpdateDefaulterForm(event, visitId, phoneTracingOutcome,physicalTracingOutcome,phoneTracing,physicalTracing,homeAdminDate,otherFacilityName,didNotConductVisit, otherFacilityAdminDate,confirmVaccination,tracingMode,age,date);
             if (!saved) {
                 abortTransaction();
                 throw new UpdateDefaulterTracingException(String.format("Visit (Update Defaulter Tracing) with id %s could not be saved in the db. Fail operation failed", visitId));
@@ -408,7 +407,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         return KipApplication.getInstance().lastVaccineGivenFormRepository().saveOrUpdate(recordDefaulterForm);
     }
 
-    private boolean saveUpdateDefaulterForm(Event event, String visitId, String phoneTracingOutcome,String physicalTracingOutcome,String phoneTracing,String physicalTracing, String homeAdministrationDate, String otherFacilityName, String otherFacilityAdministrationDate, String confirmVaccination, String tracingMode, String age, String date) {
+    private boolean saveUpdateDefaulterForm(Event event, String visitId, String phoneTracingOutcome,String physicalTracingOutcome,String phoneTracing,String physicalTracing, String homeAdministrationDate, String otherFacilityName,String didNotConductVisit, String otherFacilityAdministrationDate, String confirmVaccination, String tracingMode, String age, String date) {
         UpdateDefaulterForm recordDefaulterForm = new UpdateDefaulterForm();
         recordDefaulterForm.setVisitId(visitId);
         recordDefaulterForm.setId(visitId);
@@ -419,6 +418,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         recordDefaulterForm.setPhysicalTracing(physicalTracing);
         recordDefaulterForm.setHomeAdministrationDate(homeAdministrationDate);
         recordDefaulterForm.setOtherFacilityName(otherFacilityName);
+        recordDefaulterForm.setReasonNotConductPhysicalVisit(didNotConductVisit);
         recordDefaulterForm.setOtherFacilityAdministrationDate(otherFacilityAdministrationDate);
         recordDefaulterForm.setDateToConfirmVaccination(confirmVaccination);
         recordDefaulterForm.setModeOfTracing(tracingMode);

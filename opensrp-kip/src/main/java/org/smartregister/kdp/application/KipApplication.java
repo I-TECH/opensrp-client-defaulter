@@ -6,6 +6,7 @@ import android.content.res.Resources;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.util.DisplayMetrics;
@@ -48,6 +49,7 @@ import org.smartregister.opd.pojo.OpdMetadata;
 import org.smartregister.opd.pojo.OpdVisit;
 import org.smartregister.opd.utils.OpdConstants;
 import org.smartregister.opd.utils.OpdDbConstants;
+import org.smartregister.opd.utils.OpdUtils;
 import org.smartregister.receiver.SyncStatusBroadcastReceiver;
 import org.smartregister.repository.Repository;
 import org.smartregister.sync.ClientProcessorForJava;
@@ -321,9 +323,39 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
     @NonNull
     public Date getLatestValidCheckInDate() {
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, -28);
+        calendar.add(Calendar.DAY_OF_MONTH, -14);
 
         return calendar.getTime();
+    }
+
+    public boolean isPatientInTreatedState(@NonNull String strVisitEndDate) {
+        Date visitEndDate = OpdUtils.convertStringToDate(OpdConstants.DateFormat.YYYY_MM_DD_HH_MM_SS, strVisitEndDate);
+        if (visitEndDate != null) {
+            return isPatientInTreatedState(visitEndDate);
+        }
+
+        return false;
+    }
+
+    public boolean isPatientInTreatedState(@NonNull Date visitEndDate) {
+        // Get the midnight of that day when the visit happened
+        Calendar date = Calendar.getInstance();
+        date.setTime(visitEndDate);
+        // reset hour, minutes, seconds and millis
+        date.set(Calendar.HOUR_OF_DAY, 0);
+        date.set(Calendar.MINUTE, 0);
+        date.set(Calendar.SECOND, 0);
+        date.set(Calendar.MILLISECOND, 0);
+
+        // next day
+        date.add(Calendar.DAY_OF_MONTH, 28);
+        return getDateNow().before(date.getTime());
+    }
+
+    @VisibleForTesting
+    @NonNull
+    protected Date getDateNow() {
+        return new Date();
     }
 
     /**
@@ -338,7 +370,7 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
     public boolean canPatientCheckInInsteadOfDiagnoseAndTreat(@Nullable OpdVisit visit, @Nullable OpdDetails opdDetails) {
         Date latestValidCheckInDate = KipApplication.getInstance().getLatestValidCheckInDate();
 
-        // If we are past the 28 days or so, then the status should be check-in
+        // If we are past the 14 days or so, then the status should be check-in
         // If your opd
         return visit == null || visit.getVisitDate().before(latestValidCheckInDate) || (opdDetails != null && opdDetails.getCurrentVisitEndDate() != null);
     }

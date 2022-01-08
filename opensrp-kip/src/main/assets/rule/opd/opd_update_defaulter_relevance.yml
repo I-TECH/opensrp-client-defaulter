@@ -77,3 +77,11 @@ priority: 1
 condition: "step1_physical_tracing != '' && step1_physical_tracing == 'yes_conducted_a_physical_visit'"
 actions:
   - "isRelevant = true"
+
+---
+name: step1_reason_not_conduct_physical_visit
+description: reason_not_conduct_physical_visit
+priority: 1
+condition: "step1_physical_tracing != '' && step1_physical_tracing == 'did_not_conduct_a_physical_visit'"
+actions:
+  - "isRelevant = true"

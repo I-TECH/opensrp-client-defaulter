@@ -119,6 +119,27 @@
         }
       },
       {
+        "key": "reason_not_conduct_physical_visit",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "edit_type": "text",
+        "label": "Reason physical Visit was not conducted",
+        "hint": "Reason physical Visit was not conducted",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please Give a Reason physical Visit was not conducted"
+        }
+      },
+      {
         "key": "phone_tracing_outcome",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",

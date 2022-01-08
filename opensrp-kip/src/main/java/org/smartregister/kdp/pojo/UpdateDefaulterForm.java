@@ -12,6 +12,7 @@ public class UpdateDefaulterForm {
     private String homeAdministrationDate;
     private String otherFacilityAdministrationDate;
     private String otherFacilityName;
+    private String reasonNotConductPhysicalVisit;
     private String dateToConfirmVaccination;
     private String modeOfTracing;
     private String age;
@@ -21,7 +22,7 @@ public class UpdateDefaulterForm {
     public UpdateDefaulterForm() {
     }
 
-    public UpdateDefaulterForm(String id, String baseEntityId, String visitId, String phoneTracingOutcome, String physicalTracingOutcome, String phoneTracing, String physicalTracing, String homeAdministrationDate, String otherFacilityAdministrationDate, String otherFacilityName, String dateToConfirmVaccination, String modeOfTracing, String age, String date, String createdAt) {
+    public UpdateDefaulterForm(String id, String baseEntityId, String visitId, String phoneTracingOutcome, String physicalTracingOutcome, String phoneTracing, String physicalTracing, String homeAdministrationDate, String otherFacilityAdministrationDate, String otherFacilityName, String reasonNotConductPhysicalVisit, String dateToConfirmVaccination, String modeOfTracing, String age, String date, String createdAt) {
         this.id = id;
         this.baseEntityId = baseEntityId;
         this.visitId = visitId;
@@ -32,6 +33,7 @@ public class UpdateDefaulterForm {
         this.homeAdministrationDate = homeAdministrationDate;
         this.otherFacilityAdministrationDate = otherFacilityAdministrationDate;
         this.otherFacilityName = otherFacilityName;
+        this.reasonNotConductPhysicalVisit = reasonNotConductPhysicalVisit;
         this.dateToConfirmVaccination = dateToConfirmVaccination;
         this.modeOfTracing = modeOfTracing;
         this.age = age;
@@ -125,6 +127,14 @@ public class UpdateDefaulterForm {
 
     public void setDateToConfirmVaccination(String dateToConfirmVaccination) {
         this.dateToConfirmVaccination = dateToConfirmVaccination;
+    }
+
+    public String getReasonNotConductPhysicalVisit() {
+        return reasonNotConductPhysicalVisit;
+    }
+
+    public void setReasonNotConductPhysicalVisit(String reasonNotConductPhysicalVisit) {
+        this.reasonNotConductPhysicalVisit = reasonNotConductPhysicalVisit;
     }
 
     public String getModeOfTracing() {

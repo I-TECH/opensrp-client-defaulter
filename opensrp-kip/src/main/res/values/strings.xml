@@ -182,6 +182,7 @@
     <string name="home_administration_date_label">Home Vaccine Administration Date:</string>
     <string name="other_facility_administration_date_label">Other Facility Administration Date:</string>
     <string name="other_facility_name_label">Other Facility Name:</string>
+    <string name="did_not_conduct_a_visit_label">Reason Not conduct a physical visit::</string>
     <string name="date_to_confirm_vaccination_label">Date To Confirm Vaccination:</string>
     <string name="mode_of_tracing_label">Mode of Tracing:</string>
     <string name="defaulter">Defaulter Tracing</string>

@@ -32,6 +32,7 @@ public class UpdateDefaulterFormRepository extends BaseRepository implements Upd
             KipConstants.DbConstants.Columns.UpdateDefaulterForm.HOME_ADMINISTRATION_DATE,
             KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_ADMINISTRATION_DATE,
             KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_NAME,
+            KipConstants.DbConstants.Columns.UpdateDefaulterForm.DID_NOT_CONDUCT_A_PHYSICAL_VISIT,
             KipConstants.DbConstants.Columns.UpdateDefaulterForm.DATE_TO_CONFIRM_VACCINATION,
             KipConstants.DbConstants.Columns.UpdateDefaulterForm.MODE_OF_TRACING,
             KipConstants.DbConstants.Columns.UpdateDefaulterForm.AGE,
@@ -55,6 +56,7 @@ public class UpdateDefaulterFormRepository extends BaseRepository implements Upd
         contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.HOME_ADMINISTRATION_DATE, updateDefaulterForm.getHomeAdministrationDate());
         contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_ADMINISTRATION_DATE, updateDefaulterForm.getOtherFacilityAdministrationDate());
         contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_NAME, updateDefaulterForm.getOtherFacilityName());
+        contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.DID_NOT_CONDUCT_A_PHYSICAL_VISIT, updateDefaulterForm.getReasonNotConductPhysicalVisit());
         contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.DATE_TO_CONFIRM_VACCINATION, updateDefaulterForm.getDateToConfirmVaccination());
         contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.MODE_OF_TRACING, updateDefaulterForm.getModeOfTracing());
         contentValues.put(KipConstants.DbConstants.Columns.UpdateDefaulterForm.AGE, updateDefaulterForm.getAge());
@@ -103,7 +105,8 @@ public class UpdateDefaulterFormRepository extends BaseRepository implements Upd
                     cursor.getString(11),
                     cursor.getString(12),
                     cursor.getString(13),
-                    cursor.getString(14));
+                    cursor.getString(14),
+                    cursor.getString(15));
         }
         cursor.close();
         return updateDefaulter;
@@ -156,7 +159,8 @@ public class UpdateDefaulterFormRepository extends BaseRepository implements Upd
                     cursor.getString(11),
                     cursor.getString(12),
                     cursor.getString(13),
-                    cursor.getString(14));
+                    cursor.getString(14),
+                    cursor.getString(15));
         }
         cursor.close();
 

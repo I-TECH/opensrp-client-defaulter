@@ -53,6 +53,7 @@ public class KipOpdConstants extends OpdConstants {
             String DATE_TO_CONFIRM_VACCINATION = "date_to_confirm_vaccination";
             String DATE_TO_CONFIRM_VACCINATION_LABEL = "date_to_confirm_vaccination_label";
 
+            String DID_NOT_CONDUCT_A_PHYSICAL_VISIT = "reason_not_conduct_physical_visit" ;
         }
 
     }
