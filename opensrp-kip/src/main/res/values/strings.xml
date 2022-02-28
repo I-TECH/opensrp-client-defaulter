@@ -154,7 +154,7 @@
     <string name="opd_register_other_clients">Register Defaulter Clients</string>
     <string name="opd_register_child_under_5">Register Child Under 5</string>
     <string name="menu_opd_clients">Defaulter Clients</string>
-    <string name="opd_close">OPD CLOSE</string>
+    <string name="opd_close">CLOSE</string>
     <string name="diagnose_and_treat"><![CDATA[Click to proceed]]></string>
     <string name="chv_details">CHV Details Form</string>
     <string name="abbrv_years_empty"></string>
@@ -168,6 +168,8 @@
     <string name="start_tracing">START TRACING</string>
     <string name="opd_checked_in">TRACING DEFAULTER</string>
     <string name="check_in">START TRACING</string>
+
+    <string name="sync_in_progress">Sync is already in progress</string>
 
     <string name="antigen_administered_last_label">Last Vaccine Given:</string>
     <string name="administration_date_label">Date Last Vaccine Given:</string>
@@ -192,5 +194,6 @@
 
     <string name="opd">Defaulter</string>
     <string name="opd_register_title_name">Defaulter Clients</string>
+    <string name="empty_text">" "</string>
 
 </resources>

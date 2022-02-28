@@ -1,34 +1,26 @@
 ---
-name: step1_physical_tracing
-description: physical_tracing
-priority: 1
-condition: "step1_phone_tracing != '' && step1_phone_tracing == 'unreachable'"
-actions:
-  - "isRelevant = true"
-
----
 name: step1_return_date_toaster
 description: return_date_toaster
 priority: 1
 condition: "helper.getDifferenceDays(step1_administration_date) < helper.getDifferenceDays(step1_return_date)"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Return Date can not be before last vaccine given date"'
 
 ---
 name: step1_eligibility
 description: eligibility
 priority: 1
-condition: "helper.getDifferenceDays(step1_administration_date) < helper.getDifferenceDays(step1_return_date)"
+condition: "helper.getDifferenceDays(step1_administration_date) > helper.getDifferenceDays(step1_return_date)"
 actions:
-  - "isRelevant = true"
+  - 'calculation = ""'
 
 ---
 name: step1_week_6_toaster
 description: week_6_toaster
 priority: 1
-condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='Birth_[OPV0,_BCG]' && step1_missed_doses !='6_weeks_[Penta1,_PCV1,_Rota1,_OPV1]'"
+condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='Birth_[OPV0,_BCG]' && step1_missed_doses !='6_weeks_[Penta1,_PCV1,_Rota1,_OPV1]' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Missed Dose should be 6 weeks [Penta1, PCV1, Rota1, OPV1]"'
 
 ---
 name: step1_week_10_toaster
@@ -36,7 +28,7 @@ description: week_10_toaster
 priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='6_weeks_[Penta1,_PCV1,_Rota1,_OPV1]' && step1_missed_doses !='10_weeks_[Penta2,_PCV2,_Rota2,_OPV2]' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Missed Dose should be 10 weeks[Penta2, PCV2, Rota2, OPV2]"'
 
 ---
 name: step1_week_14_toaster
@@ -44,7 +36,7 @@ description: week_14_toaster
 priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='10_weeks_[Penta2,_PCV2,_Rota2,_OPV2]' && step1_missed_doses !='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Missed Dose should be 14 weeks [Penta3, PCV3, OPV3, IPV]"'
 
 ---
 name: step1_9_months_toaster
@@ -52,7 +44,7 @@ description: 9_months_toaster
 priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]' && step1_missed_doses !='9_months_[Measles_1]' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Missed Dose should be 9 months [Measles 1]"'
 
 ---
 name: step1_18_months_toaster
@@ -60,7 +52,7 @@ description: 18_months_toaster
 priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='9_months_[Measles_1]' && step1_missed_doses !='18_months_[Measles_2]' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Missed Dose should be 18 months [Measles 2]"'
 
 ---
 name: step1_hpv_toaster
@@ -68,7 +60,7 @@ description: hpv_toaster
 priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='HPV_Dose_1' && step1_missed_doses !='HPV_Dose_2' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Missed Dose should be HPV Dose 2"'
 
 ---
 name: step1_malaria_2_toaster
@@ -76,7 +68,7 @@ description: malaria_2_toaster
 priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='malaria_1' && step1_missed_doses !='malaria_2' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Missed Dose should be malaria 2"'
 
 ---
 name: step1_malaria_3_toaster
@@ -84,7 +76,7 @@ description: malaria_3_toaster
 priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='malaria_2' && step1_missed_doses !='malaria_3' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
+  - 'calculation = "Missed Dose should be malaria 3"'
 
 ---
 name: step1_malaria_4_toaster
@@ -92,6 +84,4 @@ description: malaria_4_toaster
 priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='malaria_3' && step1_missed_doses !='malaria_4' && step1_missed_doses !=''"
 actions:
-  - "isRelevant = true"
-
-
+  - 'calculation = "Missed Dose should be Malaria 4"'

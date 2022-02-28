@@ -144,10 +144,10 @@
           }
         },
         {
-          "column_name": "dod",
+          "column_name": "Date_Birth",
           "type": "Client",
           "json_mapping": {
-            "field": "deathdate"
+            "field": "birthdate"
           }
         },
         {
@@ -221,6 +221,13 @@
           }
         },
         {
+          "column_name": "dob",
+          "type": "Client",
+          "json_mapping": {
+            "field": "birthdate"
+          }
+        },
+        {
           "column_name": "home_address",
           "type": "Event",
           "json_mapping": {
@@ -264,10 +271,17 @@
           }
         },
         {
+          "column_name": "Permanent_Register_Number",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.PERMANENT_REGISTER_NUMBER"
+          }
+        },
+        {
           "column_name": "village",
           "type": "Client",
           "json_mapping": {
-            "field": "addresses.address1"
+            "field": "addresses.address3"
           }
         },
         {

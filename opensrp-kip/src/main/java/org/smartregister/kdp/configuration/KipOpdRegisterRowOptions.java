@@ -45,7 +45,7 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
 
                 Context context = dueButton.getContext();
                 dueButton.setText(String.format(context.getResources().getString(R.string.treated_at_time), treatedTime));
-                dueButton.setTextColor(Color.parseColor("#219e05"));
+                dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.green_overlay));
                 dueButton.setAllCaps(false);
                 dueButton.setBackgroundResource(R.color.transparent);
                 return;
@@ -58,8 +58,10 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
             dueButton.setText(R.string.diagnose_and_treat);
             dueButton.setBackgroundResource(R.drawable.diagnose_treat_bg);
         } else {
-            dueButton.setText(R.string.check_in);
-            dueButton.setBackgroundResource(R.drawable.opd_register_check_in_bg);
+//            dueButton.setText(R.string.check_in);
+//            dueButton.setBackgroundResource(R.drawable.opd_register_check_in_bg);
+            dueButton.setBackgroundResource(R.color.transparent);
+            dueButton.setText(R.string.empty_text);
         }
         dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.check_in_txt_dark_grey));
 

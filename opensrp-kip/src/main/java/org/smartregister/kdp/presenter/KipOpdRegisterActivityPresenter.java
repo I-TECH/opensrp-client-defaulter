@@ -4,6 +4,7 @@ import android.app.Activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.tuple.Triple;
 import org.smartregister.domain.FetchStatus;
 import org.smartregister.kdp.R;
 import org.smartregister.kdp.interactor.OpdRegisterActivityInteractor;
@@ -54,6 +55,18 @@ public class KipOpdRegisterActivityPresenter extends BaseOpdRegisterActivityPres
     public void onNoUniqueId() {
         if (getView() != null) {
             getView().displayShortToast(R.string.no_unique_id);
+        }
+    }
+
+    @Override
+    public void onUniqueIdFetched(@NonNull Triple<String, String, String> triple, @NonNull String entityId) {
+        try {
+            startForm(triple.getLeft(), entityId, triple.getMiddle(), triple.getRight(), null, null);
+        } catch (Exception e) {
+            Timber.e(e);
+            if (getView() != null) {
+                getView().displayToast(R.string.error_unable_to_start_form);
+            }
         }
     }
 

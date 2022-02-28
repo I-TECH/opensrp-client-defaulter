@@ -89,6 +89,8 @@ public class KipMiniProcessor implements OpdFormProcessor<List<Event>> {
                     KipOpdDetailsRepository.restDefaulterSchedule(entityId);
                 }
 
+
+
                 return eventList;
             } else {
                 Timber.e("Corresponding OpdCheckIn record for EntityId %s is missing", entityId);

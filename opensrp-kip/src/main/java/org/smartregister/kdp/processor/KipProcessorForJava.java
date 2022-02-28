@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import net.sqlcipher.database.SQLiteException;
 
 import org.smartregister.CoreLibrary;
+import org.smartregister.child.util.Constants;
 import org.smartregister.commonregistry.CommonFtsObject;
 import org.smartregister.commonregistry.CommonRepository;
 import org.smartregister.domain.Client;
@@ -28,6 +29,7 @@ import org.smartregister.kdp.exceptions.UpdateDefaulterTracingException;
 import org.smartregister.kdp.pojo.RecordDefaulterForm;
 import org.smartregister.kdp.pojo.OpdSMSReminderForm;
 import org.smartregister.kdp.pojo.UpdateDefaulterForm;
+import org.smartregister.kdp.util.KipChildUtils;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.opd.OpdLibrary;
 import org.smartregister.opd.exception.CheckInEventProcessException;
@@ -105,6 +107,9 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
                 if (eventType == null) {
                     continue;
                 }
+                if (processCloseEvent(eventClient)) {
+                    unsyncEvents.add(event);
+                }
                 if (eventType.equals(KipConstants.EventType.OPD_SMS_REMINDER)) {
                     processSmsReminder(eventClient, clientClassification);
                 } else if (eventType.equals(KipConstants.EventType.RECORD_DEFAULTER_FORM)) {
@@ -113,7 +118,10 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
                     processUpdateDefaulterForm(eventClient, clientClassification);
                 }  else if (coreProcessedEvents.contains(eventType)) {
                     processKipCoreEvents(clientClassification, eventClient, event, eventType);
-                } else if (processorMap.containsKey(eventType)) {
+                } else if (eventType.equals(OpdConstants.EventType.OPD_CLOSE)){
+                    KipApplication.getInstance().registerTypeRepository().remove(KipConstants.RegisterType.OPD,event.getBaseEntityId());
+
+                }else if (processorMap.containsKey(eventType)) {
                     try {
                         processEventUsingMiniprocessor(clientClassification, eventClient, eventType);
                     } catch (Exception ex) {
@@ -134,6 +142,13 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
             processUnsyncEvents(unsyncEvents);
 
         }
+    }
+
+    private boolean processCloseEvent(@NonNull EventClient eventClient){
+        if (eventClient.getEvent().getEventType().equals(OpdConstants.EventType.OPD_CLOSE)){
+            return KipChildUtils.updateDeath(eventClient);
+        }
+        return false;
     }
 
     private void processOpdCloseVisitEvent(@NonNull Event event) {
@@ -161,6 +176,8 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
     public void processKipCoreEvents(ClientClassification clientClassification, EventClient eventClient, Event event, String eventType) throws Exception {
         if (eventType.equals(OpdConstants.EventType.OPD_REGISTRATION) && eventClient.getClient() != null) {
             KipApplication.getInstance().registerTypeRepository().addUnique(KipConstants.RegisterType.OPD, event.getBaseEntityId());
+        } else if(eventType.equals(OpdConstants.EventType.OPD_CLOSE) && eventClient.getClient() != null){
+            KipApplication.getInstance().registerTypeRepository().removeAll(event.getBaseEntityId());
         }
 
         if (clientClassification != null) {

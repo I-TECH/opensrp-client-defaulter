@@ -17,6 +17,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'io.fabric'
+apply plugin: 'org.smartregister.gradle.jarjar'
 
 jacoco {
     toolVersion = "0.8.0"
@@ -140,10 +141,12 @@ android {
     }
 
     packagingOptions {
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/NOTICE.md'
         exclude 'META-INF/LICENSE.md'
+        exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/INDEX'
+        exclude 'hl7/fhir/core/package/StructureDefinition-de-CoverageEligibilityResponse.contained.json'
     }
 
     testOptions {
@@ -155,6 +158,9 @@ android {
     dataBinding {
         enabled = true
     }
+    configurations.all {
+        exclude group: 'com.github.lecho', module: 'hellocharts-library'
+    }
 }
 
 tasks.withType(Test) {
@@ -162,6 +168,13 @@ tasks.withType(Test) {
 }
 
 dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
+
+    jarJar 'com.ibm.fhir:fhir-model:4.7.0'
+    jarJar 'com.ibm.fhir:fhir-path:4.7.0'
+
+    implementation fileTree(dir: "./build/libs", include: ['*.jar'])
+
     implementation 'com.evrencoskun.library:tableview:0.8.8'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
 

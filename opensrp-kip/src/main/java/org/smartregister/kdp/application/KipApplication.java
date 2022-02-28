@@ -16,6 +16,8 @@ import com.crashlytics.android.core.CrashlyticsCore;
 import com.evernote.android.job.JobManager;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.smartregister.Context;
 import org.smartregister.CoreLibrary;
 import org.smartregister.child.util.DBConstants;
@@ -38,6 +40,7 @@ import org.smartregister.kdp.repository.KipRepository;
 import org.smartregister.kdp.repository.OpdSMSReminderFormRepository;
 import org.smartregister.kdp.repository.RecordDefaulterFormRepository;
 import org.smartregister.kdp.repository.UpdateDefaulterFormRepository;
+import org.smartregister.kdp.util.AppExecutors;
 import org.smartregister.kdp.util.KipChildUtils;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.kdp.util.KipOpdRegisterProviderMetadata;
@@ -55,6 +58,7 @@ import org.smartregister.repository.Repository;
 import org.smartregister.sync.ClientProcessorForJava;
 import org.smartregister.sync.DrishtiSyncScheduler;
 import org.smartregister.sync.helper.ECSyncHelper;
+import org.smartregister.util.NativeFormProcessor;
 import org.smartregister.view.activity.DrishtiApplication;
 import org.smartregister.view.receiver.TimeChangedBroadcastReceiver;
 
@@ -80,6 +84,7 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
     private RecordDefaulterFormRepository recordDefaulterFormRepository;
     private UpdateDefaulterFormRepository updateDefaulterFormRepository;
     private FormatSqlClientRepository formatSqlClientRepository;
+    private AppExecutors appExecutors;
 
 
     public static JsonSpecHelper getJsonSpecHelper() {
@@ -193,6 +198,22 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
                 .build();
 
         OpdLibrary.init(context, getRepository(), opdConfiguration, BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        OpdLibrary.initializeFormFactory(new OpdLibrary.NativeFormProcessorFactory() {
+            @Override
+            public NativeFormProcessor createInstance(String s) throws JSONException {
+                return NativeFormProcessor.createInstance(s, BuildConfig.DATABASE_VERSION, getClientProcessor());
+            }
+
+            @Override
+            public NativeFormProcessor createInstance(JSONObject jsonObject) {
+                return NativeFormProcessor.createInstance(jsonObject, BuildConfig.DATABASE_VERSION, getClientProcessor());
+            }
+
+            @Override
+            public NativeFormProcessor createInstanceFromAsset(String s) throws JSONException {
+                return NativeFormProcessor.createInstanceFromAsset(s, BuildConfig.DATABASE_VERSION, getClientProcessor());
+            }
+        });
     }
 
     @Override
@@ -377,6 +398,13 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
 
     public boolean isClientCurrentlyCheckedIn(@Nullable OpdVisit opdVisit, @Nullable OpdDetails opdDetails) {
         return !canPatientCheckInInsteadOfDiagnoseAndTreat(opdVisit, opdDetails);
+    }
+
+    public AppExecutors getAppExecutors() {
+        if (appExecutors == null) {
+            appExecutors = new AppExecutors();
+        }
+        return appExecutors;
     }
 }
 
