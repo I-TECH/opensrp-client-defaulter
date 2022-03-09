@@ -107,16 +107,12 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
                 if (eventType == null) {
                     continue;
                 }
+
                 if (processCloseEvent(eventClient)) {
                     unsyncEvents.add(event);
                 }
-                if (eventType.equals(KipConstants.EventType.OPD_SMS_REMINDER)) {
-                    processSmsReminder(eventClient, clientClassification);
-                } else if (eventType.equals(KipConstants.EventType.RECORD_DEFAULTER_FORM)) {
-                    processRecordDefaulterForm(eventClient, clientClassification);
-                } else if (eventType.equals(KipConstants.EventType.UPDATE_DEFAULT)) {
-                    processUpdateDefaulterForm(eventClient, clientClassification);
-                }  else if (coreProcessedEvents.contains(eventType)) {
+                processDefaulterEvents(clientClassification,eventClient,eventType);
+                if (coreProcessedEvents.contains(eventType)) {
                     processKipCoreEvents(clientClassification, eventClient, event, eventType);
                 } else if (eventType.equals(OpdConstants.EventType.OPD_CLOSE)){
                     KipApplication.getInstance().registerTypeRepository().remove(KipConstants.RegisterType.OPD,event.getBaseEntityId());
@@ -183,6 +179,21 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         if (clientClassification != null) {
             processEventClient(clientClassification, eventClient, event);
         }
+    }
+
+    private void processDefaulterEvents(ClientClassification clientClassification,EventClient eventClient, String eventType){
+        try {
+            if (eventType.equals(KipConstants.EventType.OPD_SMS_REMINDER)) {
+                processSmsReminder(eventClient, clientClassification);
+            } else if (eventType.equals(KipConstants.EventType.RECORD_DEFAULTER_FORM)) {
+                processRecordDefaulterForm(eventClient, clientClassification);
+            } else if (eventType.equals(KipConstants.EventType.UPDATE_DEFAULT)) {
+                processUpdateDefaulterForm(eventClient, clientClassification);
+            }
+        } catch (Exception e){
+            Timber.e("-->processDefaulterEvents: %s", e.getMessage());
+        }
+
     }
 
     private void processUnsyncEvents(@NonNull List<Event> unsyncEvents) {
