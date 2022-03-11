@@ -46,6 +46,8 @@ public class KipConstants {
         public static String SITE_CHARACTERISTICS = "site_characteristics";
         public static final String KEY = "key";
         public static final String FATHER_PHONE = "father_phone";
+
+        public static final String VALUE = "value";
     }
 
     public static final class DrawerMenu {

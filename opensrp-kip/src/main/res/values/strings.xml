@@ -195,5 +195,7 @@
     <string name="opd">Defaulter</string>
     <string name="opd_register_title_name">Defaulter Clients</string>
     <string name="empty_text">" "</string>
+    <string name="str_search_hint">Search Name</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
 
 </resources>

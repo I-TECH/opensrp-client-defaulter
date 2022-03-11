@@ -177,25 +177,28 @@ dependencies {
 
     implementation 'com.evrencoskun.library:tableview:0.8.8'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
-
-    implementation('org.smartregister:opensrp-client-opd:0.1.4-SNAPSHOT@aar') {
+//    implementation(project(':opensrp-opd')) {
+    implementation('org.smartregister:opensrp-client-opd:0.1.5-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'org.smartregister', module: 'opensrp-client-core'
         exclude group: 'org.smartregister', module: 'opensrp-client-native-form'
         exclude group: 'org.smartregister', module: 'opensrp-client-configurable-views'
         exclude group: 'com.android.support', module: 'appcompat-v7'
+//        exclude group: 'com.github.lecho', module: 'hellocharts-library'
     }
-
-    implementation('org.smartregister:opensrp-client-child:0.6.9-SNAPSHOT@aar') {
+//
+    api('org.smartregister:opensrp-client-native-form:2.1.11-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'id.zelory', module: 'compressor'
-        exclude group: 'org.smartregister', module: 'opensrp-client-core'
-        exclude group: 'org.smartregister', module: 'opensrp-client-native-form'
-//        exclude group: 'org.smartregister', module: 'opensrp-client-immunization'
-        exclude group: 'org.smartregister', module: 'opensrp-client-configurable-views'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
         exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'cardview-v7'
+        exclude group: 'com.android.support', module: 'support-media-compat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'org.yaml', module: 'snakeyaml'
+        exclude group: 'io.ona.rdt-capture', module: 'lib'
     }
-
 
     api('org.smartregister:opensrp-client-core:4.3.23-SNAPSHOT@aar') {
         transitive = true
@@ -210,31 +213,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'design'
         exclude group: 'com.ibm.fhir', module: 'fhir-model'
+        exclude group: 'com.ibm.fhir', module: 'fhir-path'
     }
-
-    api('org.smartregister:opensrp-client-native-form:1.14.5.3-SNAPSHOT@aar') {
-        transitive = true
-        exclude group: 'id.zelory', module: 'compressor'
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'com.android.support', module: 'cardview-v7'
-        exclude group: 'com.android.support', module: 'support-media-compat'
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude group: 'com.android.support', module: 'design'
-        exclude group: 'org.yaml', module: 'snakeyaml'
-        exclude group: 'io.ona.rdt-capture', module: 'lib'
-    }
-
-//    api('org.smartregister:opensrp-client-immunization:1.4.43-SNAPSHOT@aar') {
-//        //api (project(':opensrp-immunization')) {
-//        transitive = true
-//        exclude group: 'id.zelory', module: 'compressor'
-//        exclude group: 'org.smartregister', module: 'opensrp-client-core'
-//        exclude group: 'org.smartregister', module: 'opensrp-client-native-form'
-//        exclude group: 'com.android.support', module: 'design'
-//        exclude group: 'com.android.support', module: 'appcompat-v7'
-//    }
-
 
     implementation('org.smartregister:opensrp-client-configurable-views:1.1.5-SNAPSHOT@aar') {
         transitive = true
@@ -246,8 +226,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'cardview-v7'
         exclude group: 'com.android.support', module: 'support-v4'
     }
-
-
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
     annotationProcessor 'com.jakewharton:butterknife:7.0.0'
@@ -271,7 +249,7 @@ dependencies {
 
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-//    // Import the BoM for the Firebase platform
+    // Import the BoM for the Firebase platform
 //    implementation platform('com.google.firebase:firebase-bom:28.4.0')
 //
 //    // Declare the dependencies for the Crashlytics and Analytics libraries

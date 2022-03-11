@@ -9,13 +9,11 @@ import android.content.res.Resources;
 import androidx.annotation.NonNull;
 
 import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.smartregister.child.util.Utils;
 import org.smartregister.commonregistry.AllCommonsRepository;
 import org.smartregister.domain.Client;
 import org.smartregister.domain.Event;
@@ -28,6 +26,7 @@ import org.smartregister.kdp.view.NavigationMenu;
 import org.smartregister.kdp.widget.KipTreeViewDialog;
 import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.opd.utils.OpdConstants;
+import org.smartregister.opd.utils.OpdJsonFormUtils;
 import org.smartregister.util.AssetHandler;
 
 import java.text.SimpleDateFormat;
@@ -40,7 +39,7 @@ import java.util.concurrent.TimeUnit;
 
 import timber.log.Timber;
 
-public class KipChildUtils extends Utils {
+public class KipChildUtils extends OpdJsonFormUtils {
     private static Context context = KipApplication.getInstance().getApplicationContext();
 
     public static final ArrayList<String> ALLOWED_LEVELS;
@@ -142,7 +141,7 @@ public class KipChildUtils extends Utils {
             KipApplication.getInstance().registerTypeRepository().remove(KipConstants.RegisterType.OPD,client.getBaseEntityId());
             System.out.println("This is closed client: "+client.getBaseEntityId());
 
-            values.put(KipConstants.KEY.DATE_REMOVED, org.smartregister.child.util.Utils.convertDateFormat(clientEvent.getEventDate().toDate(), Utils.DB_DF));
+            values.put(KipConstants.KEY.DATE_REMOVED, org.smartregister.util.Utils.convertDateFormat(clientEvent.getEventDate()));
             String tableName = "ec_client";
             AllCommonsRepository commonsRepository = KipApplication.getInstance().context().allCommonsRepositoryobjects(tableName);
             if (commonsRepository != null){

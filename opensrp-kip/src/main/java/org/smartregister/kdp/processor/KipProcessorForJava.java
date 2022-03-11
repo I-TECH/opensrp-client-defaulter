@@ -11,7 +11,6 @@ import com.google.gson.Gson;
 import net.sqlcipher.database.SQLiteException;
 
 import org.smartregister.CoreLibrary;
-import org.smartregister.child.util.Constants;
 import org.smartregister.commonregistry.CommonFtsObject;
 import org.smartregister.commonregistry.CommonRepository;
 import org.smartregister.domain.Client;
