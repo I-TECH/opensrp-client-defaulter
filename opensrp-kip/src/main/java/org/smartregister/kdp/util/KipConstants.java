@@ -55,6 +55,8 @@ public class KipConstants {
     public static final class DrawerMenu {
         public static final String OPD_CLIENTS = "Defaulter Child";
         public static final String ALL_CLIENTS = "All Clients";
+        public static final String KEPI_CLIENT = "KEPI Clients";
+        public static final String COVID_19_CLIENT = "COVID 19 Clients";
     }
 
     public static class CONFIGURATION {

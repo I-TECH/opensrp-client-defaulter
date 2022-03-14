@@ -202,8 +202,8 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
     public boolean getCovid19Defaulter(){
         boolean isCovidDefaulter = false;
         Map<String, String> details = getPatientDetails();
-        String covidDefaulter = details.get("covid_19_defaulter");
-        if (StringUtils.isNotEmpty(covidDefaulter) && covidDefaulter.equalsIgnoreCase(covid19Defaulter())){
+        String covidDefaulter = details.get("category");
+        if (StringUtils.isNotEmpty(covidDefaulter) && covidDefaulter.equalsIgnoreCase("Covid 19")){
             isCovidDefaulter = true;
         }
         return isCovidDefaulter;
@@ -211,7 +211,7 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
 
     private String covid19Defaulter(){
         Map<String, String> details = getPatientDetails();
-        String covidDefaulter = details.get("covid_19_defaulter");
+        String covidDefaulter = details.get("category");
         return covidDefaulter;
     }
 
@@ -219,6 +219,16 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
         boolean isDefaulterStatus = false;
         Map<String, String> details = getPatientDetails();
         String defaulterStatus = details.get("defaulter_status");
+        if (StringUtils.isNotEmpty(defaulterStatus) && defaulterStatus.equalsIgnoreCase("1")){
+            isDefaulterStatus = true;
+        }
+        return isDefaulterStatus;
+    }
+
+    public boolean getCovid19DefaulterUpdateStatus(){
+        boolean isDefaulterStatus = false;
+        Map<String, String> details = getPatientDetails();
+        String defaulterStatus = details.get("update_covid_defaulter_form");
         if (StringUtils.isNotEmpty(defaulterStatus) && defaulterStatus.equalsIgnoreCase("1")){
             isDefaulterStatus = true;
         }

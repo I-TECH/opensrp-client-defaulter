@@ -9,14 +9,13 @@ import org.smartregister.AllConstants;
 import org.smartregister.configurableviews.repository.ConfigurableViewsRepository;
 import org.smartregister.kdp.BuildConfig;
 import org.smartregister.kdp.application.KipApplication;
-import org.smartregister.kdp.pojo.RecordCovidDefaulterForm;
-import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.opd.repository.OpdDetailsRepository;
 import org.smartregister.opd.repository.OpdDiagnosisAndTreatmentFormRepository;
 import org.smartregister.opd.repository.OpdDiagnosisDetailRepository;
 import org.smartregister.opd.repository.OpdTestConductedRepository;
 import org.smartregister.opd.repository.OpdTreatmentDetailRepository;
 import org.smartregister.opd.repository.OpdVisitRepository;
+import org.smartregister.repository.BaseRepository;
 import org.smartregister.repository.EventClientRepository;
 import org.smartregister.repository.Repository;
 import org.smartregister.repository.SettingsRepository;
@@ -31,7 +30,9 @@ public class KipRepository extends Repository {
     protected SQLiteDatabase writableDatabase;
 
     private Context context;
-    private String appVersionCodePref = KipConstants.Pref.APP_VERSION_CODE;
+//    private String appVersionCodePref = KipConstants.Pref.APP_VERSION_CODE;
+    private final String SET_CLIENT_TABLE_VALIDATION_STATUS_TO_INVALID = "UPDATE client SET validationStatus = '%s'";
+    private final String UPDATE_INVALID_CLIENT_DATE = "UPDATE client SET json = %s WHERE baseEntityId = %s";
 
     public KipRepository(@NonNull Context context, @NonNull org.smartregister.Context openSRPContext) {
         super(context, AllConstants.DATABASE_NAME, BuildConfig.DATABASE_VERSION, openSRPContext.session(),
@@ -63,7 +64,7 @@ public class KipRepository extends Repository {
         ClientRegisterTypeRepository.createTable(database);
         runLegacyUpgrades(database);
 
-        onUpgrade(database, 10, BuildConfig.DATABASE_VERSION);
+        onUpgrade(database, 13, BuildConfig.DATABASE_VERSION);
     }
 
 
@@ -75,8 +76,11 @@ public class KipRepository extends Repository {
         while (upgradeTo <= newVersion) {
             switch (upgradeTo) {
                 case 2:
-                    upgradeToVersion9(db);
+                    upgradeToVersion2(db);
                     break;
+//                case 3:
+//                    upgradeToVersion3SetClientValidationStatusInvalid(db);
+//                    break;
 
                 default:
                     break;
@@ -147,11 +151,11 @@ public class KipRepository extends Repository {
     }
 
     private void runLegacyUpgrades(@NonNull SQLiteDatabase database) {
-        upgradeToVersion9(database);
+        upgradeToVersion2(database);
     }
 
 
-    private void upgradeToVersion9(@NonNull SQLiteDatabase db) {
+    private void upgradeToVersion2(@NonNull SQLiteDatabase db) {
         try {
             RecordDefaulterFormRepository.updateIndex(db);
             UpdateDefaulterFormRepository.updateIndex(db);
@@ -160,5 +164,15 @@ public class KipRepository extends Repository {
         } catch (Exception e) {
             Timber.e(e, " --> upgradeToVersion10 ");
         }
+    }
+
+    private void upgradeToVersion3SetClientValidationStatusInvalid(@NonNull SQLiteDatabase database) {
+
+        try {
+            database.execSQL(String.format(SET_CLIENT_TABLE_VALIDATION_STATUS_TO_INVALID, BaseRepository.TYPE_InValid));
+        } catch (Exception e) {
+            Timber.e(e, "upgradeToVersion3setClientValidationStatusUnsynced");
+        }
+
     }
 }

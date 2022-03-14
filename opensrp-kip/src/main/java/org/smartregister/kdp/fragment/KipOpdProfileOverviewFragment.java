@@ -16,11 +16,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.json.JSONException;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.kdp.R;
 import org.smartregister.kdp.activity.KipOpdProfileActivity;
 import org.smartregister.kdp.contract.KipOpdProfileOverviewFragmentContract;
 import org.smartregister.kdp.presenter.KipOpdProfileOverviewFragmentPresenter;
+import org.smartregister.kdp.service.FormatClientOpensrpId;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.opd.activity.BaseOpdProfileActivity;
 import org.smartregister.opd.adapter.OpdProfileOverviewAdapter;
@@ -127,6 +129,12 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
             }
         }
 
+        if (activity instanceof KipOpdProfileActivity){
+            if (((KipOpdProfileActivity)activity).getCovidDefaulter()){
+                forms = ArrayUtils.remove(forms, 0);
+            }
+        }
+
         return forms;
     }
 
@@ -173,11 +181,17 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
                                 checkInUpdateDefaulterFormBtn.setVisibility(View.VISIBLE);
                                 showUpdateDefaulterFormBtn();
                             }
-                            if (((KipOpdProfileActivity) activity).getCovidDefaulter()) {
+                             else if (((KipOpdProfileActivity) activity).getCovidDefaulter()) {
                                 checkInUpdateCovidDefaulterFormBtn.setVisibility(View.VISIBLE);
                                 checkInDiagnoseAndTreatBtn.setVisibility(View.GONE);
                                 checkInRecordCovidDefaulterFormBtn.setVisibility(View.GONE);
                                 showUpdateCovidDefaulterFormBtn();
+                            }
+
+                            else{
+                                checkInUpdateCovidDefaulterFormBtn.setVisibility(View.GONE);
+                                checkInUpdateDefaulterFormBtn.setVisibility(View.GONE);
+                                opdCheckedInTv.setText(R.string.opd_checked_in);
                             }
 
                     } else  {
@@ -204,7 +218,6 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
             checkInDiagnoseAndTreatBtn.setTextColor(getActivity().getResources().getColorStateList(R.color.check_in_btn_overview_text_color));
             checkInDiagnoseAndTreatBtn.setOnClickListener(v -> {
                 FragmentActivity activity = getActivity();
-
                 if (activity instanceof BaseOpdProfileActivity) {
                     ((BaseOpdProfileActivity) activity).openCheckInForm();
                 }

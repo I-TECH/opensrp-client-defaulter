@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.github.ybq.android.spinkit.style.FadingCircle;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
 import org.smartregister.domain.FetchStatus;
 import org.smartregister.kdp.R;
 import org.smartregister.kdp.adapter.NavigationAdapter;
@@ -34,9 +35,11 @@ import org.smartregister.kdp.contract.NavigationContract;
 import org.smartregister.kdp.listener.OnLocationChangeListener;
 import org.smartregister.kdp.model.NavigationOption;
 import org.smartregister.kdp.presenter.NavigationPresenter;
+import org.smartregister.kdp.service.FormatClientOpensrpId;
 import org.smartregister.kdp.util.KipChildUtils;
 import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.receiver.SyncStatusBroadcastReceiver;
+import org.smartregister.util.AppHealthUtils;
 import org.smartregister.view.activity.BaseRegisterActivity;
 
 import java.lang.ref.WeakReference;
@@ -203,6 +206,8 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
 
         // update all actions
         mPresenter.refreshLastSync();
+
+        new AppHealthUtils(drawer.findViewById(R.id.show_sync_stats));
     }
 
     private void registerSettings(@NonNull final Activity activity) {
@@ -213,6 +218,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
                     if (activity instanceof BaseRegisterActivity) {
                         ((BaseRegisterActivity) activity).switchToFragment(BaseRegisterActivity.ME_POSITION);
                         closeDrawer();
+
                     } else {
                         Timber.e(new Exception("Cannot open Settings since this activity is not a child of BaseRegisterActivity"));
                     }
@@ -254,6 +260,12 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         View.OnClickListener syncClicker = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FormatClientOpensrpId opensrpId = new FormatClientOpensrpId();
+                try {
+                    opensrpId.getClientsJson();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(parentActivity, parentActivity.getResources().getText(R.string.action_start_sync),
                         Toast.LENGTH_SHORT).show();
                 mPresenter.sync(parentActivity);
