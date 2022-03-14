@@ -16,13 +16,16 @@ import com.crashlytics.android.core.CrashlyticsCore;
 import com.evernote.android.job.JobManager;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.Context;
 import org.smartregister.CoreLibrary;
+import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.commonregistry.CommonFtsObject;
 import org.smartregister.configurableviews.ConfigurableViewsLibrary;
 import org.smartregister.configurableviews.helper.JsonSpecHelper;
+import org.smartregister.domain.tag.FormTag;
 import org.smartregister.kdp.BuildConfig;
 import org.smartregister.kdp.activity.KipOpdProfileActivity;
 import org.smartregister.kdp.activity.LoginActivity;
@@ -52,12 +55,15 @@ import org.smartregister.opd.pojo.OpdMetadata;
 import org.smartregister.opd.pojo.OpdVisit;
 import org.smartregister.opd.utils.OpdConstants;
 import org.smartregister.opd.utils.OpdDbConstants;
+import org.smartregister.opd.utils.OpdJsonFormUtils;
 import org.smartregister.opd.utils.OpdUtils;
 import org.smartregister.receiver.SyncStatusBroadcastReceiver;
+import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.repository.Repository;
 import org.smartregister.sync.ClientProcessorForJava;
 import org.smartregister.sync.DrishtiSyncScheduler;
 import org.smartregister.sync.helper.ECSyncHelper;
+import org.smartregister.util.JsonFormUtils;
 import org.smartregister.util.NativeFormProcessor;
 import org.smartregister.view.activity.DrishtiApplication;
 import org.smartregister.view.receiver.TimeChangedBroadcastReceiver;
@@ -66,12 +72,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
+
+import static org.smartregister.opd.utils.OpdJsonFormUtils.METADATA;
 
 public class KipApplication extends DrishtiApplication implements TimeChangedBroadcastReceiver.OnTimeChangedListener {
 
@@ -195,6 +204,7 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
                 .addOpdFormProcessingClass(KipConstants.EventType.OPD_SMS_REMINDER, new KipMiniProcessor())
                 .addOpdFormProcessingClass(KipConstants.EventType.RECORD_DEFAULTER_FORM, new KipMiniProcessor())
                 .addOpdFormProcessingClass(KipConstants.EventType.UPDATE_DEFAULT, new KipMiniProcessor())
+                .addOpdFormProcessingClass(KipConstants.EventType.RECORD_DEFAULTER_FORM, new KipMiniProcessor())
                 .build();
 
         OpdLibrary.init(context, getRepository(), opdConfiguration, BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
@@ -405,6 +415,42 @@ public class KipApplication extends DrishtiApplication implements TimeChangedBro
             appExecutors = new AppExecutors();
         }
         return appExecutors;
+    }
+
+    @NonNull
+    public Event processDefaulterReportForm(@NonNull String eventType, String jsonString, @Nullable Intent data) throws JSONException {
+        JSONObject jsonFormObject = new JSONObject(jsonString);
+
+        JSONObject stepOne = jsonFormObject.getJSONObject(OpdJsonFormUtils.STEP1);
+        JSONArray fieldsArray = stepOne.getJSONArray(OpdJsonFormUtils.FIELDS);
+
+        HashMap<String, String> injectedFields = new HashMap<>();
+        injectedFields.put("report_id", JsonFormUtils.generateRandomUUIDString());
+        injectedFields.put("report_date", OpdUtils.convertDate(new Date(), OpdDbConstants.DATE_FORMAT));
+
+        OpdJsonFormUtils.populateInjectedFields(jsonFormObject, injectedFields);
+
+        FormTag formTag = OpdJsonFormUtils.formTag(OpdUtils.getAllSharedPreferences());
+
+        String baseEntityId = OpdUtils.getIntentValue(data, OpdConstants.IntentKey.BASE_ENTITY_ID);
+        String entityTable = OpdUtils.getIntentValue(data, OpdConstants.IntentKey.ENTITY_TABLE);
+        Event defaulterReport = OpdJsonFormUtils.createEvent(fieldsArray, jsonFormObject.getJSONObject(METADATA)
+                , formTag, baseEntityId, eventType, entityTable)
+                .withChildLocationId(OpdLibrary.getInstance().context().allSharedPreferences().fetchCurrentLocality());
+
+        AllSharedPreferences allSharedPreferences = OpdUtils.getAllSharedPreferences();
+        String providerId = allSharedPreferences.fetchRegisteredANM();
+        defaulterReport.setProviderId(providerId);
+        defaulterReport.setLocationId(OpdJsonFormUtils.locationId(allSharedPreferences));
+        defaulterReport.setFormSubmissionId(defaulterReport.getFormSubmissionId());
+
+        defaulterReport.setTeam(allSharedPreferences.fetchDefaultTeam(providerId));
+        defaulterReport.setTeamId(allSharedPreferences.fetchDefaultTeamId(providerId));
+
+        defaulterReport.setClientDatabaseVersion(OpdLibrary.getInstance().getDatabaseVersion());
+        defaulterReport.setClientApplicationVersion(OpdLibrary.getInstance().getApplicationVersion());
+
+        return defaulterReport;
     }
 }
 

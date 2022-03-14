@@ -197,5 +197,6 @@
     <string name="empty_text">" "</string>
     <string name="str_search_hint">Search Name</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="opd_defaulter_report">Add Weekly Defaulter Report</string>
 
 </resources>

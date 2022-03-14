@@ -59,7 +59,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
     private HashMap<String, MiniClientProcessorForJava> processorMap = new HashMap<>();
     private HashMap<MiniClientProcessorForJava, List<Event>> unsyncEventsPerProcessor = new HashMap<>();
 
-    private List<String> coreProcessedEvents = Arrays.asList(OpdConstants.EventType.OPD_REGISTRATION, OpdConstants.EventType.UPDATE_OPD_REGISTRATION);
+    private List<String> coreProcessedEvents = Arrays.asList(OpdConstants.EventType.OPD_REGISTRATION, OpdConstants.EventType.UPDATE_OPD_REGISTRATION, KipConstants.EventType.OPD_WEEKLY_REPORT);
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat(OpdDbConstants.DATE_FORMAT, Locale.US);
 

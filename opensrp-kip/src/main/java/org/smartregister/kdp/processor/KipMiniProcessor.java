@@ -145,7 +145,4 @@ public class KipMiniProcessor implements OpdFormProcessor<List<Event>> {
 
         db.addEvent(event.getBaseEntityId(), eventJsonUpdateClientEvent);
     }
-
-
-
 }

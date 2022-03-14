@@ -1,30 +1,44 @@
 package org.smartregister.kdp.presenter;
 
 import android.app.Activity;
+import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.tuple.Triple;
+import org.json.JSONException;
+import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.domain.FetchStatus;
 import org.smartregister.kdp.R;
+import org.smartregister.kdp.application.KipApplication;
 import org.smartregister.kdp.interactor.OpdRegisterActivityInteractor;
+import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.kdp.view.NavigationMenu;
+import org.smartregister.opd.OpdLibrary;
 import org.smartregister.opd.contract.OpdRegisterActivityContract;
+import org.smartregister.opd.interactor.OpdProfileInteractor;
 import org.smartregister.opd.pojo.OpdEventClient;
 import org.smartregister.opd.pojo.RegisterParams;
 import org.smartregister.opd.presenter.BaseOpdRegisterActivityPresenter;
+import org.smartregister.opd.utils.OpdConstants;
 import org.smartregister.opd.utils.OpdJsonFormUtils;
 import org.smartregister.opd.utils.OpdUtils;
 
+import java.util.Collections;
 import java.util.List;
 
 import timber.log.Timber;
 
 
-public class KipOpdRegisterActivityPresenter extends BaseOpdRegisterActivityPresenter implements OpdRegisterActivityContract.Presenter, OpdRegisterActivityContract.InteractorCallBack {
+public class KipOpdRegisterActivityPresenter extends BaseOpdRegisterActivityPresenter implements OpdRegisterActivityContract.Presenter,
+        OpdRegisterActivityContract.InteractorCallBack{
 
-    public KipOpdRegisterActivityPresenter(@NonNull OpdRegisterActivityContract.View view, @NonNull OpdRegisterActivityContract.Model model) {
+
+    public KipOpdRegisterActivityPresenter(@NonNull OpdRegisterActivityContract.View view,
+                                           @NonNull OpdRegisterActivityContract.Model model) {
         super(view, model);
+
     }
 
     @Override
@@ -42,6 +56,28 @@ public class KipOpdRegisterActivityPresenter extends BaseOpdRegisterActivityPres
 
         } catch (Exception e) {
             Timber.e(e);
+        }
+    }
+
+
+    public void saveWeeklyReport(@NonNull String eventType, @Nullable Intent data) {
+        String jsonString = null;
+        if (data != null) {
+            jsonString = data.getStringExtra(OpdConstants.JSON_FORM_EXTRA.JSON);
+            System.out.println("this is data"+data);
+        }
+
+        if (jsonString == null) {
+            return;
+        }
+
+        if (eventType.equals(KipConstants.EventType.OPD_WEEKLY_REPORT)) {
+            try {
+                Event weeklyReport = KipApplication.getInstance().processDefaulterReportForm(eventType,jsonString,data);
+                interactor.saveEvents(Collections.singletonList(weeklyReport), this);
+            } catch (JSONException e) {
+                Timber.e(e);
+            }
         }
     }
 

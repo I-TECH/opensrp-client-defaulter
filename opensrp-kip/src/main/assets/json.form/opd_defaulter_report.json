@@ -1,0 +1,138 @@
+{
+  "count": "1",
+  "encounter_type": "Weekly Defaulter Tracing Report",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location":"",
+    "look_up": {
+      "entity_id":"",
+      "value":""
+    }
+  },
+  "step1": {
+    "title": "Weekly Defaulter Tracing Report",
+    "fields": [
+      {
+        "key": "defaulter_listed",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "hint": "Number of new defaulter listed within 1 week",
+        "edit_type": "number",
+        "v_required": {
+          "value": true,
+          "err": "Please enter number of new defaulter listed within 1 week"
+        }
+      },
+      {
+        "key": "defaulter_traced",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "hint": "Number of defaulter traced within 1 week",
+        "edit_type": "number",
+        "v_required": {
+          "value": true,
+          "err": "Please enter number of defaulter traced within 1 week"
+        }
+      },
+      {
+        "key": "defaulter_traced_by_phone",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "hint": "Number of defaulter traced by phone within 1 week",
+        "edit_type": "number",
+        "v_required": {
+          "value": true,
+          "err": "Please enter number of defaulter traced by phone within 1 week"
+        }
+      },
+      {
+        "key": "defaulter_traced_physically",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "hint": "Number of defaulter traced physically within 1 week",
+        "edit_type": "number",
+        "v_required": {
+          "value": true,
+          "err": "Please enter number of defaulter traced physically within 1 week"
+        }
+      },
+      {
+        "key": "weekly_comment",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "hint": "Comment",
+        "edit_type": "text",
+        "v_required": {
+          "value": true,
+          "err": "Please enter comment"
+        }
+      },
+      {
+        "key": "report_id",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "hidden"
+      },
+      {
+        "key": "report_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "hidden"
+      }
+    ]
+  }
+}

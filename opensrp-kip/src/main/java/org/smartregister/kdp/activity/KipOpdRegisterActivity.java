@@ -15,6 +15,7 @@ import org.smartregister.kdp.R;
 import org.smartregister.kdp.contract.NavigationMenuContract;
 import org.smartregister.kdp.fragment.MeFragment;
 import org.smartregister.kdp.fragment.KipOpdRegisterFragment;
+import org.smartregister.kdp.presenter.KipOpdProfileActivityPresenter;
 import org.smartregister.kdp.presenter.KipOpdRegisterActivityPresenter;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.kdp.view.NavDrawerActivity;
@@ -26,6 +27,7 @@ import org.smartregister.opd.fragment.BaseOpdRegisterFragment;
 import org.smartregister.opd.pojo.OpdMetadata;
 import org.smartregister.opd.pojo.RegisterParams;
 import org.smartregister.opd.presenter.BaseOpdRegisterActivityPresenter;
+import org.smartregister.opd.presenter.OpdProfileActivityPresenter;
 import org.smartregister.opd.utils.OpdConstants;
 import org.smartregister.opd.utils.OpdJsonFormUtils;
 import org.smartregister.opd.utils.OpdUtils;
@@ -121,6 +123,39 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
             }
 
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == OpdJsonFormUtils.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
+            try {
+                String jsonString = data.getStringExtra(OpdConstants.JSON_FORM_EXTRA.JSON);
+                Timber.d("JSON-Result : %s", jsonString);
+
+                JSONObject form = new JSONObject(jsonString);
+                String encounterType = form.getString(OpdJsonFormUtils.ENCOUNTER_TYPE);
+
+                switch (encounterType) {
+                    case KipConstants.EventType.OPD_WEEKLY_REPORT:
+                        showProgressDialog(R.string.saving_dialog_title);
+                        ((KipOpdRegisterActivityPresenter) this.presenter).saveWeeklyReport(encounterType, data);
+                        onResumption();
+                        break;
+
+                    case OpdConstants.EventType.OPD_CLOSE:
+                        showProgressDialog(org.smartregister.opd.R.string.saving_dialog_title);
+                        ((OpdProfileActivityPresenter) this.presenter).saveCloseForm(encounterType, data);
+                        break;
+                    default:
+                        break;
+                }
+
+            } catch (JSONException e) {
+                Timber.e(e);
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 

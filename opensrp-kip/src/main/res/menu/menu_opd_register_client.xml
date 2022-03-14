@@ -7,4 +7,10 @@
         android:title="@string/opd_register_other_clients"
         app:showAsAction="never"
         tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/opd_menu_defaulterReport"
+        android:title="@string/opd_defaulter_report"
+        app:showAsAction="never"
+        tools:ignore="HardcodedText" />
 </menu>

@@ -75,11 +75,6 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
                 String encounterType = form.getString(OpdJsonFormUtils.ENCOUNTER_TYPE);
 
                 switch (encounterType) {
-                    case KipConstants.EventType.OPD_SMS_REMINDER:
-                        showProgressDialog(R.string.saving_dialog_title);
-                        ((KipOpdProfileActivityPresenter) presenter).saveOpdSMSReminderForm(encounterType, data);
-                        onResumption();
-                        break;
                     case KipConstants.EventType.RECORD_DEFAULTER_FORM:
                         showProgressDialog(R.string.saving_dialog_title);
                         saveLastVaccineGiven();

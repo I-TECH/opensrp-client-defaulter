@@ -19,6 +19,7 @@ import android.widget.TextView;
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.kdp.R;
+import org.smartregister.kdp.activity.KipDefaulterReportActivity;
 import org.smartregister.kdp.activity.KipOpdRegisterActivity;
 import org.smartregister.kdp.application.KipApplication;
 import org.smartregister.kdp.util.AppExecutors;
@@ -115,6 +116,15 @@ public class KipOpdRegisterFragment extends BaseOpdRegisterFragment {
 
                 if (opdMetadata != null && opdRegisterActivity != null) {
                     opdRegisterActivity.startFormActivity(opdMetadata.getOpdRegistrationFormName()
+                            , null
+                            , "");
+                }
+            } else if (itemId == R.id.opd_menu_defaulterReport){
+                KipOpdRegisterActivity defaulterReportActivity = (KipOpdRegisterActivity) getActivity();
+                OpdMetadata opdMetadata = OpdLibrary.getInstance().getOpdConfiguration().getOpdMetadata();
+                if (opdMetadata != null && defaulterReportActivity != null) {
+                    opdMetadata.setOpdRegistrationFormName(KipConstants.JSON_FORM.OPD_DEFAULTER_REPORT_FORM);
+                    defaulterReportActivity.startFormActivity(opdMetadata.getOpdRegistrationFormName()
                             , null
                             , "");
                 }
