@@ -55,6 +55,56 @@
     "title": "Weekly Defaulter Tracing Report",
     "fields": [
       {
+        "key": "start_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "date_picker",
+        "hint": "Start Date",
+        "max_date": "today",
+        "v_required": {
+          "value": true,
+          "err": "Please enter start date"
+        }
+      },
+      {
+        "key": "end_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "date_picker",
+        "hint": "End Date",
+        "max_date": "today",
+        "v_required": {
+          "value": true,
+          "err": "Please enter end date"
+        }
+      },
+      {
+        "key": "end_date_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "End Date can not be before start date",
+        "toaster_info_text": "Check your start and end dates",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/defaulter_report_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/defaulter_report_calculations.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "defaulter_listed",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
@@ -113,11 +163,7 @@
         "openmrs_entity_id": "",
         "type": "edit_text",
         "hint": "Comment",
-        "edit_type": "text",
-        "v_required": {
-          "value": true,
-          "err": "Please enter comment"
-        }
+        "edit_type": "text"
       },
       {
         "key": "report_id",
