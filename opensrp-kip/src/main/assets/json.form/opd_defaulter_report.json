@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "Weekly Defaulter Tracing Report",
+  "encounter_type": "Bi Weekly Defaulter Tracing Report",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -52,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "Weekly Defaulter Tracing Report",
+    "title": "Bi Weekly Defaulter Tracing Report",
     "fields": [
       {
         "key": "start_date",
@@ -110,24 +110,11 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "",
         "type": "edit_text",
-        "hint": "Number of new defaulter listed within 1 week",
+        "hint": "Number of defaulter identified from the register in the last 2 weeks",
         "edit_type": "number",
         "v_required": {
           "value": true,
-          "err": "Please enter number of new defaulter listed within 1 week"
-        }
-      },
-      {
-        "key": "defaulter_traced",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "edit_text",
-        "hint": "Number of defaulter traced within 1 week",
-        "edit_type": "number",
-        "v_required": {
-          "value": true,
-          "err": "Please enter number of defaulter traced within 1 week"
+          "err": "Please enter number of new defaulter identified from the register in the last weeks"
         }
       },
       {
@@ -136,11 +123,11 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "",
         "type": "edit_text",
-        "hint": "Number of defaulter traced by phone within 1 week",
+        "hint": "Number of defaulter identified from the register and traced by phone in the last 2 weeks",
         "edit_type": "number",
         "v_required": {
           "value": true,
-          "err": "Please enter number of defaulter traced by phone within 1 week"
+          "err": "Please enter number of defaulter from the register and traced by phone in the last 2 weeks"
         }
       },
       {
@@ -149,15 +136,15 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "",
         "type": "edit_text",
-        "hint": "Number of defaulter traced physically within 1 week",
+        "hint": "Number of defaulter from the register and traced physically in the last 2 weeks",
         "edit_type": "number",
         "v_required": {
           "value": true,
-          "err": "Please enter number of defaulter traced physically within 1 week"
+          "err": "Please enter number of defaulter from the register and traced physically in the last 2 weeks"
         }
       },
       {
-        "key": "weekly_comment",
+        "key": "bi_weekly_comment",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",

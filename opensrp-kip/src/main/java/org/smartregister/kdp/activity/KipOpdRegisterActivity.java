@@ -1,6 +1,8 @@
 package org.smartregister.kdp.activity;
 
 import android.content.Intent;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -11,7 +13,9 @@ import com.vijay.jsonwizard.domain.Form;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
+import org.smartregister.Context;
 import org.smartregister.kdp.R;
+import org.smartregister.kdp.application.KipApplication;
 import org.smartregister.kdp.contract.NavigationMenuContract;
 import org.smartregister.kdp.fragment.MeFragment;
 import org.smartregister.kdp.fragment.KipOpdRegisterFragment;
@@ -31,6 +35,7 @@ import org.smartregister.opd.presenter.OpdProfileActivityPresenter;
 import org.smartregister.opd.utils.OpdConstants;
 import org.smartregister.opd.utils.OpdJsonFormUtils;
 import org.smartregister.opd.utils.OpdUtils;
+import org.smartregister.util.Utils;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.util.HashMap;
@@ -40,7 +45,6 @@ import timber.log.Timber;
 
 
 public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements NavDrawerActivity, NavigationMenuContract {
-
     private NavigationMenu navigationMenu;
 
     @Override
@@ -139,6 +143,7 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
                     case KipConstants.EventType.OPD_WEEKLY_REPORT:
                         showProgressDialog(R.string.saving_dialog_title);
                         ((KipOpdRegisterActivityPresenter) this.presenter).saveWeeklyReport(encounterType, data);
+                        Utils.showToast(this, "Bi Weekly Report Saved Successfully!!");
                         onResumption();
                         break;
 

@@ -150,6 +150,30 @@
         }
       },
       {
+        "key": "administration_date_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Last Vaccine Given can not be before Birth date",
+        "toaster_info_text": "Last Vaccine Given can not be before Birth date",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "missed_doses",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
@@ -526,6 +550,16 @@
         "edit_type": "text",
         "label": "Name of CHV assigned",
         "hint": "Name of CHV assigned"
+      },
+      {
+        "key": "age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "hidden",
+        "edit_type": "number",
+        "hint": "Patient age",
+        "read_only": true
       },
       {
         "key": "chv_phone_number",

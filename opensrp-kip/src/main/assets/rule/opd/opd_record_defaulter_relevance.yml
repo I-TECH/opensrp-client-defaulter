@@ -14,6 +14,14 @@ condition: "helper.getDifferenceDays(step1_administration_date) < helper.getDiff
 actions:
   - "isRelevant = true"
 
+#---
+#name: step1_administration_date_toaster
+#description: administration_date_toaster
+#priority: 1
+#condition: "0.11 * 365.25 < helper.getDifferenceDays(step1_administration_date)"
+#actions:
+#  - "isRelevant = true"
+
 ---
 name: step1_eligibility
 description: eligibility

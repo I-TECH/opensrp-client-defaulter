@@ -84,6 +84,27 @@
         }
       },
       {
+        "key": "phone_tracing_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "date",
+        "type": "date_picker",
+        "max_date": "today",
+        "hint": "Please add the date Phone tracing was done",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please add the date Phone tracing was done"
+        }
+      },
+      {
         "key": "physical_tracing",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
@@ -116,6 +137,44 @@
         "v_required": {
           "value": true,
           "err": "Select Physical Response"
+        }
+      },
+      {
+        "key": "physical_tracing_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "date",
+        "type": "date_picker",
+        "max_date": "today",
+        "hint": "Please add the date Physical tracing was done",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please add the date Physical tracing was done"
+        }
+      },
+      {
+        "key": "physical_tracing_date_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Physical tracing can not be before phone tracing",
+        "toaster_info_text": "Physical tracing can not be before phone tracing",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_update_defaulter_relevance.yml"
+            }
+          }
         }
       },
       {

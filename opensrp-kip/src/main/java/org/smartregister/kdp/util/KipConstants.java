@@ -64,7 +64,7 @@ public class KipConstants {
         public static final String OPD_SMS_REMINDER = "OPD SMS Reminder";
         public static final String UPDATE_DEFAULT = "Tracing Outcome";
         public static final String RECORD_DEFAULTER_FORM = "Record Defaulter Form";
-        public static final String OPD_WEEKLY_REPORT = "Weekly Defaulter Tracing Report";
+        public static final String OPD_WEEKLY_REPORT = "Bi Weekly Defaulter Tracing Report";
     }
 
     public static class JSON_FORM {
