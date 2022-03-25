@@ -50,20 +50,23 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
                 dueButton.setBackgroundResource(R.color.transparent);
                 return;
             }
-        }
-
-        String booleanString = columnMaps.get(OpdDbConstants.Column.OpdDetails.PENDING_DIAGNOSE_AND_TREAT);
-
-        if (parseBoolean(booleanString)) {
-            dueButton.setText(R.string.diagnose_and_treat);
-            dueButton.setBackgroundResource(R.drawable.diagnose_treat_bg);
         } else {
-//            dueButton.setText(R.string.check_in);
-//            dueButton.setBackgroundResource(R.drawable.opd_register_check_in_bg);
             dueButton.setBackgroundResource(R.color.transparent);
             dueButton.setText(R.string.empty_text);
         }
-        dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.check_in_txt_dark_grey));
+
+//        String booleanString = columnMaps.get(OpdDbConstants.Column.OpdDetails.PENDING_DIAGNOSE_AND_TREAT);
+//
+//        if (parseBoolean(booleanString)) {
+////            dueButton.setText(R.string.diagnose_and_treat);
+////            dueButton.setBackgroundResource(R.drawable.diagnose_treat_bg);
+//        } else {
+////            dueButton.setText(R.string.check_in);
+////            dueButton.setBackgroundResource(R.drawable.opd_register_check_in_bg);
+//            dueButton.setBackgroundResource(R.color.transparent);
+//            dueButton.setText(R.string.empty_text);
+//        }
+//        dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.check_in_txt_dark_grey));
 
     }
 
