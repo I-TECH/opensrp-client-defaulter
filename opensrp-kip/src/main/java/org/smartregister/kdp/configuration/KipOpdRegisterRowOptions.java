@@ -36,10 +36,6 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
         Map<String, String> columnMaps = commonPersonObjectClient.getColumnmaps();
 
         String strVisitEndDate = columnMaps.get(OpdDbConstants.Column.OpdDetails.CURRENT_VISIT_END_DATE);
-        String strVisitDate = columnMaps.get(OpdDbConstants.Column.OpdDetails.CURRENT_VISIT_START_DATE);
-        String strVisitDate33 = columnMaps.get(OpdDbConstants.Column.OpdVisit.ID);
-
-
 
         Button dueButton = opdRegisterViewHolder.dueButton;
         Date visitEndDate = OpdUtils.convertStringToDate(OpdConstants.DateFormat.YYYY_MM_DD_HH_MM_SS, strVisitEndDate);

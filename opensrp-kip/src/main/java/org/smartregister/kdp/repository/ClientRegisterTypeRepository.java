@@ -6,11 +6,14 @@ import androidx.annotation.NonNull;
 import net.sqlcipher.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
 
+import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.kdp.util.KipConstants;
+import org.smartregister.opd.utils.OpdDbConstants;
 import org.smartregister.repository.BaseRepository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 
 public class ClientRegisterTypeRepository extends BaseRepository implements ClientRegisterTypeDao {
@@ -38,7 +41,13 @@ public class ClientRegisterTypeRepository extends BaseRepository implements Clie
 
     @Override
     public boolean remove(String registerType, String baseEntityId) {
-        return false;
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        int rows = sqLiteDatabase.delete(KipConstants.TABLE_NAME.CHILD
+                , KipConstants.DbConstants.Columns.SmsReminder.BASE_ENTITY_ID + " = ? "
+                , new String[]{baseEntityId});
+
+        return rows > 0;
     }
 
     @Override
