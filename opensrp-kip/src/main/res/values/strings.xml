@@ -154,6 +154,7 @@
     <string name="opd_register_other_clients">Register Defaulter Clients</string>
     <string name="opd_register_child_under_5">Register Child Under 5</string>
     <string name="menu_opd_clients">Defaulter Clients</string>
+    <string name="menu_opd_weekly_report">Bi Weekly Reports</string>
     <string name="opd_close">CLOSE</string>
     <string name="diagnose_and_treat"><![CDATA[Tracing in Progress]]></string>
     <string name="chv_details">CHV Details Form</string>
@@ -195,6 +196,7 @@
     <string name="opd">Defaulter</string>
     <string name="opd_register_title_name">Defaulter Clients</string>
     <string name="empty_text">" "</string>
+    <string name="open_trace">"Open for another trace"</string>
     <string name="listed_text">"LISTED/ENROLLED"</string>
     <string name="str_search_hint">Search Name</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>

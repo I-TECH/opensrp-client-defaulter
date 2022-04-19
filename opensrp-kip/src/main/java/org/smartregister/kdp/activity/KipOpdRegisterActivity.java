@@ -117,10 +117,11 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
                 } else if (encounterType.equals(OpdConstants.EventType.CHECK_IN)) {
                     showProgressDialog(R.string.saving_dialog_title);
                     presenter().saveVisitOrDiagnosisForm(encounterType, data);
-                } else if (encounterType.equals(OpdConstants.EventType.DIAGNOSIS_AND_TREAT)) {
-                    showProgressDialog(R.string.saving_dialog_title);
-                    presenter().saveVisitOrDiagnosisForm(encounterType, data);
                 }
+//                else if (encounterType.equals(OpdConstants.EventType.DIAGNOSIS_AND_TREAT)) {
+//                    showProgressDialog(R.string.saving_dialog_title);
+//                    presenter().saveVisitOrDiagnosisForm(encounterType, data);
+//                }
 
             } catch (JSONException e) {
                 Timber.e(e);

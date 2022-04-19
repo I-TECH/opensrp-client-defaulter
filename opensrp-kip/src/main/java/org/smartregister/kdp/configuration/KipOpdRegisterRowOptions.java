@@ -49,11 +49,14 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
                 dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.green_overlay));
                 dueButton.setAllCaps(false);
                 dueButton.setBackgroundResource(R.color.transparent);
+                dueButton.setEnabled(false);
                 return;
             }
 
             else if (KipApplication.getInstance().isPatientInTreatedStateAfter30Days(visitEndDate)){
-                dueButton.setText(R.string.empty_text);
+                dueButton.setText(R.string.open_trace);
+                dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.light_gray));
+                dueButton.setEnabled(false);
             }
         } else {
 
@@ -61,13 +64,17 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
 
         if (parseBoolean(booleanString)) {
             dueButton.setText(R.string.diagnose_and_treat);
+            dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.pnc_circle_yellow));
+            dueButton.setEnabled(false);
         }
 
         else {
             dueButton.setText(R.string.listed_text);
+            dueButton.setEnabled(false);
         }
 
         dueButton.setBackgroundResource(R.color.transparent);
+            dueButton.setEnabled(false);
 
         }
 
