@@ -1,7 +1,6 @@
 package org.smartregister.kdp.activity;
 
 import android.content.Intent;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,13 +12,10 @@ import com.vijay.jsonwizard.domain.Form;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
-import org.smartregister.Context;
 import org.smartregister.kdp.R;
-import org.smartregister.kdp.application.KipApplication;
 import org.smartregister.kdp.contract.NavigationMenuContract;
 import org.smartregister.kdp.fragment.MeFragment;
 import org.smartregister.kdp.fragment.KipOpdRegisterFragment;
-import org.smartregister.kdp.presenter.KipOpdProfileActivityPresenter;
 import org.smartregister.kdp.presenter.KipOpdRegisterActivityPresenter;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.kdp.view.NavDrawerActivity;
@@ -118,10 +114,10 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
                     showProgressDialog(R.string.saving_dialog_title);
                     presenter().saveVisitOrDiagnosisForm(encounterType, data);
                 }
-//                else if (encounterType.equals(OpdConstants.EventType.DIAGNOSIS_AND_TREAT)) {
-//                    showProgressDialog(R.string.saving_dialog_title);
-//                    presenter().saveVisitOrDiagnosisForm(encounterType, data);
-//                }
+                else if (encounterType.equals(OpdConstants.EventType.DIAGNOSIS_AND_TREAT)) {
+                    showProgressDialog(R.string.saving_dialog_title);
+                    presenter().saveVisitOrDiagnosisForm(encounterType, data);
+                }
 
             } catch (JSONException e) {
                 Timber.e(e);

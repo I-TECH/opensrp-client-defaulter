@@ -144,13 +144,6 @@
           }
         },
         {
-          "column_name": "Date_Birth",
-          "type": "Client",
-          "json_mapping": {
-            "field": "birthdate"
-          }
-        },
-        {
           "column_name": "middle_name",
           "type": "Client",
           "json_mapping": {
@@ -268,13 +261,6 @@
           "type": "Client",
           "json_mapping": {
             "field": "attributes.inactive"
-          }
-        },
-        {
-          "column_name": "Permanent_Register_Number",
-          "type": "Client",
-          "json_mapping": {
-            "field": "attributes.PERMANENT_REGISTER_NUMBER"
           }
         },
         {
