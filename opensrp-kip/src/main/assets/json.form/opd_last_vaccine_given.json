@@ -96,6 +96,13 @@
             "openmrs_entity_id": ""
           },
           {
+            "key": "6_months_[Measles]",
+            "text": "6 months [Measles]",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
             "key": "9_months_[Measles_1]",
             "text": "9 months [Measles 1]",
             "openmrs_entity_parent": "",
@@ -134,6 +141,40 @@
         "v_required": {
           "value": true,
           "err": "Please select at least one of the choices"
+        }
+      },
+
+      {
+        "key": "exposed",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "native_radio",
+        "label": "Is the child exposed to HIV",
+        "hint": "Is the child exposed to HIV",
+        "label_text_style": "bold",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
         }
       },
       {
@@ -208,6 +249,13 @@
           {
             "key": "14_weeks_[Penta3,_PCV3,_OPV3,_IPV]",
             "text": "14 weeks [Penta3, PCV3, OPV3, IPV]",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "6_months_[Measles]",
+            "text": "6 months [Measles]",
             "openmrs_entity_parent": "",
             "openmrs_entity": "",
             "openmrs_entity_id": ""
@@ -333,13 +381,37 @@
         }
       },
       {
+        "key": "6_months_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed dose should be 6 months [Measles]",
+        "toaster_info_text": "This should be given to defaulters exposed to HIV",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "9_months_toaster",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Missed Dose should be 18 months [Measles 1]",
-        "toaster_info_text": "Missed Dose should be 18 months [Measles 1]",
+        "text": "Missed Dose should be 9 months [Measles 1]",
+        "toaster_info_text": "Missed Dose should be 9 months [Measles 1]",
         "toaster_type": "problem",
         "relevance": {
           "rules-engine": {

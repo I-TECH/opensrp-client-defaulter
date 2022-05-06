@@ -58,7 +58,7 @@ actions:
 name: step1_9_months_toaster
 description: 9_months_toaster
 priority: 1
-condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]' && step1_missed_doses !='9_months_[Measles_1]' && step1_missed_doses !=''"
+condition: "(step1_antigen_administered_last !='' && step1_antigen_administered_last =='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]' && step1_missed_doses !='9_months_[Measles_1]' && step1_missed_doses !='' && step1_exposed !='' && step1_exposed == 'no') || (step1_antigen_administered_last !='' && step1_antigen_administered_last =='6_months_[Measles]' && step1_missed_doses !='9_months_[Measles_1]' && step1_missed_doses !='' && step1_exposed !='' && step1_exposed == 'yes') "
 actions:
   - "isRelevant = true"
 
@@ -102,4 +102,19 @@ condition: "step1_antigen_administered_last !='' && step1_antigen_administered_l
 actions:
   - "isRelevant = true"
 
+---
+name: step1_exposed
+description: exposed
+priority: 1
+condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_6_months_toaster
+description: 6_months_toaster
+priority: 1
+condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]' && step1_missed_doses !='6_months_[Measles]' && step1_missed_doses !='' && step1_exposed !='' && step1_exposed == 'yes' "
+actions:
+  - "isRelevant = true"
 

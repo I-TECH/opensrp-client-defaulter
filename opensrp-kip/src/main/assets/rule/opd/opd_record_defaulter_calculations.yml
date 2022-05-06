@@ -50,7 +50,7 @@ actions:
 name: step1_9_months_toaster
 description: 9_months_toaster
 priority: 1
-condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]' && step1_missed_doses !='9_months_[Measles_1]' && step1_missed_doses !=''"
+condition: "(step1_antigen_administered_last !='' && step1_antigen_administered_last =='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]' && step1_missed_doses !='9_months_[Measles_1]' && step1_missed_doses !='' && step1_exposed !='' && step1_exposed == 'no') || (step1_antigen_administered_last !='' && step1_antigen_administered_last =='6_months_[Measles]' && step1_missed_doses !='9_months_[Measles_1]' && step1_missed_doses !='' && step1_exposed !='' && step1_exposed == 'yes') "
 actions:
   - 'calculation = "Missed Dose should be 9 months [Measles 1]"'
 
@@ -93,3 +93,11 @@ priority: 1
 condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='malaria_3' && step1_missed_doses !='malaria_4' && step1_missed_doses !=''"
 actions:
   - 'calculation = "Missed Dose should be Malaria 4"'
+
+---
+name: step1_6_months_toaster
+description: 6_months_toaster
+priority: 1
+condition: "step1_antigen_administered_last !='' && step1_antigen_administered_last =='14_weeks_[Penta3,_PCV3,_OPV3,_IPV]' && step1_missed_doses !='6_months_[Measles]' && step1_missed_doses !='' && step1_exposed !='' && && step1_exposed == 'yes' "
+actions:
+  - 'calculation = "Missed Dose should be 6 months [Measles]"'
