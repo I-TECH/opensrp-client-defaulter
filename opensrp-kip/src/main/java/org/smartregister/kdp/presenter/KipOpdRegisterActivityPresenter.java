@@ -64,7 +64,6 @@ public class KipOpdRegisterActivityPresenter extends BaseOpdRegisterActivityPres
         String jsonString = null;
         if (data != null) {
             jsonString = data.getStringExtra(OpdConstants.JSON_FORM_EXTRA.JSON);
-            System.out.println("this is data"+data);
         }
 
         if (jsonString == null) {

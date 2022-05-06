@@ -94,6 +94,7 @@ public class KipOpdProfileActivity extends BaseOpdProfileActivity implements Kip
                     default:
                         break;
                 }
+                startSync();
 
             } catch (JSONException e) {
                 Timber.e(e);

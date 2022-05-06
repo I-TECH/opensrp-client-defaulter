@@ -51,7 +51,7 @@
     }
   },
   "step1": {
-    "title": "OPD Close",
+    "title": "Close Defaulter",
     "fields": [
       {
         "key": "opd_close_reason",
@@ -59,7 +59,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "165245AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "spinner",
-        "hint": "Reason for closing the OPD record",
+        "hint": "Reason for closing the Defaulter record",
         "values": [
           "Died",
           "Lost to follow-up",
@@ -75,7 +75,7 @@
           "other"
         ],
         "openmrs_choice_ids": {
-          "Woman died": "160034AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Child died": "160034AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Lost to follow-up": "5240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Moved away": "160415AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Wrong entry": "165246AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -108,10 +108,6 @@
         "type": "date_picker",
         "max_date": "today",
         "hint": "When did the death occur?",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the date of death"
-        },
         "relevance": {
           "step1:client_status": {
             "type": "string",
@@ -131,97 +127,13 @@
           "This Facility",
           "In Transit (TR)",
           "Other Facility",
-          "Home/Traditional Birth Authority (TBA)",
           "Other"
         ],
         "openmrs_choice_ids": {
           "This Facility": "159372AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "In Transit (TR)": "1601AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Other Facility": "1588AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Home/Traditional Birth Authority (TBA)": "1536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Other": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the place of death"
-        },
-        "relevance": {
-          "step1:client_status": {
-            "type": "string",
-            "ex": "equalTo(., \"dead\")"
-          }
-        }
-      },
-      {
-        "key": "death_cause",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "1599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "type": "spinner",
-        "hint": "Cause of death?",
-        "values": [
-          "Unknown",
-          "Abortion-related complications",
-          "Obstructed labour",
-          "Pre-eclampsia",
-          "Eclampsia",
-          "Antepartum haemorrhage",
-          "Postpartum haemorrhage",
-          "Placental abruption",
-          "Infection",
-          "Other (specify)"
-        ],
-        "openmrs_choice_ids": {
-          "Unknown":  "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Abortion-related complications": "122299AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Obstructed labour":  "141596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Pre-eclampsia": "129251AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Eclampsia": "118744AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Antepartum haemorrhage": "228AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Postpartum haemorrhage": "230AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Placental abruption": "130108AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Infection": "130AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Other (specify)": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the cause of death"
-        },
-        "relevance": {
-          "step1:client_status": {
-            "type": "string",
-            "ex": "equalTo(., \"dead\")"
-          }
-        }
-      },
-      {
-        "key": "death_cause_specify",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "edit_text",
-        "hint": "Specify the other cause of death",
-        "relevance": {
-          "step1:death_cause": {
-            "type": "string",
-            "ex": "equalTo(., \"Other (specify)\")"
-          }
-        }
-      },
-      {
-        "key": "death_follow_up",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
-        "type": "spinner",
-        "hint": "Was the follow-up of death conducted by health workers?",
-        "values": [
-          "Yes",
-          "No"
-        ],
-        "openmrs_choice_ids": {
-          "Yes": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "No": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         },
         "relevance": {
           "step1:client_status": {

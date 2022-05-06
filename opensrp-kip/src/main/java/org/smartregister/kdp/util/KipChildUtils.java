@@ -35,8 +35,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import java.util.concurrent.TimeUnit;
-
 import timber.log.Timber;
 
 public class KipChildUtils extends OpdJsonFormUtils {
@@ -139,7 +137,6 @@ public class KipChildUtils extends OpdJsonFormUtils {
         if (clientEvent.getEventType() == closeEvent || clientEvent.getEventType() == deathEvent){
             KipApplication.getInstance().registerTypeRepository().removeAll(clientEvent.getBaseEntityId());
             KipApplication.getInstance().registerTypeRepository().remove(KipConstants.RegisterType.OPD,client.getBaseEntityId());
-            System.out.println("This is closed client: "+client.getBaseEntityId());
 
             values.put(KipConstants.KEY.DATE_REMOVED, org.smartregister.util.Utils.convertDateFormat(clientEvent.getEventDate()));
             String tableName = "ec_client";

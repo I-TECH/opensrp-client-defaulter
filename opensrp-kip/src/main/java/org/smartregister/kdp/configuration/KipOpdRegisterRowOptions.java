@@ -38,8 +38,9 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
         String strVisitEndDate = columnMaps.get(OpdDbConstants.Column.OpdDetails.CURRENT_VISIT_END_DATE);
 
         Button dueButton = opdRegisterViewHolder.dueButton;
+        Date visitEndDate = OpdUtils.convertStringToDate(OpdConstants.DateFormat.YYYY_MM_DD_HH_MM_SS, strVisitEndDate);
         if (strVisitEndDate != null) {
-            Date visitEndDate = OpdUtils.convertStringToDate(OpdConstants.DateFormat.YYYY_MM_DD_HH_MM_SS, strVisitEndDate);
+//            Date visitEndDate = OpdUtils.convertStringToDate(OpdConstants.DateFormat.YYYY_MM_DD_HH_MM_SS, strVisitEndDate);
             if (visitEndDate != null && KipApplication.getInstance().isPatientInTreatedState(visitEndDate)) {
                 String treatedTime = OpdUtils.convertDate(visitEndDate, KipConstants.DateFormat.YYYY_MM_DD_H_MM_A);
 
@@ -48,22 +49,34 @@ public class KipOpdRegisterRowOptions implements OpdRegisterRowOptions {
                 dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.green_overlay));
                 dueButton.setAllCaps(false);
                 dueButton.setBackgroundResource(R.color.transparent);
+                dueButton.setEnabled(false);
                 return;
             }
-        }
+
+            else if (KipApplication.getInstance().isPatientInTreatedStateAfter30Days(visitEndDate)){
+                dueButton.setText(R.string.open_trace);
+                dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.light_gray));
+                dueButton.setEnabled(false);
+            }
+        } else {
 
         String booleanString = columnMaps.get(OpdDbConstants.Column.OpdDetails.PENDING_DIAGNOSE_AND_TREAT);
 
         if (parseBoolean(booleanString)) {
             dueButton.setText(R.string.diagnose_and_treat);
-            dueButton.setBackgroundResource(R.drawable.diagnose_treat_bg);
-        } else {
-//            dueButton.setText(R.string.check_in);
-//            dueButton.setBackgroundResource(R.drawable.opd_register_check_in_bg);
-            dueButton.setBackgroundResource(R.color.transparent);
-            dueButton.setText(R.string.empty_text);
+            dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.pnc_circle_yellow));
+            dueButton.setEnabled(false);
         }
-        dueButton.setTextColor(dueButton.getContext().getResources().getColor(R.color.check_in_txt_dark_grey));
+
+        else {
+            dueButton.setText(R.string.listed_text);
+            dueButton.setEnabled(false);
+        }
+
+        dueButton.setBackgroundResource(R.color.transparent);
+            dueButton.setEnabled(false);
+
+        }
 
     }
 
