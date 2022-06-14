@@ -2,7 +2,6 @@ package org.smartregister.kdp.repository;
 
 import android.content.ContentValues;
 
-import org.smartregister.child.provider.RegisterQueryProvider;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.opd.repository.OpdDetailsRepository;
 import org.smartregister.repository.Repository;

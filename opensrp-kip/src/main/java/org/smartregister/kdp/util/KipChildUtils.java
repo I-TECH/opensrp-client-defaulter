@@ -1,6 +1,7 @@
 package org.smartregister.kdp.util;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -13,7 +14,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.smartregister.child.util.Utils;
+import org.smartregister.commonregistry.AllCommonsRepository;
+import org.smartregister.domain.Client;
+import org.smartregister.domain.Event;
+import org.smartregister.domain.db.EventClient;
 import org.smartregister.domain.form.FormLocation;
 import org.smartregister.kdp.BuildConfig;
 import org.smartregister.kdp.application.KipApplication;
@@ -21,6 +25,8 @@ import org.smartregister.kdp.listener.OnLocationChangeListener;
 import org.smartregister.kdp.view.NavigationMenu;
 import org.smartregister.kdp.widget.KipTreeViewDialog;
 import org.smartregister.location.helper.LocationHelper;
+import org.smartregister.opd.utils.OpdConstants;
+import org.smartregister.opd.utils.OpdJsonFormUtils;
 import org.smartregister.util.AssetHandler;
 
 import java.text.SimpleDateFormat;
@@ -29,11 +35,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import java.util.concurrent.TimeUnit;
-
 import timber.log.Timber;
 
-public class KipChildUtils extends Utils {
+public class KipChildUtils extends OpdJsonFormUtils {
     private static Context context = KipApplication.getInstance().getApplicationContext();
 
     public static final ArrayList<String> ALLOWED_LEVELS;
@@ -121,6 +125,32 @@ public class KipChildUtils extends Utils {
 
     public static void updateSyncStatus(boolean isComplete) {
         KipApplication.getInstance().context().allSharedPreferences().savePreference("syncComplete", String.valueOf(isComplete));
+    }
+
+    public static boolean updateDeath(@NonNull EventClient eventClient){
+        Event clientEvent = eventClient.getEvent();
+        Client client = eventClient.getClient();
+        ContentValues values = new ContentValues();
+        String closeEvent = OpdConstants.EventType.OPD_CLOSE;
+        String deathEvent = OpdConstants.EventType.DEATH;
+
+        if (clientEvent.getEventType() == closeEvent || clientEvent.getEventType() == deathEvent){
+            KipApplication.getInstance().registerTypeRepository().removeAll(clientEvent.getBaseEntityId());
+            KipApplication.getInstance().registerTypeRepository().remove(KipConstants.RegisterType.OPD,client.getBaseEntityId());
+
+            values.put(KipConstants.KEY.DATE_REMOVED, org.smartregister.util.Utils.convertDateFormat(clientEvent.getEventDate()));
+            String tableName = "ec_client";
+            AllCommonsRepository commonsRepository = KipApplication.getInstance().context().allCommonsRepositoryobjects(tableName);
+            if (commonsRepository != null){
+                commonsRepository.update(tableName,values,client.getBaseEntityId());
+                commonsRepository.updateSearch(client.getBaseEntityId());
+            }
+
+        }
+
+
+
+        return true;
     }
     
 }

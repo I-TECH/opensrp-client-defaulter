@@ -19,19 +19,36 @@ import android.widget.TextView;
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.kdp.R;
+import org.smartregister.kdp.activity.KipDefaulterReportActivity;
 import org.smartregister.kdp.activity.KipOpdRegisterActivity;
+import org.smartregister.kdp.application.KipApplication;
+import org.smartregister.kdp.util.AppExecutors;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.kdp.view.NavDrawerActivity;
 import org.smartregister.opd.OpdLibrary;
+import org.smartregister.opd.configuration.OpdRegisterQueryProviderContract;
 import org.smartregister.opd.fragment.BaseOpdRegisterFragment;
 import org.smartregister.opd.pojo.OpdMetadata;
+import org.smartregister.opd.utils.ConfigurationInstancesHelper;
 import org.smartregister.opd.utils.OpdConstants;
 import org.smartregister.opd.utils.OpdDbConstants;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import timber.log.Timber;
+
 public class KipOpdRegisterFragment extends BaseOpdRegisterFragment {
+
+    private OpdRegisterQueryProviderContract opdRegisterQueryProvider;
+    private AppExecutors appExecutors;
+
+    public KipOpdRegisterFragment() {
+        super();
+        appExecutors = KipApplication.getInstance().getAppExecutors();
+        opdRegisterQueryProvider = ConfigurationInstancesHelper.newInstance(OpdLibrary.getInstance().getOpdConfiguration().getOpdRegisterQueryProvider());
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -102,6 +119,15 @@ public class KipOpdRegisterFragment extends BaseOpdRegisterFragment {
                             , null
                             , "");
                 }
+            } else if (itemId == R.id.opd_menu_defaulterReport){
+                KipOpdRegisterActivity defaulterReportActivity = (KipOpdRegisterActivity) getActivity();
+                OpdMetadata opdMetadata = OpdLibrary.getInstance().getOpdConfiguration().getOpdMetadata();
+                if (opdMetadata != null && defaulterReportActivity != null) {
+                    opdMetadata.setOpdRegistrationFormName(KipConstants.JSON_FORM.OPD_DEFAULTER_REPORT_FORM);
+                    defaulterReportActivity.startFormActivity(opdMetadata.getOpdRegistrationFormName()
+                            , null
+                            , "");
+                }
             }
             return false;
         });
@@ -121,20 +147,25 @@ public class KipOpdRegisterFragment extends BaseOpdRegisterFragment {
         KipOpdRegisterActivity opdRegisterActivity = (KipOpdRegisterActivity) getActivity();
         HashMap<String, String> injectedValues = new HashMap<>();
         Map<String, String> clientColumnMaps = commonPersonObjectClient.getColumnmaps();
-        if (clientColumnMaps.containsKey(OpdDbConstants.Column.OpdDetails.PENDING_DIAGNOSE_AND_TREAT)) {
+        if (opdRegisterActivity != null && clientColumnMaps.containsKey(OpdDbConstants.Column.OpdDetails.PENDING_DIAGNOSE_AND_TREAT)) {
+            
+            injectedValues.put(OpdConstants.JsonFormField.PATIENT_GENDER, clientColumnMaps.get(OpdConstants.ClientMapKey.GENDER));
+
             String diagnoseSchedule = clientColumnMaps.get(OpdDbConstants.Column.OpdDetails.PENDING_DIAGNOSE_AND_TREAT);
+            String entityTable = clientColumnMaps.get(OpdConstants.IntentKey.ENTITY_TABLE);
+
             boolean isDiagnoseScheduled = !TextUtils.isEmpty(diagnoseSchedule) && "1".equals(diagnoseSchedule);
+
+            String strVisitEndDate = clientColumnMaps.get(OpdDbConstants.Column.OpdDetails.CURRENT_VISIT_END_DATE);
+
+            if (strVisitEndDate != null && OpdLibrary.getInstance().isPatientInTreatedState(strVisitEndDate)) {
+                return;
+            }
+
             if (!isDiagnoseScheduled) {
-                if (opdRegisterActivity != null && clientColumnMaps.containsKey(OpdDbConstants.Column.OpdDetails.PENDING_DIAGNOSE_AND_TREAT)) {
-                    String entityTable = clientColumnMaps.get(OpdConstants.IntentKey.ENTITY_TABLE);
-                    String strVisitEndDate = clientColumnMaps.get(OpdDbConstants.Column.OpdDetails.CURRENT_VISIT_END_DATE);
-                    if (strVisitEndDate != null && OpdLibrary.getInstance().isPatientInTreatedState(strVisitEndDate)) {
-                        return;
-                    }
-                    opdRegisterActivity.startFormActivity(OpdConstants.Form.OPD_CHECK_IN, commonPersonObjectClient.getCaseId(), null, injectedValues, entityTable);
-                }
+                opdRegisterActivity.startFormActivity(OpdConstants.Form.OPD_CHECK_IN, commonPersonObjectClient.getCaseId(), null, injectedValues, entityTable);
             } else {
-                goToClientDetailActivity((CommonPersonObjectClient) commonPersonObjectClient);
+                opdRegisterActivity.startFormActivity(OpdConstants.Form.OPD_DIAGNOSIS_AND_TREAT, commonPersonObjectClient.getCaseId(), null, injectedValues, entityTable);
             }
         }
     }
@@ -155,6 +186,37 @@ public class KipOpdRegisterFragment extends BaseOpdRegisterFragment {
     @Override
     public String getDueOnlyText() {
         return getString(R.string.checked_in);
+    }
+
+    @Override
+    public void countExecute() {
+        try {
+            appExecutors.diskIO().execute(new Runnable() {
+                @Override
+                public void run() {
+                    int totalCount = 0;
+                    for (String sql : opdRegisterQueryProvider.countExecuteQueries(filters, mainCondition)) {
+                        Timber.i(sql);
+                        totalCount += commonRepository().countSearchIds(sql);
+                    }
+                    int finalTotalCount = totalCount;
+                    appExecutors.mainThread().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            clientAdapter.setTotalcount(finalTotalCount);
+                            Timber.i("Total Register Count %d", clientAdapter.getTotalcount());
+
+                            clientAdapter.setCurrentlimit(20);
+                            clientAdapter.setCurrentoffset(0);
+                        }
+                    });
+                }
+            });
+
+
+        } catch (Exception e) {
+            Timber.e(e);
+        }
     }
 
 }

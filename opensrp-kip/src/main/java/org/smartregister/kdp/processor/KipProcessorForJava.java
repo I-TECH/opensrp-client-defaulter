@@ -28,6 +28,7 @@ import org.smartregister.kdp.exceptions.UpdateDefaulterTracingException;
 import org.smartregister.kdp.pojo.RecordDefaulterForm;
 import org.smartregister.kdp.pojo.OpdSMSReminderForm;
 import org.smartregister.kdp.pojo.UpdateDefaulterForm;
+import org.smartregister.kdp.util.KipChildUtils;
 import org.smartregister.kdp.util.KipConstants;
 import org.smartregister.opd.OpdLibrary;
 import org.smartregister.opd.exception.CheckInEventProcessException;
@@ -58,7 +59,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
     private HashMap<String, MiniClientProcessorForJava> processorMap = new HashMap<>();
     private HashMap<MiniClientProcessorForJava, List<Event>> unsyncEventsPerProcessor = new HashMap<>();
 
-    private List<String> coreProcessedEvents = Arrays.asList(OpdConstants.EventType.OPD_REGISTRATION, OpdConstants.EventType.UPDATE_OPD_REGISTRATION);
+    private List<String> coreProcessedEvents = Arrays.asList(OpdConstants.EventType.OPD_REGISTRATION, OpdConstants.EventType.UPDATE_OPD_REGISTRATION, KipConstants.EventType.OPD_WEEKLY_REPORT);
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat(OpdDbConstants.DATE_FORMAT, Locale.US);
 
@@ -105,15 +106,17 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
                 if (eventType == null) {
                     continue;
                 }
-                if (eventType.equals(KipConstants.EventType.OPD_SMS_REMINDER)) {
-                    processSmsReminder(eventClient, clientClassification);
-                } else if (eventType.equals(KipConstants.EventType.RECORD_DEFAULTER_FORM)) {
-                    processRecordDefaulterForm(eventClient, clientClassification);
-                } else if (eventType.equals(KipConstants.EventType.UPDATE_DEFAULT)) {
-                    processUpdateDefaulterForm(eventClient, clientClassification);
-                }  else if (coreProcessedEvents.contains(eventType)) {
+
+                if (processCloseEvent(eventClient)) {
+                    unsyncEvents.add(event);
+                }
+                processDefaulterEvents(clientClassification,eventClient,eventType);
+                if (coreProcessedEvents.contains(eventType)) {
                     processKipCoreEvents(clientClassification, eventClient, event, eventType);
-                } else if (processorMap.containsKey(eventType)) {
+                } else if (eventType.equals(OpdConstants.EventType.OPD_CLOSE)){
+                    KipApplication.getInstance().registerTypeRepository().remove(KipConstants.RegisterType.OPD,event.getBaseEntityId());
+
+                }else if (processorMap.containsKey(eventType)) {
                     try {
                         processEventUsingMiniprocessor(clientClassification, eventClient, eventType);
                     } catch (Exception ex) {
@@ -134,6 +137,13 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
             processUnsyncEvents(unsyncEvents);
 
         }
+    }
+
+    private boolean processCloseEvent(@NonNull EventClient eventClient){
+        if (eventClient.getEvent().getEventType().equals(OpdConstants.EventType.OPD_CLOSE)){
+            return KipChildUtils.updateDeath(eventClient);
+        }
+        return false;
     }
 
     private void processOpdCloseVisitEvent(@NonNull Event event) {
@@ -161,11 +171,28 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
     public void processKipCoreEvents(ClientClassification clientClassification, EventClient eventClient, Event event, String eventType) throws Exception {
         if (eventType.equals(OpdConstants.EventType.OPD_REGISTRATION) && eventClient.getClient() != null) {
             KipApplication.getInstance().registerTypeRepository().addUnique(KipConstants.RegisterType.OPD, event.getBaseEntityId());
+        } else if(eventType.equals(OpdConstants.EventType.OPD_CLOSE) && eventClient.getClient() != null){
+            KipApplication.getInstance().registerTypeRepository().removeAll(event.getBaseEntityId());
         }
 
         if (clientClassification != null) {
             processEventClient(clientClassification, eventClient, event);
         }
+    }
+
+    private void processDefaulterEvents(ClientClassification clientClassification,EventClient eventClient, String eventType){
+        try {
+            if (eventType.equals(KipConstants.EventType.OPD_SMS_REMINDER)) {
+                processSmsReminder(eventClient, clientClassification);
+            } else if (eventType.equals(KipConstants.EventType.RECORD_DEFAULTER_FORM)) {
+                processRecordDefaulterForm(eventClient, clientClassification);
+            } else if (eventType.equals(KipConstants.EventType.UPDATE_DEFAULT)) {
+                processUpdateDefaulterForm(eventClient, clientClassification);
+            }
+        } catch (Exception e){
+            Timber.e("-->processDefaulterEvents: %s", e.getMessage());
+        }
+
     }
 
     private void processUnsyncEvents(@NonNull List<Event> unsyncEvents) {
@@ -285,8 +312,6 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         String age = keyValues.get(KipConstants.DbConstants.Columns.RecordDefaulerForm.AGE);
         String date = keyValues.get(KipConstants.DbConstants.Columns.RecordDefaulerForm.DATE);
 
-        System.out.println();
-
         Date visitDate;
         try {
             visitDate = dateFormat.parse(visitDateString != null ? visitDateString : "");
@@ -341,6 +366,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         String homeAdminDate = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.HOME_ADMINISTRATION_DATE);
         String otherFacilityAdminDate = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_ADMINISTRATION_DATE);
         String otherFacilityName = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_NAME);
+        String didNotConductVisit = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.DID_NOT_CONDUCT_A_PHYSICAL_VISIT);
         String confirmVaccination = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.DATE_TO_CONFIRM_VACCINATION);
         String tracingMode = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.MODE_OF_TRACING);
         String age = keyValues.get(KipConstants.DbConstants.Columns.UpdateDefaulterForm.AGE);
@@ -357,7 +383,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         if (visitDate != null && visitId != null) {
             // Start transaction
             OpdLibrary.getInstance().getRepository().getWritableDatabase().beginTransaction();
-            boolean saved = saveUpdateDefaulterForm(event, visitId, phoneTracingOutcome,physicalTracingOutcome,phoneTracing,physicalTracing,homeAdminDate,otherFacilityName, otherFacilityAdminDate,confirmVaccination,tracingMode,age,date);
+            boolean saved = saveUpdateDefaulterForm(event, visitId, phoneTracingOutcome,physicalTracingOutcome,phoneTracing,physicalTracing,homeAdminDate,otherFacilityName,didNotConductVisit, otherFacilityAdminDate,confirmVaccination,tracingMode,age,date);
             if (!saved) {
                 abortTransaction();
                 throw new UpdateDefaulterTracingException(String.format("Visit (Update Defaulter Tracing) with id %s could not be saved in the db. Fail operation failed", visitId));
@@ -408,7 +434,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         return KipApplication.getInstance().lastVaccineGivenFormRepository().saveOrUpdate(recordDefaulterForm);
     }
 
-    private boolean saveUpdateDefaulterForm(Event event, String visitId, String phoneTracingOutcome,String physicalTracingOutcome,String phoneTracing,String physicalTracing, String homeAdministrationDate, String otherFacilityName, String otherFacilityAdministrationDate, String confirmVaccination, String tracingMode, String age, String date) {
+    private boolean saveUpdateDefaulterForm(Event event, String visitId, String phoneTracingOutcome,String physicalTracingOutcome,String phoneTracing,String physicalTracing, String homeAdministrationDate, String otherFacilityName,String didNotConductVisit, String otherFacilityAdministrationDate, String confirmVaccination, String tracingMode, String age, String date) {
         UpdateDefaulterForm recordDefaulterForm = new UpdateDefaulterForm();
         recordDefaulterForm.setVisitId(visitId);
         recordDefaulterForm.setId(visitId);
@@ -419,6 +445,7 @@ public class KipProcessorForJava extends OpdMiniClientProcessorForJava implement
         recordDefaulterForm.setPhysicalTracing(physicalTracing);
         recordDefaulterForm.setHomeAdministrationDate(homeAdministrationDate);
         recordDefaulterForm.setOtherFacilityName(otherFacilityName);
+        recordDefaulterForm.setReasonNotConductPhysicalVisit(didNotConductVisit);
         recordDefaulterForm.setOtherFacilityAdministrationDate(otherFacilityAdministrationDate);
         recordDefaulterForm.setDateToConfirmVaccination(confirmVaccination);
         recordDefaulterForm.setModeOfTracing(tracingMode);

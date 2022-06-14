@@ -77,3 +77,35 @@ priority: 1
 condition: "step1_physical_tracing != '' && step1_physical_tracing == 'yes_conducted_a_physical_visit'"
 actions:
   - "isRelevant = true"
+
+---
+name: step1_reason_not_conduct_physical_visit
+description: reason_not_conduct_physical_visit
+priority: 1
+condition: "step1_physical_tracing != '' && step1_physical_tracing == 'did_not_conduct_a_physical_visit'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_physical_tracing_date
+description: physical_tracing_date
+priority: 1
+condition: "step1_physical_tracing != '' && step1_physical_tracing == 'yes_conducted_a_physical_visit'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_phone_tracing_date
+description: phone_tracing_date
+priority: 1
+condition: "step1_phone_tracing != ''"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_physical_tracing_date_toaster
+description: physical_tracing_date_toaster
+priority: 1
+condition: "helper.getDifferenceDays(step1_phone_tracing_date) < helper.getDifferenceDays(step1_physical_tracing_date)"
+actions:
+  - "isRelevant = true"

@@ -118,7 +118,7 @@
     <string name="language_x_selected">%s selected</string>
     <string name="treated_at_time">TRACED\n%s</string>
     <string name="checked_in">Tracing</string>
-    <string name="visits">PREVIOUS TRACING</string>
+    <string name="visits">History</string>
 
 
     <!-- END OF INDICATOR LABELS -->
@@ -154,8 +154,9 @@
     <string name="opd_register_other_clients">Register Defaulter Clients</string>
     <string name="opd_register_child_under_5">Register Child Under 5</string>
     <string name="menu_opd_clients">Defaulter Clients</string>
-    <string name="opd_close">OPD CLOSE</string>
-    <string name="diagnose_and_treat"><![CDATA[Click to proceed]]></string>
+    <string name="menu_opd_weekly_report">Bi Weekly Reports</string>
+    <string name="opd_close">CLOSE</string>
+    <string name="diagnose_and_treat"><![CDATA[Tracing in Progress]]></string>
     <string name="chv_details">CHV Details Form</string>
     <string name="abbrv_years_empty"></string>
     <string name="opd_send_sms">Send SMS Reminder</string>
@@ -168,6 +169,8 @@
     <string name="start_tracing">START TRACING</string>
     <string name="opd_checked_in">TRACING DEFAULTER</string>
     <string name="check_in">START TRACING</string>
+
+    <string name="sync_in_progress">Sync is already in progress</string>
 
     <string name="antigen_administered_last_label">Last Vaccine Given:</string>
     <string name="administration_date_label">Date Last Vaccine Given:</string>
@@ -182,6 +185,7 @@
     <string name="home_administration_date_label">Home Vaccine Administration Date:</string>
     <string name="other_facility_administration_date_label">Other Facility Administration Date:</string>
     <string name="other_facility_name_label">Other Facility Name:</string>
+    <string name="did_not_conduct_a_visit_label">Reason Not conduct a physical visit::</string>
     <string name="date_to_confirm_vaccination_label">Date To Confirm Vaccination:</string>
     <string name="mode_of_tracing_label">Mode of Tracing:</string>
     <string name="defaulter">Defaulter Tracing</string>
@@ -191,5 +195,11 @@
 
     <string name="opd">Defaulter</string>
     <string name="opd_register_title_name">Defaulter Clients</string>
+    <string name="empty_text">" "</string>
+    <string name="open_trace">"Open for another trace"</string>
+    <string name="listed_text">"LISTED/ENROLLED"</string>
+    <string name="str_search_hint">Search Name</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="opd_defaulter_report">Add Bi Weekly Defaulter Report</string>
 
 </resources>

@@ -33,7 +33,7 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
     private LinearLayout opdCheckinSectionLayout;
     private Button checkInDiagnoseAndTreatBtn;
     private TextView opdCheckedInTv;
-    private Button checkInUpdateDefaulterFormBtn,checkInRecordDefaulterFormBtn, checkInMissedVaccineBtn, checkInChvDetailsBtn, checkInTracingModeBtn;
+    private Button checkInUpdateDefaulterFormBtn,checkInRecordDefaulterFormBtn;
     CommonPersonObjectClient commonPersonObjectClient;
     private String baseEntityId;
     private OpdProfileOverviewFragmentContract.Presenter presenter;
@@ -72,9 +72,6 @@ public class KipOpdProfileOverviewFragment extends OpdProfileOverviewFragment im
         opdCheckedInTv = mainView.findViewById(R.id.tv_opdFragmentProfileOverview_checkedInTitle);
         checkInDiagnoseAndTreatBtn = mainView.findViewById(R.id.btn_opdFragmentProfileOverview_diagnoseAndTreat);
         checkInRecordDefaulterFormBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_record_defaulter_form);
-        checkInMissedVaccineBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_missed_vaccine);
-        checkInChvDetailsBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_chv_details);
-        checkInTracingModeBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_tracing_mode);
         checkInUpdateDefaulterFormBtn = view.findViewById(R.id.btn_opdFragmentProfileOverview_update_defaulter_form);
         commonPersonObjectClient = (CommonPersonObjectClient) getArguments().getSerializable(OpdConstants.IntentKey.CLIENT_OBJECT);
 

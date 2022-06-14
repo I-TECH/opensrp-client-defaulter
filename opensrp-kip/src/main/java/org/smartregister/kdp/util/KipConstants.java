@@ -3,7 +3,7 @@ package org.smartregister.kdp.util;
 public class KipConstants {
 
     public interface DateFormat {
-        String HH_MM_AMPM = "h:mm a";
+        String YYYY_MM_DD_H_MM_A = "yyyy-MM-dd h:mm a";
     }
 
     public interface RegisterType {
@@ -46,6 +46,8 @@ public class KipConstants {
         public static String SITE_CHARACTERISTICS = "site_characteristics";
         public static final String KEY = "key";
         public static final String FATHER_PHONE = "father_phone";
+
+        public static final String VALUE = "value";
     }
 
     public static final class DrawerMenu {
@@ -62,9 +64,11 @@ public class KipConstants {
         public static final String OPD_SMS_REMINDER = "OPD SMS Reminder";
         public static final String UPDATE_DEFAULT = "Tracing Outcome";
         public static final String RECORD_DEFAULTER_FORM = "Record Defaulter Form";
+        public static final String OPD_WEEKLY_REPORT = "Bi Weekly Defaulter Tracing Report";
     }
 
     public static class JSON_FORM {
+        public static final String OPD_DEFAULTER_REPORT_FORM = "opd_defaulter_report";
         public static final String OPD_RECORD_DEFAULTER_FORM = "opd_last_vaccine_given";
         public static final String OPD_UPDATE_DEFAULTER_FORM = "opd_update_defaulter_form";
 
@@ -211,6 +215,7 @@ public class KipConstants {
                 String AGE = "age";
                 String CREATED_AT = "created_at";
 
+                String DID_NOT_CONDUCT_A_PHYSICAL_VISIT = "reason_not_conduct_physical_visit";
             }
 
             interface SmsReminder {

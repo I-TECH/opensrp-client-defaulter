@@ -65,8 +65,8 @@ public class FormatClientOpensrpId {
     }
 
     private String formatOpenSrpId(String opensrpId){
-        String format = RandomStringUtils.randomAlphanumeric(4);
-        String formatedId = opensrpId + format ;
+        String format = RandomStringUtils.randomAlphanumeric(3);
+        String formatedId = opensrpId + format.toUpperCase() ;
 
         return formatedId;
     }

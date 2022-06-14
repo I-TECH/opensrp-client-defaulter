@@ -33,6 +33,10 @@ fields:
     relevance: "physical_tracing != ''"
     isHtml: true
 
+#  - template: "Reason Not conduct a physical visit: {reason_not_conduct_physical_visit}"
+#    relevance: "reason_not_conduct_physical_visit != ''"
+#    isHtml: true
+
   - template: "Phone Tracing Outcome: {phone_tracing_outcome}"
     relevance: "phone_tracing_outcome != ''"
     isHtml: true

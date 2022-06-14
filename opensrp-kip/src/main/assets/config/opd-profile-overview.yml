@@ -1,6 +1,5 @@
 ---
-group:
-sub_group: Last_Vaccine_Given
+group: Last_Vaccine_Given
 fields:
   - template: "Last Vaccine (Antigen) Doses Given: {antigen_administered_last}"
     relevance: "antigen_administered_last != ''"
@@ -26,8 +25,7 @@ fields:
   - template: "Eighteen Months Doses: {last_eighteen_months_antigen}"
     relevance: "last_eighteen_months_antigen != ''"
 ---
-group:
-sub_group: Missed_Vaccine
+group: Missed_Vaccine
 fields:
   - template: "Missed (Vaccine) Antigen Doses: {missed_doses}"
     relevance: "missed_doses != ''"
@@ -36,8 +34,7 @@ fields:
     relevance: "return_date != ''"
 
 ---
-group:
-sub_group: CHV_Details
+group: CHV_Details
 fields:
   - template: "Name of CHV Assigned: {chv_name}"
     relevance: "chv_name != ''"
@@ -46,8 +43,7 @@ fields:
     relevance: "chv_phone_number != ''"
 
 ---
-group:
-sub_group: Mode_of_Tracing
+group: Mode_of_Tracing
 fields:
 
   - template: "Phone Tracing: {phone_tracing}"
@@ -56,8 +52,11 @@ fields:
   - template: "Conducted a Physical Visit for Unreachable Client?: {physical_tracing}"
     relevance: "physical_tracing != ''"
 
+#  - template: "Reason Not conduct a physical visit: {reason_not_conduct_physical_visit}"
+#    relevance: "reason_not_conduct_physical_visit != ''"
+
 ---
-sub_group: Tracing_Outcome
+group: Tracing_Outcome
 fields:
   - template: "Phone Tracing Outcome: {phone_tracing_outcome}"
     relevance: "phone_tracing_outcome != ''"

@@ -35,7 +35,7 @@
           },
           {
             "field": "eventType",
-            "field_value": "OPD SMS Reminder",
+            "field_value": "Bi Weekly Defaulter Tracing Report",
             "creates_case": [
               "opd_sms_reminder"
             ]

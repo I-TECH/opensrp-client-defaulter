@@ -150,6 +150,30 @@
         }
       },
       {
+        "key": "administration_date_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Last Vaccine Given can not be before Birth date",
+        "toaster_info_text": "Last Vaccine Given can not be before Birth date",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "missed_doses",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
@@ -237,6 +261,222 @@
         }
       },
       {
+        "key": "week_6_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be 6 weeks [Penta1, PCV1, Rota1, OPV1]",
+        "toaster_info_text": "Missed Dose should be 6 weeks [Penta1, PCV1, Rota1, OPV1]",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "week_10_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be 10 weeks[Penta2, PCV2, Rota2, OPV2]",
+        "toaster_info_text": "Missed Dose should be 10 weeks[Penta2, PCV2, Rota2, OPV2]",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "week_14_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be 14 weeks [Penta3, PCV3, OPV3, IPV]",
+        "toaster_info_text": "Missed Dose should be 14 weeks [Penta3, PCV3, OPV3, IPV]",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "9_months_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be 18 months [Measles 1]",
+        "toaster_info_text": "Missed Dose should be 18 months [Measles 1]",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "18_months_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be 18 months [Measles 2]",
+        "toaster_info_text": "Missed Dose should be 18 months [Measles 2]",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hpv_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be HPV Dose 2",
+        "toaster_info_text": "Missed Dose should be HPV Dose 2",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "malaria_2_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be Malaria 2",
+        "toaster_info_text": "Missed Dose should be Malaria 2",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "malaria_3_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be Malaria 3",
+        "toaster_info_text": "Missed Dose should be Malaria 3",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "malaria_4_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Missed Dose should be Malaria 4",
+        "toaster_info_text": "Missed Dose should be Malaria 4",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "return_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
@@ -250,6 +490,58 @@
         }
       },
       {
+        "key": "return_date_toaster",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Return Date can not be before last vaccine given date",
+        "toaster_info_text": "Provide correct appointment date according to the register",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "eligibility",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "Concept",
+        "openmrs_entity_id": "",
+        "type": "edit_text",
+        "hint": "Check and correct date of last vaccine and date expected back",
+        "read_only": true,
+        "text_color": "#000000",
+        "v_required": {
+          "value": true,
+          "err": "Check and correct date of last vaccine and date expected back"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_relevance.yml"
+            }
+          }
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "opd/opd_record_defaulter_calculations.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "chv_name",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
@@ -258,6 +550,16 @@
         "edit_type": "text",
         "label": "Name of CHV assigned",
         "hint": "Name of CHV assigned"
+      },
+      {
+        "key": "age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "hidden",
+        "edit_type": "number",
+        "hint": "Patient age",
+        "read_only": true
       },
       {
         "key": "chv_phone_number",

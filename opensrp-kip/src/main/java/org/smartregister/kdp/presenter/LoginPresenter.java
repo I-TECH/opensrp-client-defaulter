@@ -15,7 +15,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
-import org.smartregister.child.util.Constants;
 import org.smartregister.configurableviews.model.LoginConfiguration;
 import org.smartregister.configurableviews.model.ViewConfiguration;
 import org.smartregister.domain.Setting;
@@ -105,7 +104,7 @@ public class LoginPresenter extends BaseLoginPresenter implements BaseLoginContr
 
             if (settingArray != null && settingArray.length() > 0) {
                 JSONObject settingObject = settingArray.getJSONObject(0);
-                return !settingObject.isNull(Constants.KEY.VALUE);
+                return !settingObject.isNull(KipConstants.KEY.VALUE);
 
             }
             return false;

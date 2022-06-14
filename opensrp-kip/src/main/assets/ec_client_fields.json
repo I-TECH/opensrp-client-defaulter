@@ -144,13 +144,6 @@
           }
         },
         {
-          "column_name": "dod",
-          "type": "Client",
-          "json_mapping": {
-            "field": "deathdate"
-          }
-        },
-        {
           "column_name": "middle_name",
           "type": "Client",
           "json_mapping": {
@@ -221,6 +214,13 @@
           }
         },
         {
+          "column_name": "dob",
+          "type": "Client",
+          "json_mapping": {
+            "field": "birthdate"
+          }
+        },
+        {
           "column_name": "home_address",
           "type": "Event",
           "json_mapping": {
@@ -267,7 +267,7 @@
           "column_name": "village",
           "type": "Client",
           "json_mapping": {
-            "field": "addresses.address1"
+            "field": "addresses.address3"
           }
         },
         {
@@ -955,6 +955,13 @@
           "type": "Event",
           "json_mapping": {
             "field": "physical_tracing"
+          }
+        },
+        {
+          "column_name": "reason_not_conduct_physical_visit",
+          "type": "Event",
+          "json_mapping": {
+            "field": "reason_not_conduct_physical_visit"
           }
         },
         {

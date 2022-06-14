@@ -34,7 +34,6 @@ import java.util.List;
 import timber.log.Timber;
 
 public class KipOpdProfileActivityPresenter extends OpdProfileActivityPresenter {
-    private static final String SMS_REMINDER = "opd_sms_reminder";
     private final OpdProfileActivityModel model;
     private final WeakReference<KipOpdProfileActivityContract.View> mProfileView;
     private final OpdProfileActivityContract.Interactor mProfileInteractor;
@@ -95,29 +94,6 @@ public class KipOpdProfileActivityPresenter extends OpdProfileActivityPresenter 
         CommonPersonObjectClient client = getProfileView().getClient();
         Timber.i(client.toString());
         return jsonForm;
-    }
-
-    public void saveOpdSMSReminderForm(@NonNull String eventType, @Nullable Intent data) {
-        String jsonString = null;
-        if (data != null) {
-            jsonString = data.getStringExtra(OpdConstants.JSON_FORM_EXTRA.JSON);
-        }
-
-        if (jsonString == null) {
-            return;
-        }
-
-        List<Event> opdSmsReminder = null;
-        if (eventType.equals(KipConstants.EventType.OPD_SMS_REMINDER)) {
-            try {
-                opdSmsReminder = OpdLibrary.getInstance().processOpdForm(jsonString, data);
-                mProfileInteractor.saveEvents(opdSmsReminder, this);
-            } catch (JSONException e) {
-                Timber.e(e);
-            }
-        }
-
-        KipOpdDetailsRepository.updateSmsReminder(opdSmsReminder.get(0).getBaseEntityId());
     }
 
     public void saveLastVaccineGiven(@NonNull String eventType, @Nullable Intent data) {

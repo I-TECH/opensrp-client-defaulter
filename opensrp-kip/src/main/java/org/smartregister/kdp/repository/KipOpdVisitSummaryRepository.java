@@ -51,6 +51,7 @@ public class KipOpdVisitSummaryRepository extends OpdVisitSummaryRepository {
                 KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE + "." + KipConstants.DbConstants.Columns.UpdateDefaulterForm.HOME_ADMINISTRATION_DATE,
                 KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE + "." + KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_ADMINISTRATION_DATE,
                 KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE + "." + KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_NAME,
+                KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE + "." + KipConstants.DbConstants.Columns.UpdateDefaulterForm.DID_NOT_CONDUCT_A_PHYSICAL_VISIT,
                 KipConstants.DbConstants.Tables.UPDATE_DEFAULTER_FORM_TABLE + "." + KipConstants.DbConstants.Columns.UpdateDefaulterForm.DATE_TO_CONFIRM_VACCINATION,
 
         };

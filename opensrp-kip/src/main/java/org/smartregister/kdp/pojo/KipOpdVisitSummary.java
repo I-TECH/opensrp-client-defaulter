@@ -68,6 +68,7 @@ public class KipOpdVisitSummary extends OpdVisitSummary {
     private String TracingOutcome;
     private String HomeAdminDate;
     private String otherFacilityName;
+    private String reasonNotConductPhysicalVisit;
     private String otherFacilityAdminDate;
     private String dateToConfirmVaccination;
 
@@ -239,6 +240,13 @@ public class KipOpdVisitSummary extends OpdVisitSummary {
         this.dateToConfirmVaccination = dateToConfirmVaccination;
     }
 
+    public String getReasonNotConductPhysicalVisit() {
+        return reasonNotConductPhysicalVisit;
+    }
+
+    public void setReasonNotConductPhysicalVisit(String reasonNotConductPhysicalVisit) {
+        this.reasonNotConductPhysicalVisit = reasonNotConductPhysicalVisit;
+    }
 
     public String getInfluenzaVaccines() {
         return influenzaVaccines;

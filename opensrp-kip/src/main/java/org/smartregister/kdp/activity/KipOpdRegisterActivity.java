@@ -1,6 +1,7 @@
 package org.smartregister.kdp.activity;
 
 import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -26,9 +27,11 @@ import org.smartregister.opd.fragment.BaseOpdRegisterFragment;
 import org.smartregister.opd.pojo.OpdMetadata;
 import org.smartregister.opd.pojo.RegisterParams;
 import org.smartregister.opd.presenter.BaseOpdRegisterActivityPresenter;
+import org.smartregister.opd.presenter.OpdProfileActivityPresenter;
 import org.smartregister.opd.utils.OpdConstants;
 import org.smartregister.opd.utils.OpdJsonFormUtils;
 import org.smartregister.opd.utils.OpdUtils;
+import org.smartregister.util.Utils;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.util.HashMap;
@@ -38,7 +41,6 @@ import timber.log.Timber;
 
 
 public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements NavDrawerActivity, NavigationMenuContract {
-
     private NavigationMenu navigationMenu;
 
     @Override
@@ -111,7 +113,8 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
                 } else if (encounterType.equals(OpdConstants.EventType.CHECK_IN)) {
                     showProgressDialog(R.string.saving_dialog_title);
                     presenter().saveVisitOrDiagnosisForm(encounterType, data);
-                } else if (encounterType.equals(OpdConstants.EventType.DIAGNOSIS_AND_TREAT)) {
+                }
+                else if (encounterType.equals(OpdConstants.EventType.DIAGNOSIS_AND_TREAT)) {
                     showProgressDialog(R.string.saving_dialog_title);
                     presenter().saveVisitOrDiagnosisForm(encounterType, data);
                 }
@@ -121,6 +124,40 @@ public class KipOpdRegisterActivity extends BaseOpdRegisterActivity implements N
             }
 
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == OpdJsonFormUtils.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
+            try {
+                String jsonString = data.getStringExtra(OpdConstants.JSON_FORM_EXTRA.JSON);
+                Timber.d("JSON-Result : %s", jsonString);
+
+                JSONObject form = new JSONObject(jsonString);
+                String encounterType = form.getString(OpdJsonFormUtils.ENCOUNTER_TYPE);
+
+                switch (encounterType) {
+                    case KipConstants.EventType.OPD_WEEKLY_REPORT:
+                        showProgressDialog(R.string.saving_dialog_title);
+                        ((KipOpdRegisterActivityPresenter) this.presenter).saveWeeklyReport(encounterType, data);
+                        Utils.showToast(this, "Bi Weekly Report Saved Successfully!!");
+                        onResumption();
+                        break;
+
+                    case OpdConstants.EventType.OPD_CLOSE:
+                        showProgressDialog(org.smartregister.opd.R.string.saving_dialog_title);
+                        ((OpdProfileActivityPresenter) this.presenter).saveCloseForm(encounterType, data);
+                        break;
+                    default:
+                        break;
+                }
+
+            } catch (JSONException e) {
+                Timber.e(e);
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 

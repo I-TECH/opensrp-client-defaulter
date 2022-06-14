@@ -180,6 +180,7 @@ public class KipOpdProfileVisitsFragmentPresenter extends OpdProfileVisitsFragme
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.HOME_ADMINISTRATION_DATE, opdVisitSummary.getHomeAdminDate());
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.OTHER_FACILITY_ADMINISTRATION_DATE, opdVisitSummary.getOtherFacilityAdminDate());
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.OTHER_FACILITY_NAME, opdVisitSummary.getOtherFacilityName());
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.DID_NOT_CONDUCT_A_PHYSICAL_VISIT, opdVisitSummary.getReasonNotConductPhysicalVisit());
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.DATE_TO_CONFIRM_VACCINATION, opdVisitSummary.getDateToConfirmVaccination());
 
 
@@ -209,6 +210,7 @@ public class KipOpdProfileVisitsFragmentPresenter extends OpdProfileVisitsFragme
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.HOME_ADMINISTRATION_DATE_LABEL, getString(R.string.home_administration_date_label));
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.OTHER_FACILITY_ADMINISTRATION_DATE_LABEL, getString(R.string.other_facility_administration_date_label));
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.OTHER_FACILITY_NAME_LABEL, getString(R.string.other_facility_name_label));
+        OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.DID_NOT_CONDUCT_A_PHYSICAL_VISIT, getString(R.string.did_not_conduct_a_visit_label));
         OpdFactsUtil.putNonNullFact(facts, KipOpdConstants.FactKey.OpdVisit.DATE_TO_CONFIRM_VACCINATION_LABEL, getString(R.string.date_to_confirm_vaccination_label));
     }
 

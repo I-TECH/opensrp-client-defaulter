@@ -96,6 +96,7 @@ public class KipOpdProfileOverviewFragmentPresenter extends OpdProfileOverviewFr
         OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateDefaulterForm.HOME_ADMINISTRATION_DATE, updateDefaulterForm.getHomeAdministrationDate());
         OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_ADMINISTRATION_DATE, updateDefaulterForm.getOtherFacilityAdministrationDate());
         OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateDefaulterForm.OTHER_FACILITY_NAME, updateDefaulterForm.getOtherFacilityName());
+        OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateDefaulterForm.DID_NOT_CONDUCT_A_PHYSICAL_VISIT, updateDefaulterForm.getReasonNotConductPhysicalVisit());
         OpdFactsUtil.putNonNullFact(facts, KipConstants.DbConstants.Columns.UpdateDefaulterForm.DATE_TO_CONFIRM_VACCINATION, updateDefaulterForm.getDateToConfirmVaccination());
     }
 
